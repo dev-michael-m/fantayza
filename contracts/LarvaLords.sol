@@ -10,7 +10,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract LarvaLords is ERC721, Ownable {
     using Strings for uint256;
 
-    uint256 public MAX_SUPPLY = 5432;
+    uint256 public MAX_SUPPLY = 10;
     uint256 public MAX_BATCH = 10;
     uint256 public SALE_PRICE = 0.008 ether;
     uint256 public _tokenIds;
@@ -61,8 +61,11 @@ contract LarvaLords is ERC721, Ownable {
     * Requirements:
     * - `_active` Must be a boolean value
     */
-    function setPublicSale(string memory _url, bool _active) public onlyOwner {
+    function setPublicSale(bool _active) public onlyOwner {
         active = _active;
+    }
+
+    function setBaseURL(string memory _url) public onlyOwner {
         BASE_URL = _url;
     }
 

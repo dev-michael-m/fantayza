@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "D:\\code\\larva-lords\\contracts\\LarvaLords.sol": {
-      "lastModificationDate": 1642485316262,
-      "contentHash": "acb5fcd5f3cdb362a11f249f3d5c9b88",
+      "lastModificationDate": 1642569598342,
+      "contentHash": "e3507a3b58e2c75cdc1014927c15a75d",
       "sourceName": "contracts/LarvaLords.sol",
       "solcConfig": {
         "version": "0.8.0",
