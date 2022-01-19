@@ -10,7 +10,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract LarvaLords is ERC721, Ownable {
     using Strings for uint256;
 
-    uint256 public MAX_SUPPLY = 10;
+    uint256 public MAX_SUPPLY = 5432;
     uint256 public MAX_BATCH = 10;
     uint256 public SALE_PRICE = 0.008 ether;
     uint256 public _tokenIds;
@@ -78,6 +78,11 @@ contract LarvaLords is ERC721, Ownable {
         paused = _state;
     }
 
+    /*
+    *   @dev retrieves tokenId relative to the starting index
+    * Requirements:
+    * - `starting_idx` Must be set
+    */
     function getInitialSequence() private view returns (uint256){
         return (_tokenIds + starting_idx) % MAX_SUPPLY + 1;
     }

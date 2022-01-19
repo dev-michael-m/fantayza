@@ -13,15 +13,15 @@ import {
 import PasswordProtected from './hoc/PasswordProtected';
 import PasswordPage from './pages/PasswordPage';
 
-Sentry.init({
-  dsn: "https://3094359872bb492eb1c7df5af63c86b5@o1100553.ingest.sentry.io/6125721",
-  integrations: [new Integrations.BrowserTracing()],
+// Sentry.init({
+//   dsn: "https://3094359872bb492eb1c7df5af63c86b5@o1100553.ingest.sentry.io/6125721",
+//   integrations: [new Integrations.BrowserTracing()],
 
-  // Set tracesSampleRate to 1.0 to capture 100%
-  // of transactions for performance monitoring.
-  // We recommend adjusting this value in production
-  tracesSampleRate: 0.25,
-});
+//   // Set tracesSampleRate to 1.0 to capture 100%
+//   // of transactions for performance monitoring.
+//   // We recommend adjusting this value in production
+//   tracesSampleRate: 0.25,
+// });
 
 ReactDOM.render(
   <React.StrictMode>
@@ -30,7 +30,7 @@ ReactDOM.render(
           <Route exact path="/password-page" element={<PasswordPage />} />
           
           <Route exact path="/" element={
-          <PasswordProtected enabled>
+          <PasswordProtected>
             <App />
           </PasswordProtected>} />       
       </Routes>
