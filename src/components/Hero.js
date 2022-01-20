@@ -38,7 +38,6 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet}) => {
         if(mounted){
             (async () => {
                 const publicSale = await getPublicState();
-                console.log({publicSale})
                 if(publicSale.status){
                     if(publicSale.active){
                         setSaleActive(true);

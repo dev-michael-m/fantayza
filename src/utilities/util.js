@@ -3,8 +3,6 @@ import { ethers } from "ethers";
 require('dotenv').config();
 const alchemyKey = process.env.REACT_APP_ALCHEMY_KEY;
 const CONTRACT_ADDRESS = process.env.REACT_APP_CONTRACT_ADDRESS;
-console.log(CONTRACT_ADDRESS);
-console.log(alchemyKey)
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(alchemyKey);
 const contractABI = require('../contract-abi.json');
