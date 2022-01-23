@@ -15,10 +15,10 @@ module.exports = {
          }
       }
    },
-   defaultNetwork: "ropsten",
+   defaultNetwork: "rinkeby",
    networks: {
       hardhat: {},
-      ropsten: {
+      rinkeby: {
          url: process.env.API_URL,
          accounts: [`0x${process.env.REACT_APP_PRIVATE_KEY}`]
       }

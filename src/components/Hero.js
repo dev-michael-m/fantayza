@@ -9,24 +9,18 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import CheckIcon from '@mui/icons-material/CheckCircleOutline';
 import TextField from '@mui/material/TextField';
-import {getPublicState, mintNFT, getSoldOut} from './../utilities/util';
+import {mintNFT, getSoldOut} from './../utilities/util';
 import Promo from './Promo';
 import CustomModal from './Modal';
 import Banner from '../assets/llbanner.png';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import CircularProgress from '@mui/material/CircularProgress';
+import { ethers } from "ethers";
 
-require('dotenv').config();
-const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
-const alchemyKey = process.env.REACT_APP_ALCHEMY_KEY;
-const web3 = createAlchemyWeb3(alchemyKey);
-
-const Hero = ({soldOut,wallet,onAlert,onConnectWallet}) => {
+const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
     const [tokens,setTokens] = useState(10);
     const [refreshTimer,setRefreshTimer] = useState(false);
-    const [saleActive,setSaleActive] = useState(false);
     const [preSale,setPreSale] = useState(false);
-    const [pubSale,setPubSale] = useState(false);
     const [minting,setMinting] = useState(false);
     const [txn,setTxn] = useState(null);
     const [modalOpen,setModalOpen] = useState(false);
@@ -36,16 +30,6 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet}) => {
         let mounted = true;
 
         if(mounted){
-            (async () => {
-                const publicSale = await getPublicState();
-                if(publicSale.status){
-                    if(publicSale.active){
-                        setSaleActive(true);
-                        setPubSale(publicSale.active);
-                    }
-                }
-            })();
-
             generateImageSeed();
         }
 
@@ -68,9 +52,9 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet}) => {
                 setMinting(true);
                 await mintNFT(preSale ? 'presale' : pubSale ? 'public' : null,tokens).then(res => {
                     const txHash = res.data;
-        
+                    const provider = new ethers.providers.Web3Provider(window.ethereum);
                     const progress = setInterval(() => {
-                        web3.eth.getTransactionReceipt(txHash).then(status => {
+                        provider.getTransactionReceipt(txHash).then(status => {
                             if(!status){
                                 //console.log({status})
                             }else if(status.status){
@@ -83,7 +67,7 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet}) => {
                             console.error(error);
                             clearInterval(progress);
                             setMinting(false);
-                        })
+                        });
                     },1000)
                 }).catch(error => {
                     console.error(error);
@@ -181,7 +165,7 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet}) => {
                 keep it simple: Our <b>Larva Lords</b> will evolve into full
                 grown entities, and our holders will receive one of them for free by holding 2 or more Larva Lords.
                 Whoever's lucky enough to mint King Larva will receive <b>1.0 ETH</b>. We're not going to stop there. There will be an
-                additional 6 more prizes for a combined total of 3.0 ETH (because that's how we
+                additional 6 more prizes for a combined total of <b>3.0 ETH</b> (because that's how we
                 roll :P). 
             </p>
             <p style={{ color: "black" }}>  

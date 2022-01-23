@@ -2,7 +2,7 @@ import './App.css';
 import Hero from './components/Hero';
 import Footer from './pages/Footer';
 import MainApp from './pages/MainApp';
-import { ConnectWallet, getSoldOut } from './utilities/util';
+import { ConnectWallet, getSoldOut, getPublicState } from './utilities/util';
 import { useEffect, useState } from 'react';
 import AlertBar from './components/AlertBar';
 import Button from '@mui/material/Button';
@@ -17,6 +17,7 @@ import NFT4 from './assets/4.png';
 import NFT5 from './assets/5.png';
 import NFT6 from './assets/6.png';
 import NFT7 from './assets/7.png';
+import FAQs from './components/FAQs';
 
 function App() {
   
@@ -34,6 +35,8 @@ function App() {
 
   const [modalOpen,setModalOpen] = useState(false);
   const [soldOut,setSoldOut] = useState(false);
+  const [saleActive,setSaleActive] = useState(false);
+  const [pubSale,setPubSale] = useState(false);
 
     useEffect(() => {
       let mounted = true;
@@ -41,6 +44,14 @@ function App() {
       if (mounted) {
         (async() => {
           const sold_out = await getSoldOut();
+          const publicSale = await getPublicState();
+
+          if(publicSale.status){
+            if(publicSale.active){
+                setSaleActive(true);
+                setPubSale(publicSale.active);
+            }          
+          }
 
           if(sold_out.data){
             setSoldOut(true);
@@ -136,7 +147,7 @@ function App() {
           </CustomModal>
           <div className="main-container parallax-container">
             <div className="inner-main">
-              <Hero onConnectWallet={onConnectWallet} soldOut={soldOut} wallet={wallet} onAlert={onAlert} />
+              <Hero onConnectWallet={onConnectWallet} soldOut={soldOut} saleActive={saleActive} pubSale={pubSale} wallet={wallet} onAlert={onAlert} />
               <div className="body-container">
                   <h2 style={{color: 'black'}}>LEGENDARY LARVA LORDS</h2>
                   <div style={{color: 'gray',display: 'flex',flexWrap: 'wrap',justifyContent: 'center'}}>
@@ -189,7 +200,8 @@ function App() {
                         <p style={{margin: 0}}>Prize: 0.25 ETH</p>
                       </div>
                     </FadeInContainer>
-                  </div>                           
+                  </div>
+                  <FAQs />                           
               </div>              
               <Footer />
             </div>            

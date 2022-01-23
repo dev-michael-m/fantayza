@@ -12,15 +12,18 @@ contract LarvaLords is ERC721, Ownable {
 
     uint256 public MAX_SUPPLY = 5432;
     uint256 public MAX_BATCH = 10;
-    uint256 public SALE_PRICE = 0.008 ether;
+    uint256 public GIVEAWAYS = 30;
+    uint256 private SALE_PRICE = 0.008 ether;
     uint256 public _tokenIds;
     bool public active;
     bool public paused;
+    bool private reserve_active;
     uint256 public starting_idx;
     uint256 private starting_block_num;
     string public BASE_URL;
     bytes32 public EXTENSION = ".json";
-    address public founder = 0x0200E96F5253EdD00769E443ec904bC3fa1cE0fC;
+    address public primary = 0x0200E96F5253EdD00769E443ec904bC3fa1cE0fC;
+    address public givaway_address = 0x1aE0EA34a72D944a8C7603FfB3eC30a6669E454C;    // fake address
 
     constructor() ERC721("Larva Lords", "LARVA") {}
 
@@ -46,6 +49,23 @@ contract LarvaLords is ERC721, Ownable {
         }       
     }
 
+    function reserveMint(uint256 quantity) public payable {
+        require(reserve_active, "Giveaway mint is not currently active.");
+        require(msg.sender == givaway_address, "Address is not allowed to reserve tokens.");
+        require(quantity <= MAX_BATCH, "Only allowed to mint 10 tokens per transaction");
+        require(_tokenIds < GIVEAWAYS, "All tokens have been reserved.");
+        require(_tokenIds + quantity <= GIVEAWAYS, "Cannot mint more than what is reserved.");        
+
+        for(uint256 i = 0; i < quantity; i++){
+            _mint(msg.sender, getInitialSequence());
+            _tokenIds++;
+        }
+    }
+
+    function activateReserve(bool _state) public onlyOwner {
+        reserve_active = _state;
+    }
+
     /*
     *   @dev Returns the tokenURI to the tokens Metadata
     * Requirements:
@@ -65,10 +85,6 @@ contract LarvaLords is ERC721, Ownable {
         active = _active;
     }
 
-    function setBaseURL(string memory _url) public onlyOwner {
-        BASE_URL = _url;
-    }
-
     /*
     *   @dev Sets the state of paused for emergency
     * Requirements:
@@ -79,10 +95,14 @@ contract LarvaLords is ERC721, Ownable {
     }
 
     /*
-    *   @dev retrieves tokenId relative to the starting index
+    *   @dev Sets the BASE_URL for tokenURI
     * Requirements:
-    * - `starting_idx` Must be set
+    * - `_url` Must be in the form: ipfs//hash/
     */
+    function setBaseURL(string memory _url) public onlyOwner {
+        BASE_URL = _url;
+    }
+
     function getInitialSequence() private view returns (uint256){
         return (_tokenIds + starting_idx) % MAX_SUPPLY + 1;
     }
@@ -100,7 +120,7 @@ contract LarvaLords is ERC721, Ownable {
     }
 
     function withdraw() public payable onlyOwner {
-        (bool os,)= payable(founder).call{value:address(this).balance}("");
+        (bool os,)= payable(primary).call{value:address(this).balance}("");
         require(os);
     }
 }
