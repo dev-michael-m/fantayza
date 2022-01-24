@@ -6,24 +6,28 @@ pragma solidity >=0.7.0 <0.9.0;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 
 contract LarvaLords is ERC721, Ownable {
     using Strings for uint256;
+    using ECDSA for bytes32;
+    using ECDSA for bytes;
 
     uint256 public MAX_SUPPLY = 5432;
     uint256 public MAX_BATCH = 10;
-    uint256 public GIVEAWAYS = 30;
-    uint256 private SALE_PRICE = 0.008 ether;
+    uint256 public PRESALE_SUPPLY = 11;
+    uint256 public SALE_PRICE = 0.008 ether;
     uint256 public _tokenIds;
     bool public active;
+    bool public presale;
     bool public paused;
-    bool private reserve_active;
     uint256 public starting_idx;
     uint256 private starting_block_num;
     string public BASE_URL;
     bytes32 public EXTENSION = ".json";
     address public primary = 0x0200E96F5253EdD00769E443ec904bC3fa1cE0fC;
-    address public givaway_address = 0x1aE0EA34a72D944a8C7603FfB3eC30a6669E454C;    // fake address
+    address public pubkey = 0xF0036aA4B10d8712fDaa193a6036c01E3a12880c;
+    mapping(address => bool) private minted;
 
     constructor() ERC721("Larva Lords", "LARVA") {}
 
@@ -49,21 +53,33 @@ contract LarvaLords is ERC721, Ownable {
         }       
     }
 
-    function reserveMint(uint256 quantity) public payable {
-        require(reserve_active, "Giveaway mint is not currently active.");
-        require(msg.sender == givaway_address, "Address is not allowed to reserve tokens.");
-        require(quantity <= MAX_BATCH, "Only allowed to mint 10 tokens per transaction");
-        require(_tokenIds < GIVEAWAYS, "All tokens have been reserved.");
-        require(_tokenIds + quantity <= GIVEAWAYS, "Cannot mint more than what is reserved.");        
+    function presaleMint(bytes calldata _signature) public payable {
+        require(!paused);
+        require(presale, "Presale is not currently active.");
+        require(!minted[msg.sender], "Address has minted already.");
+        require(isWhitelisted(_signature,msg.sender), "Address is not allowed to mint during presale.");
+        require(_tokenIds < PRESALE_SUPPLY, "All presale tokens have been minted.");
+        require(_tokenIds <= PRESALE_SUPPLY, "Cannot mint more than presale supply.");        
 
-        for(uint256 i = 0; i < quantity; i++){
-            _mint(msg.sender, getInitialSequence());
-            _tokenIds++;
-        }
+        minted[msg.sender] = true;
+
+        // only allowed to mint one token during presale
+        _mint(msg.sender, getInitialSequence());
+        _tokenIds++;
     }
 
-    function activateReserve(bool _state) public onlyOwner {
-        reserve_active = _state;
+    function togglePresale() public onlyOwner {
+        presale = !presale;
+    }
+
+    /**
+    *   @dev function to verify address is whitelisted
+    *   @param _signature - used to verify address
+    *   @param _user - address of connected user
+    *   @return bool verification
+    */
+    function isWhitelisted(bytes calldata _signature, address _user) public view returns(bool) {
+        return abi.encode(_user,MAX_SUPPLY).toEthSignedMessageHash().recover(_signature) == pubkey;
     }
 
     /*
@@ -81,8 +97,8 @@ contract LarvaLords is ERC721, Ownable {
     * Requirements:
     * - `_active` Must be a boolean value
     */
-    function setPublicSale(bool _active) public onlyOwner {
-        active = _active;
+    function setPublicSale() public onlyOwner {
+        active = !active;
     }
 
     /*
@@ -90,8 +106,8 @@ contract LarvaLords is ERC721, Ownable {
     * Requirements:
     * - `_state` Must be a boolean value
     */
-    function setPaused(bool _state) public onlyOwner {
-        paused = _state;
+    function setPaused() public onlyOwner {
+        paused = !paused;
     }
 
     /*

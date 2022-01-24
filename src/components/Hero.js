@@ -17,10 +17,9 @@ import VerifiedIcon from '@mui/icons-material/Verified';
 import CircularProgress from '@mui/material/CircularProgress';
 import { ethers } from "ethers";
 
-const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
+const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale,preSale}) => {
     const [tokens,setTokens] = useState(10);
     const [refreshTimer,setRefreshTimer] = useState(false);
-    const [preSale,setPreSale] = useState(false);
     const [minting,setMinting] = useState(false);
     const [txn,setTxn] = useState(null);
     const [modalOpen,setModalOpen] = useState(false);
