@@ -160,7 +160,7 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale,preSale
                 conquer all! They are lords after all.
             </p>
             <p style={{ color: "black" }}> 
-                There is no roadmap here, we love our art and believe in it, so we want to
+                There is no fancy roadmap here, we love our art and believe in it, so we want to
                 keep it simple: Our <b>Larva Lords</b> will evolve into full
                 grown entities, and our holders will receive one of them for free by holding 2 or more Larva Lords.
                 Whoever's lucky enough to mint King Larva will receive <b>1.0 ETH</b>. We're not going to stop there. There will be an
