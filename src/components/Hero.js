@@ -5,6 +5,7 @@ import FadeInContainer from './FadeInContainer';
 import DiscordIcon from '../assets/discordblack.png';
 import OpenSeaIcon from '../assets/openseablack.jpg';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import EtherscanIcon from '../assets/etherscan-logo.png';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import CheckIcon from '@mui/icons-material/CheckCircleOutline';
@@ -112,6 +113,8 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
                 break;
             case 'opensea': document.getElementById('opensea-link-hero').click();
                 break;
+            case 'etherscan': document.getElementById('etherscan-link-hero').click();
+              break;
         }
     }
 
@@ -233,6 +236,21 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
                     width="26px"
                   ></img>
                   <a id="opensea-link-hero" hidden target="_blank" href="#"></a>
+                </IconButton>
+              </div>
+              <div id="etherscan">
+                <IconButton
+                  id="etherscan"
+                  style={{ width: 40 }}
+                  onClick={onSocialClick}
+                >
+                  <img
+                    id="etherscan"
+                    style={{ margin: "0px 10px" }}
+                    src={EtherscanIcon}
+                    width="26px"
+                  ></img>
+                  <a id="etherscan-link-hero" hidden target="_blank" href="https://etherscan.io/address/0x26B73354575088ABa2a8b10E0719fc5904954910"></a>
                 </IconButton>
               </div>
             </div>
