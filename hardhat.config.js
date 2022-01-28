@@ -15,10 +15,10 @@ module.exports = {
          }
       }
    },
-   defaultNetwork: "rinkeby",
+   defaultNetwork: "mainnet",
    networks: {
       hardhat: {},
-      rinkeby: {
+      mainnet: {
          url: process.env.API_URL,
          accounts: [`0x${process.env.REACT_APP_PRIVATE_KEY}`]
       }

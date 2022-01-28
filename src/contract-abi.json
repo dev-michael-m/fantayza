@@ -190,16 +190,6 @@
   },
   {
     "inputs": [
-      { "internalType": "bytes", "name": "_signature", "type": "bytes" },
-      { "internalType": "address", "name": "_user", "type": "address" }
-    ],
-    "name": "isWhitelisted",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
       { "internalType": "uint256", "name": "quantity", "type": "uint256" }
     ],
     "name": "mint",
@@ -239,16 +229,7 @@
   },
   {
     "inputs": [],
-    "name": "presale",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "bytes", "name": "_signature", "type": "bytes" }
-    ],
-    "name": "presaleMint",
+    "name": "preMint",
     "outputs": [],
     "stateMutability": "payable",
     "type": "function"
@@ -316,6 +297,13 @@
   },
   {
     "inputs": [],
+    "name": "setFreeMint",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "setPaused",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -326,27 +314,6 @@
     "name": "setPublicSale",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "setStartingBlock",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "setStartingIdx",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "starting_idx",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -363,13 +330,6 @@
     "name": "symbol",
     "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "togglePresale",
-    "outputs": [],
-    "stateMutability": "nonpayable",
     "type": "function"
   },
   {

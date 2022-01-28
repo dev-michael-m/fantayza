@@ -1,33 +1,25 @@
 // SPDX-License-Identifier: GPL-3.0
-// Larva Lords NFT Contract
+// Larva Lords NFT Contract v2.1.0
 
-// audited 1/18/2022 (PASS) - SSAP
 pragma solidity >=0.7.0 <0.9.0;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 
 contract LarvaLords is ERC721, Ownable {
     using Strings for uint256;
-    using ECDSA for bytes32;
-    using ECDSA for bytes;
 
     uint256 public MAX_SUPPLY = 5432;
     uint256 public MAX_BATCH = 10;
-    uint256 public PRESALE_SUPPLY = 11;
-    uint256 public SALE_PRICE = 0.008 ether;
+    uint256 public PRESALE_SUPPLY = 10;
+    uint256 public SALE_PRICE = 0.005 ether;
     uint256 public _tokenIds;
     bool public active;
-    bool public presale;
     bool public paused;
-    uint256 public starting_idx;
-    uint256 private starting_block_num;
     string public BASE_URL;
     bytes32 public EXTENSION = ".json";
     address public primary = 0x0200E96F5253EdD00769E443ec904bC3fa1cE0fC;
-    address public pubkey = 0xF0036aA4B10d8712fDaa193a6036c01E3a12880c;
-    mapping(address => bool) private minted;
+    address public pubkey = 0x471A8E8fB0fC106a6FC448e3644dc13493134ae2;
 
     constructor() ERC721("Larva Lords", "LARVA") {}
 
@@ -48,38 +40,28 @@ contract LarvaLords is ERC721, Ownable {
         require((_tokenIds + quantity) <= MAX_SUPPLY, "Purchase would exceed max supply of tokens");
 
         for(uint256 i = 0; i < quantity; i++){ 
-            _mint(msg.sender, getInitialSequence());
+            _mint(msg.sender, _tokenIds + 1);
             _tokenIds++;    
         }       
     }
 
-    function presaleMint(bytes calldata _signature) public payable {
+    function preMint() public payable {
         require(!paused);
-        require(presale, "Presale is not currently active.");
-        require(!minted[msg.sender], "Address has minted already.");
-        require(isWhitelisted(_signature,msg.sender), "Address is not allowed to mint during presale.");
-        require(_tokenIds < PRESALE_SUPPLY, "All presale tokens have been minted.");
-        require(_tokenIds <= PRESALE_SUPPLY, "Cannot mint more than presale supply.");        
+        require(msg.sender == pubkey, "Address is not allowed to mint.");
+        require(_tokenIds < PRESALE_SUPPLY, "All presale tokens have been minted");   
 
-        minted[msg.sender] = true;
-
-        // only allowed to mint one token during presale
-        _mint(msg.sender, getInitialSequence());
-        _tokenIds++;
+        for(uint256 i = 0; i < PRESALE_SUPPLY; i++){
+            _mint(msg.sender, _tokenIds + 1);
+            _tokenIds++;
+        }
+        
     }
 
-    function togglePresale() public onlyOwner {
-        presale = !presale;
-    }
-
-    /**
-    *   @dev function to verify address is whitelisted
-    *   @param _signature - used to verify address
-    *   @param _user - address of connected user
-    *   @return bool verification
+    /*
+    *   @dev Method to enable free mint for all users. This can be triggered at anytime during mint.
     */
-    function isWhitelisted(bytes calldata _signature, address _user) public view returns(bool) {
-        return abi.encode(_user,MAX_SUPPLY).toEthSignedMessageHash().recover(_signature) == pubkey;
+    function setFreeMint() public onlyOwner {
+        SALE_PRICE = 0 ether;
     }
 
     /*
@@ -117,22 +99,6 @@ contract LarvaLords is ERC721, Ownable {
     */
     function setBaseURL(string memory _url) public onlyOwner {
         BASE_URL = _url;
-    }
-
-    function getInitialSequence() private view returns (uint256){
-        return (_tokenIds + starting_idx) % MAX_SUPPLY + 1;
-    }
-
-    function setStartingBlock() public onlyOwner {
-        require(starting_block_num == 0, "Starting block has already been set.");
-
-        starting_block_num = block.number;
-    }
-
-    function setStartingIdx() public onlyOwner {
-        require(starting_block_num != 0, "Starting block must be set.");
-
-        starting_idx = uint(blockhash(starting_block_num)) % MAX_SUPPLY;
     }
 
     function withdraw() public payable onlyOwner {

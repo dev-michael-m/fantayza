@@ -2,7 +2,7 @@ import './App.css';
 import Hero from './components/Hero';
 import Footer from './pages/Footer';
 import MainApp from './pages/MainApp';
-import { ConnectWallet, getSoldOut, getPublicState, getPresaleState } from './utilities/util';
+import { ConnectWallet, getSoldOut, getPublicState } from './utilities/util';
 import { useEffect, useState } from 'react';
 import AlertBar from './components/AlertBar';
 import Button from '@mui/material/Button';
@@ -37,7 +37,6 @@ function App() {
   const [soldOut,setSoldOut] = useState(false);
   const [saleActive,setSaleActive] = useState(false);
   const [pubSale,setPubSale] = useState(false);
-  const [presale,setPresale] = useState(false);
 
     useEffect(() => {
       let mounted = true;
@@ -50,13 +49,11 @@ function App() {
             setSoldOut(true);
           }else{
             const publicSale = await getPublicState();
-            const presale = await getPresaleState();
   
-            if(publicSale.status && presale.status){
-              if(publicSale.active || presale.active){
+            if(publicSale.status){
+              if(publicSale.active){
                   setSaleActive(true);
                   setPubSale(publicSale.active);
-                  setPresale(presale.active);
               }          
             }
           }
@@ -151,7 +148,7 @@ function App() {
           </CustomModal>
           <div className="main-container parallax-container">
             <div className="inner-main">
-              <Hero onConnectWallet={onConnectWallet} soldOut={soldOut} saleActive={saleActive} preSale={presale} pubSale={pubSale} wallet={wallet} onAlert={onAlert} />
+              <Hero onConnectWallet={onConnectWallet} soldOut={soldOut} saleActive={saleActive} pubSale={pubSale} wallet={wallet} onAlert={onAlert} />
               <div className="body-container">
                   <h2 style={{color: 'black'}}>LEGENDARY LARVA LORDS</h2>
                   <div style={{color: 'gray',display: 'flex',flexWrap: 'wrap',justifyContent: 'center'}}>

@@ -162,35 +162,6 @@ export const mintNFT = async (sale_type, num_tokens) => {
                     }else{
                         reject({msg: `Public sale is currently inactive.`, status: 'warning'})
                     }
-                }else if(sale_type === 'presale'){
-                    const presale_active = await getPresaleState();
-                    const max_supply = await larvaContract.methods.MAX_SUPPLY().call();
-
-                    const exists = wl.find(wlAddress => wlAddress == address);
-
-                    if(presale_active && exists){
-                        // second layer of verification to whitelist
-                        const message = web3.eth.abi.encodeParameters(["address","uint256"],[address,max_supply]);
-                        const {signature} = web3.eth.accounts.sign(message,PRIVATE_KEY);
-                       
-                        const tx = {
-                            from: address,
-                            to: process.env.REACT_APP_CONTRACT_ADDRESS,
-                            value: "0x0",
-                            data: larvaContract.methods.presaleMint(signature).encodeABI(),
-                        }
-
-                        const txHash = await window.ethereum.request({
-                            method: 'eth_sendTransaction',
-                            params: [tx]
-                        })
-
-                        resolve({data: txHash});
-                    }else{
-                      reject({msg: `You are not currently on the whitelist.`, status: 'warning'})  
-                    }
-                }else{
-                    reject({msg: `Sale is currently inactive.`, status: 'warning'})
                 }                
             }else{
                 reject({

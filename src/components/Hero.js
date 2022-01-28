@@ -16,8 +16,9 @@ import Banner from '../assets/llbanner.png';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import CircularProgress from '@mui/material/CircularProgress';
 import { ethers } from "ethers";
+const NETWORK = 'etherscan';
 
-const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale,preSale}) => {
+const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
     const [tokens,setTokens] = useState(10);
     const [refreshTimer,setRefreshTimer] = useState(false);
     const [minting,setMinting] = useState(false);
@@ -49,7 +50,7 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale,preSale
             if(wallet.address){
                 
                 setMinting(true);
-                await mintNFT(preSale ? 'presale' : pubSale ? 'public' : null,tokens).then(res => {
+                await mintNFT('public',tokens).then(res => {
                     const txHash = res.data;
                     const provider = new ethers.providers.Web3Provider(window.ethereum);
                     const progress = setInterval(() => {
@@ -137,7 +138,7 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale,preSale
               You can find more details about your transaction by clicking{" "}
               <a
                 style={{ color: "#d2bb90" }}
-                href={`https://ropsten.etherscan.io/tx/${txn}`}
+                href={`https://${NETWORK}.io/tx/${txn}`}
                 target="_blank"
               >
                 here
@@ -266,7 +267,7 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale,preSale
                   <AddIcon />
                 </IconButton>
               </div>
-              <div style={{ margin: 32 }}>
+              <div style={{ margin: 20 }}>
                 <Button
                   className={`custom-button primary medium ${
                     soldOut || (!saleActive && !refreshTimer) ? "disabled" : ""
@@ -290,6 +291,9 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale,preSale
                     "Mint"
                   )}
                 </Button>
+              </div>
+              <div style={{fontSize: 12, marginBottom: 16}}>
+                <label>0.005 ETH + gas</label>
               </div>
               {!soldOut && !wallet.address ? (
                 <div style={{ marginBottom: 30 }}>
@@ -325,6 +329,7 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale,preSale
                     style={{ color: "gray" }}
                     href="#"
                     target="_blank"
+                    onClick={() => document.getElementById('opensea-link-hero').click()}
                   >
                     Find us on OpenSea
                   </a>
