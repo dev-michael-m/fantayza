@@ -220,7 +220,7 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
                     src={DiscordIcon}
                     width="26px"
                   ></img>
-                  <a id="discord-link-hero" hidden target="_blank" href="https://discord.gg/mH286nzJsC"></a>
+                  <a id="discord-link-hero" hidden target="_blank" href="https://discord.gg/d3ucffqQSr"></a>
                 </IconButton>
               </div>
               <div id="opensea">
