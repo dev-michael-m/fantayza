@@ -235,7 +235,7 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
                     src={OpenSeaIcon}
                     width="26px"
                   ></img>
-                  <a id="opensea-link-hero" hidden target="_blank" href="#"></a>
+                  <a id="opensea-link-hero" hidden target="_blank" href="https://opensea.io/collection/larva-lords"></a>
                 </IconButton>
               </div>
               <div id="etherscan">
