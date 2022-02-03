@@ -18,7 +18,7 @@ const Footer = () => {
                 <label>&copy; {new Date().getFullYear()} Larva Lords. All Rights Reserved.</label>
             </div>
             <div style={{fontSize: 10, color: 'rgba(255,255,255,0.52)'}}>
-                <label>Powered by Lythium.io</label>
+                <label>Powered by ApexETH.io</label>
             </div>
         </div>
     )
