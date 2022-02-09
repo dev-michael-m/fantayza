@@ -85,7 +85,7 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
         }else{
             onAlert(
                 'error',
-                'All FOMO SAPIENS have been minted!',
+                'All Larva Lords have been minted!',
                 true
             )
         } 
