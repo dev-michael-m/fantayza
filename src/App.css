@@ -179,6 +179,11 @@
   flex: 1 1 33%;
 }
 
+.flex-just-between {
+  display: flex;
+  justify-content: space-between;
+}
+
 .float {
   animation: float 4s infinite linear;
 }

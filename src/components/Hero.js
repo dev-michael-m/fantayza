@@ -10,7 +10,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import CheckIcon from '@mui/icons-material/CheckCircleOutline';
 import TextField from '@mui/material/TextField';
-import {mintNFT, getSoldOut} from './../utilities/util';
+//import {mintNFT, getSoldOut} from './../utilities/util';
 import Promo from './Promo';
 import CustomModal from './Modal';
 import Banner from '../assets/llbanner.png';
@@ -44,52 +44,52 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
         setImgSeed(shuffledImages);
     }
 
-    const onMint = async () => {
-        const sold_out = await getSoldOut();
+    // const onMint = async () => {
+    //     const sold_out = await getSoldOut();
 
-        if(!sold_out.data){
-            if(wallet.address){
+    //     if(!sold_out.data){
+    //         if(wallet.address){
                 
-                setMinting(true);
-                await mintNFT('public',tokens).then(res => {
-                    const txHash = res.data;
-                    const provider = new ethers.providers.Web3Provider(window.ethereum);
-                    const progress = setInterval(() => {
-                        provider.getTransactionReceipt(txHash).then(status => {
-                            if(!status){
-                                //console.log({status})
-                            }else if(status.status){
-                                setTxn(status.transactionHash);
-                                setMinting(false);
-                                setModalOpen(true);
-                                clearInterval(progress);
-                            }
-                        }).catch(error => {
-                            console.error(error);
-                            clearInterval(progress);
-                            setMinting(false);
-                        });
-                    },1000)
-                }).catch(error => {
-                    console.error(error);
-                    onAlert(
-                        'error',
-                        error.msg,
-                        true
-                    )
-                    setMinting(false);
-                })      
-            }else{
-                onAlert("warning", 'You must first connect your wallet before trying to mint.', true);
-            }   
-        }else{
-            onAlert(
-                'error',
-                'All Larva Lords have been minted!',
-                true
-            )
-        } 
-    }
+    //             setMinting(true);
+    //             await mintNFT('public',tokens).then(res => {
+    //                 const txHash = res.data;
+    //                 const provider = new ethers.providers.Web3Provider(window.ethereum);
+    //                 const progress = setInterval(() => {
+    //                     provider.getTransactionReceipt(txHash).then(status => {
+    //                         if(!status){
+    //                             //console.log({status})
+    //                         }else if(status.status){
+    //                             setTxn(status.transactionHash);
+    //                             setMinting(false);
+    //                             setModalOpen(true);
+    //                             clearInterval(progress);
+    //                         }
+    //                     }).catch(error => {
+    //                         console.error(error);
+    //                         clearInterval(progress);
+    //                         setMinting(false);
+    //                     });
+    //                 },1000)
+    //             }).catch(error => {
+    //                 console.error(error);
+    //                 onAlert(
+    //                     'error',
+    //                     error.msg,
+    //                     true
+    //                 )
+    //                 setMinting(false);
+    //             })      
+    //         }else{
+    //             onAlert("warning", 'You must first connect your wallet before trying to mint.', true);
+    //         }   
+    //     }else{
+    //         onAlert(
+    //             'error',
+    //             'All Larva Lords have been minted!',
+    //             true
+    //         )
+    //     } 
+    // }
 
     const mintMinus = () => {
         if(tokens > 1){
@@ -286,7 +286,7 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
                 </IconButton>
               </div>
               <div style={{ margin: 20 }}>
-                <Button
+                {/* <Button
                   className={`custom-button primary medium ${
                     soldOut || (!saleActive && !refreshTimer) ? "disabled" : ""
                   }`}
@@ -308,7 +308,7 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
                   ) : (
                     "Mint"
                   )}
-                </Button>
+                </Button> */}
               </div>
               <div style={{fontSize: 12, marginBottom: 16}}>
                 <label>0.005 ETH + gas</label>

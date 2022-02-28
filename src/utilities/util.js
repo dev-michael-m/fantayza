@@ -1,14 +1,14 @@
 import { ethers } from "ethers";
 
 require('dotenv').config();
-const alchemyKey = process.env.REACT_APP_ALCHEMY_KEY;
+//const alchemyKey = process.env.REACT_APP_ALCHEMY_KEY;
 const CONTRACT_ADDRESS = process.env.REACT_APP_CONTRACT_ADDRESS;
 const PRIVATE_KEY = process.env.REACT_APP_PRIVATE_KEY;
-const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
-const web3 = createAlchemyWeb3(alchemyKey);
+//const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
+//const web3 = createAlchemyWeb3(alchemyKey);
 const contractABI = require('../contract-abi.json');
 
-export const larvaContract = new web3.eth.Contract(contractABI, CONTRACT_ADDRESS)
+export const fantazyaContract = {} //new web3.eth.Contract(contractABI, CONTRACT_ADDRESS)
 
 const wl = [
     
@@ -78,8 +78,8 @@ export const getSoldOut = async () => {
     return new Promise(async(resolve,reject) => {
         try {
             // calls api twice here
-            const minted = await larvaContract.methods._tokenIds().call();
-            const max_supply = await larvaContract.methods.MAX_SUPPLY().call();
+            const minted = await fantazyaContract.methods._tokenIds().call();
+            const max_supply = await fantazyaContract.methods.MAX_SUPPLY().call();
 
             resolve({
                 status: 'success',
@@ -98,7 +98,7 @@ export const getSoldOut = async () => {
 export const getPublicState = () => {
     return new Promise(async(resolve,reject) => {
         try{
-            const active = await larvaContract.methods.active().call();
+            const active = await fantazyaContract.methods.active().call();
             resolve({
                 status: true,
                 active: active
@@ -116,7 +116,7 @@ export const getPublicState = () => {
 export const getPresaleState = () => {
     return new Promise(async(resolve,reject) => {
         try{
-            const active = await larvaContract.methods.presale().call();
+            const active = await fantazyaContract.methods.presale().call();
             resolve({
                 status: true,
                 active: active
@@ -131,51 +131,51 @@ export const getPresaleState = () => {
     })
 }
 
-export const mintNFT = async (sale_type, num_tokens) => {
-    return new Promise(async(resolve,reject) => {
-        try {
-            if(window.ethereum.request({method: 'eth_requestAccounts'})){
-                const provider = new ethers.providers.Web3Provider(window.ethereum);
-                const signer = provider.getSigner();
-                const address = await signer.getAddress();
-                const price = await larvaContract.methods.SALE_PRICE().call();
-                const mint_price = parseFloat(web3.utils.fromWei(price,'ether'));
+// export const mintNFT = async (sale_type, num_tokens) => {
+//     return new Promise(async(resolve,reject) => {
+//         try {
+//             if(window.ethereum.request({method: 'eth_requestAccounts'})){
+//                 const provider = new ethers.providers.Web3Provider(window.ethereum);
+//                 const signer = provider.getSigner();
+//                 const address = await signer.getAddress();
+//                 const price = await fantazyaContract.methods.SALE_PRICE().call();
+//                 const mint_price = parseFloat(web3.utils.fromWei(price,'ether'));
                 
-                if(sale_type === 'public'){
-                    const public_active = await getPublicState();
+//                 if(sale_type === 'public'){
+//                     const public_active = await getPublicState();
 
-                    if(public_active){
-                        const tx = {
-                            from: address,
-                            to: process.env.REACT_APP_CONTRACT_ADDRESS,
-                            value: web3.utils.toHex(web3.utils.toWei(String((mint_price * num_tokens).toFixed(3)),'ether')),
-                            data: larvaContract.methods.mint(num_tokens).encodeABI(),
-                        }
+//                     if(public_active){
+//                         const tx = {
+//                             from: address,
+//                             to: process.env.REACT_APP_CONTRACT_ADDRESS,
+//                             value: web3.utils.toHex(web3.utils.toWei(String((mint_price * num_tokens).toFixed(3)),'ether')),
+//                             data: fantazyaContract.methods.mint(num_tokens).encodeABI(),
+//                         }
 
-                        const txHash = await window.ethereum.request({
-                            method: 'eth_sendTransaction',
-                            params: [tx]
-                        })
+//                         const txHash = await window.ethereum.request({
+//                             method: 'eth_sendTransaction',
+//                             params: [tx]
+//                         })
 
-                        resolve({data: txHash});
+//                         resolve({data: txHash});
                         
-                    }else{
-                        reject({msg: `Public sale is currently inactive.`, status: 'warning'})
-                    }
-                }                
-            }else{
-                reject({
-                    status: 'warning',
-                    msg: `You must connect your MetaMask wallet to continue.  If you don't have a Metamask wallet, follow this link to get started LINK`
-                })
-            }    
-        } catch (error) {
-            console.error(`util.mintNFT: ${error}`)
-            reject({
-                status: 'error',
-                msg: error.message
-            })
-        }
-    })
+//                     }else{
+//                         reject({msg: `Public sale is currently inactive.`, status: 'warning'})
+//                     }
+//                 }                
+//             }else{
+//                 reject({
+//                     status: 'warning',
+//                     msg: `You must connect your MetaMask wallet to continue.  If you don't have a Metamask wallet, follow this link to get started LINK`
+//                 })
+//             }    
+//         } catch (error) {
+//             console.error(`util.mintNFT: ${error}`)
+//             reject({
+//                 status: 'error',
+//                 msg: error.message
+//             })
+//         }
+//     })
     
-  }
+//   }
