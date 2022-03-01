@@ -90,9 +90,13 @@
 
 .custom-button {
     width: 100% !important;
-    color: white !important;
-    border-radius: 36px !important;
+    color: rgb(0,0,0) !important;
     text-transform: none !important;
+    font-family: 'Shadows Into Light Two', 'cursive' !important;
+    font-weight: bold !important;
+    font-size: 20px !important;
+    border-radius: 0px !important;
+    letter-spacing: 3px;
 }
 
 .mobile-stepper {
@@ -138,7 +142,7 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
 }
 
 .secondary {
-    background-color: #3a677d !important;
+    background-color: rgb(255,255,255) !important;
 }
 
 .disabled {

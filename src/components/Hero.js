@@ -15,6 +15,7 @@ import Promo from './Promo';
 import CustomModal from './Modal';
 import Banner from '../assets/llbanner.png';
 import VerifiedIcon from '@mui/icons-material/Verified';
+import '../stylesheet/Hero.css';
 import CircularProgress from '@mui/material/CircularProgress';
 import { ethers } from "ethers";
 const NETWORK = 'etherscan';
@@ -149,21 +150,32 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
             </p>
           </CustomModal>
         ) : null}
-        <div>
-          <img src={Banner} width="100%"></img>
+        <div style={{marginTop: 100, padding: '200px 0px'}}>
+          {/* <img src={Banner} width="100%"></img> */}
+          <div style={{width: '100%', height: 8, backgroundColor: 'darkturquoise'}} id="divider"></div>
+          <h1 className='hero-header'>Fantayza</h1>
+          <div style={{ margin: 30 }}>
+            <Button
+              className={`custom-button secondary medium`}
+              variant="contained"
+              onClick={onConnectWallet}
+            >
+              mint
+            </Button>
+          </div>
         </div>
         <div id="welcome-section" className="section-large primary-section">
           <FadeInContainer animation="fade-in">
             <div style={{ marginBottom: "12%" }}>
                 <h2>WELCOME</h2>
-              <p style={{ color: "black" }}>
+              <p>
                 Join the world of <b>5,432</b> Larva Lord apes and witness how they
                 will evolve! (Yes! They will evolve). We took inspiration from
                 the world of Larva Lads and Bored Apes, and merged both concepts
                 together to make the Larva Lords come to life, and they want to
                 conquer all! They are lords after all.
             </p>
-            <p style={{ color: "black" }}> 
+            <p> 
                 There is no fancy roadmap here, we love our art and believe in it, so we want to
                 keep it simple: Our <b>Larva Lords</b> will evolve into full
                 grown entities, and our holders will receive one of them for free by holding 2 or more Larva Lords.
@@ -171,7 +183,7 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
                 additional 6 more prizes for a combined total of <b>3.0 ETH</b> (because that's how we
                 roll :P). 
             </p>
-            <p style={{ color: "black" }}>  
+            <p>  
                 Join the evolution and vibe with us, the moon is the
                 limit! Mint one of the legendary <b>Larva Lords</b> below and claim your prize. For
                 more information, follow us on Twitter, and Discord.
