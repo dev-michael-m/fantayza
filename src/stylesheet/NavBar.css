@@ -99,6 +99,10 @@
     letter-spacing: 3px;
 }
 
+.custom-button:hover {
+    box-shadow: 0px 0px 10px cyan !important;
+}
+
 .mobile-stepper {
     display: flex !important;
     justify-content: center !important;
@@ -280,7 +284,6 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
 
 .hero-container {
     overflow: hidden;
-    margin-bottom: 168px;
 }
 
 .mint-num input {

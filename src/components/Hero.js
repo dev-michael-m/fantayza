@@ -156,7 +156,8 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
           <h1 className='hero-header'>Fantayza</h1>
           <div style={{ margin: 30 }}>
             <Button
-              className={`custom-button secondary medium`}
+              style={{height: 36}}
+              className='custom-button secondary small'
               variant="contained"
               onClick={onConnectWallet}
             >
@@ -164,209 +165,28 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
             </Button>
           </div>
         </div>
-        <div id="welcome-section" className="section-large primary-section">
+        <div id="welcome-section" className="section-large primary-section spacing-medium">
           <FadeInContainer animation="fade-in">
-            <div style={{ marginBottom: "12%" }}>
-                <h2>WELCOME</h2>
+            <div style={{ marginBottom: "12%", width: '33%' }}>
               <p>
-                Join the world of <b>5,432</b> Larva Lord apes and witness how they
-                will evolve! (Yes! They will evolve). We took inspiration from
-                the world of Larva Lads and Bored Apes, and merged both concepts
-                together to make the Larva Lords come to life, and they want to
-                conquer all! They are lords after all.
+                <b>Fantayza</b> - she lives alone in forgotten dwellings, walks along dark alleys,
+                and stays in the shadows to avoid the eyes of the National Service Bureau (NSB) who
+                are after her for her 'gifts'.
             </p>
             <p> 
-                There is no fancy roadmap here, we love our art and believe in it, so we want to
-                keep it simple: Our <b>Larva Lords</b> will evolve into full
-                grown entities, and our holders will receive one of them for free by holding 2 or more Larva Lords.
-                Whoever's lucky enough to mint King Larva will receive <b>1.0 ETH</b>. We're not going to stop there. There will be an
-                additional 6 more prizes for a combined total of <b>3.0 ETH</b> (because that's how we
-                roll :P). 
+                Earlier in her childhood, her mother was assassinated by the NSB, so her father
+                took her into hiding. 
             </p>
-            <p>  
-                Join the evolution and vibe with us, the moon is the
-                limit! Mint one of the legendary <b>Larva Lords</b> below and claim your prize. For
-                more information, follow us on Twitter, and Discord.
+            <p>
+              Three years later, the NSB assassinated her father, while <b>Fantayza</b> barely escaped,
+              she has been in hiding ever-since.
+            </p>
+            <p>
+              Being exposed to extreme X-Rays when she was a baby made her 'gifts' endless and her mutations
+              unique at 3,333.
             </p>
             </div>
           </FadeInContainer>
-        </div>
-        <div>
-          <FadeInContainer>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-around",
-                width: 300,
-                alignItems: "center",
-                margin: "0px auto 40px",
-              }}
-            >
-              <div id="twitter">
-                <IconButton
-                  id="twitter"
-                  style={{ width: 40 }}
-                  onClick={onSocialClick}
-                >
-                  <TwitterIcon
-                    id="twitter"
-                    style={{ fontSize: 26, color: "black" }}
-                  />
-                  <a
-                    id="twitter-link-hero"
-                    hidden
-                    target="_blank"
-                    href="https://twitter.com/LarvaLords"
-                  ></a>
-                </IconButton>
-              </div>
-              <div id="discord">
-                <IconButton
-                  id="discord"
-                  style={{ width: 40 }}
-                  onClick={onSocialClick}
-                >
-                  <img
-                    id="discord"
-                    style={{ margin: "0px 10px" }}
-                    src={DiscordIcon}
-                    width="26px"
-                  ></img>
-                  <a id="discord-link-hero" hidden target="_blank" href="https://discord.gg/d3ucffqQSr"></a>
-                </IconButton>
-              </div>
-              <div id="opensea">
-                <IconButton
-                  id="opensea"
-                  style={{ width: 40 }}
-                  onClick={onSocialClick}
-                >
-                  <img
-                    id="opensea"
-                    style={{ margin: "0px 10px" }}
-                    src={OpenSeaIcon}
-                    width="26px"
-                  ></img>
-                  <a id="opensea-link-hero" hidden target="_blank" href="https://opensea.io/collection/larva-lords"></a>
-                </IconButton>
-              </div>
-              <div id="etherscan">
-                <IconButton
-                  id="etherscan"
-                  style={{ width: 40 }}
-                  onClick={onSocialClick}
-                >
-                  <img
-                    id="etherscan"
-                    style={{ margin: "0px 10px" }}
-                    src={EtherscanIcon}
-                    width="26px"
-                  ></img>
-                  <a id="etherscan-link-hero" hidden target="_blank" href="https://etherscan.io/address/0x26B73354575088ABa2a8b10E0719fc5904954910"></a>
-                </IconButton>
-              </div>
-            </div>
-          </FadeInContainer>
-        </div>
-        <div className="hero-inner">
-          <FadeInContainer>
-            <div style={{ paddingTop: 30 }}>
-              <Promo styling="full" animated="multi-direction" seed={imgSeed} />
-            </div>
-          </FadeInContainer>
-          <div className="countdown-container" id="countdown-container">
-            <FadeInContainer>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <IconButton onClick={mintMinus}>
-                  <RemoveIcon />
-                </IconButton>
-                <TextField
-                  className="mint-num"
-                  id="num-tokens"
-                  type="number"
-                  inputMode="numeric"
-                  value={tokens}
-                />
-                <IconButton onClick={mintAdd}>
-                  <AddIcon />
-                </IconButton>
-              </div>
-              <div style={{ margin: 20 }}>
-                {/* <Button
-                  className={`custom-button primary medium ${
-                    soldOut || (!saleActive && !refreshTimer) ? "disabled" : ""
-                  }`}
-                  disabled={
-                    soldOut || minting || (!saleActive && !refreshTimer)
-                      ? true
-                      : false
-                  }
-                  variant="contained"
-                  color="primary"
-                  onClick={saleActive && !refreshTimer ? onMint : onRefresh}
-                >
-                  {soldOut ? (
-                    "Sold Out"
-                  ) : minting ? (
-                    <CircularProgress style={{ color: "wheat" }} />
-                  ) : !saleActive && refreshTimer ? (
-                    "Refresh"
-                  ) : (
-                    "Mint"
-                  )}
-                </Button> */}
-              </div>
-              <div style={{fontSize: 12, marginBottom: 16}}>
-                <label>0.005 ETH + gas</label>
-              </div>
-              {!soldOut && !wallet.address ? (
-                <div style={{ marginBottom: 30 }}>
-                  <Button
-                    className={`custom-button secondary medium`}
-                    variant="contained"
-                    color="primary"
-                    onClick={onConnectWallet}
-                  >
-                    Connect Wallet
-                  </Button>
-                </div>
-              ) : wallet.address ? (
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <VerifiedIcon
-                    style={{ color: "#3a677d", fontSize: 18, paddingRight: 6 }}
-                  />
-                  <label style={{ fontSize: 14, color: "gray" }}>
-                    Connected
-                  </label>
-                </div>
-              ) : null}
-              {soldOut ? (
-                <div>
-                  <a
-                    style={{ fontSize: 14, margin: 10 }}
-                    style={{ color: "gray" }}
-                    href="#"
-                    target="_blank"
-                    onClick={() => document.getElementById('opensea-link-hero').click()}
-                  >
-                    Find us on OpenSea
-                  </a>
-                </div>
-              ) : null}
-            </FadeInContainer>
-          </div>
         </div>
       </div>
     );

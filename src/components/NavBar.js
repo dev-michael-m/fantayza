@@ -19,8 +19,8 @@ const NavBar = () => {
                         <MenuIcon style={{color: 'rgb(255,255,255)'}} />
                     </IconButton>                    
                 </div>
-                <div style={{display: 'flex'}}>
-                    <div className="socials">
+                <div className='flex-align-center'>
+                    <div style={{marginRight: 28}} className="socials">
                         <IconButton>
                             <TwitterIcon style={{color: 'rgb(255,255,255)'}} />
                         </IconButton>
@@ -30,7 +30,10 @@ const NavBar = () => {
                         <IconButton>
                             <img src={DiscordIcon} width="26px"></img>
                         </IconButton>
-                    </div>                    
+                    </div>  
+                    <div>
+                        <Button style={{height: 36}} className='custom-button secondary small' variant='contained'>connect wallet</Button>
+                    </div>                  
                 </div>
                 
             </div>
