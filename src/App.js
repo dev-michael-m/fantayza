@@ -1,4 +1,5 @@
 import './App.css';
+import './stylesheet/Sections.css';
 import Hero from './components/Hero';
 import Footer from './pages/Footer';
 import MainApp from './pages/MainApp';
@@ -12,6 +13,7 @@ import ImgPlaceholder from './assets/image-placeholder.jpg';
 import FadeInContainer from './components/FadeInContainer';
 import FAQs from './components/FAQs';
 import Roadmap from './components/Roadmap';
+import Founders from './components/Founders';
 
 function App() {
   
@@ -204,7 +206,28 @@ function App() {
                 </div>
 
                 <div className='spacing-medium'>
-
+                  <div className='primary-section flex-align-center'>
+                    <div style={{width: '50%'}} className='circle-container'>
+                      <FadeInContainer animation="fade-left">
+                        <div className='circle-medium'></div>
+                        <div className='circle-large'>
+                          <div className='circle-inner'>
+                            <p>Fantayza's collection</p>
+                            <p>3,333 Unique NFT's</p>
+                            <p>33 Legendary</p>
+                            <p>333+ Unique Attributes</p>
+                          </div>                        
+                        </div>
+                      </FadeInContainer>                      
+                    </div>
+                      <div style={{width: '50%'}}>
+                        <FadeInContainer animation="fade-right">
+                          <div>
+                            <img src={ImgPlaceholder} width="368px"></img>
+                          </div>
+                        </FadeInContainer>                        
+                      </div>                                    
+                  </div>
                 </div>
 
                 <div className='spacing-medium'>
@@ -214,11 +237,18 @@ function App() {
                 </div>
 
                 <div className='spacing-medium'>
-
+                  <div className='primary-section'>
+                    <FadeInContainer animation="fade-in">
+                      <Founders />
+                    </FadeInContainer>
+                  </div>
                 </div>
                   
-                  
-                <FAQs />           
+                <FAQs />     
+
+                <div className='spacing-medium'>
+                  <Button className='custom-button secondary medium'>Join the Community</Button>
+                </div>      
               <Footer />
             </div>            
           </div>          

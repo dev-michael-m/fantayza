@@ -179,9 +179,24 @@
   flex: 1 1 33%;
 }
 
+.flex {
+  display: flex;
+}
+
+.flex-align-all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .flex-just-between {
   display: flex;
   justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }
 
 .flex-just-even {
@@ -213,12 +228,17 @@
   flex-wrap: wrap;
 }
 
+.flex-align-start {
+  display: flex;
+  align-items: flex-start;
+}
+
 .text-left {
   text-align: left;
 }
 
 .text-center {
-  text-align: center;
+  text-align: center !important;
 }
 
 .spacing-medium {

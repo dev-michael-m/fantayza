@@ -166,7 +166,7 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
           </div>
         </div>
         <div id="welcome-section" className="section-large primary-section spacing-medium">
-          <FadeInContainer animation="fade-in">
+          <FadeInContainer animation="fade-left">
             <div style={{ marginBottom: "12%", width: '33%' }}>
               <p>
                 <b>Fantayza</b> - she lives alone in forgotten dwellings, walks along dark alleys,
