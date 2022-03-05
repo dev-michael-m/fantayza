@@ -10,7 +10,7 @@ const DETAILS = [
         label: 'Q2',
         subSteps: [
             {
-                description: `- Minting of Fantayza collection in April 2022`
+                description: `- Minting of Fantazya collection in April 2022`
             },
             {
                 description: `- Role assignment of holders & grants`
@@ -30,7 +30,7 @@ const DETAILS = [
                 description: `  - Establishment of movie theater in the metaverse`
             },
             {
-                description: `  - Development of Fantayza animated series`
+                description: `  - Development of Fantazya animated series`
             }
         ]
     },
@@ -50,7 +50,7 @@ const DETAILS = [
 const Roadmap = () => {
 
     return (
-        <div>
+        <div id="roadmap">
             <h1>Roadmap</h1>
             <VerticalStepper steps={DETAILS} />
             <h2>Phase II to be confirmed by the holders</h2>

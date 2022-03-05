@@ -21,3 +21,56 @@
     width: 215px;
     height: 200px;
 }
+
+.section-2-img {
+    width: 50%;
+}
+
+.circle-container {
+    width: 50%;
+}
+
+.hero-section-doc {
+    margin-bottom: 12%;
+    width: 33%;
+}
+
+.section-3 {
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 1080px) {
+    .artist-doc {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .section-2 {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .section-2-img {
+        width: 100%;
+    }
+
+    .section-3 {
+        flex-direction: column-reverse;
+    }
+
+    .circle-container {
+        width: 100%;
+        margin-top: 80px;
+    }
+
+    .section-3-img {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 615px) {
+    .hero-section-doc {
+        width: 50%;
+    }
+}
+

@@ -153,7 +153,7 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
         <div style={{marginTop: 100, padding: '200px 0px'}}>
           {/* <img src={Banner} width="100%"></img> */}
           <div style={{width: '100%', height: 8, backgroundColor: 'darkturquoise'}} id="divider"></div>
-          <h1 className='hero-header'>Fantayza</h1>
+          <h1 className='hero-header'>Fantazya</h1>
           <div style={{ margin: 30 }}>
             <Button
               style={{height: 36}}
@@ -167,9 +167,9 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
         </div>
         <div id="welcome-section" className="section-large primary-section spacing-medium">
           <FadeInContainer animation="fade-left">
-            <div style={{ marginBottom: "12%", width: '33%' }}>
+            <div className='hero-section-doc'>
               <p>
-                <b>Fantayza</b> - she lives alone in forgotten dwellings, walks along dark alleys,
+                <b>Fantazya</b> - she lives alone in forgotten dwellings, walks along dark alleys,
                 and stays in the shadows to avoid the eyes of the National Service Bureau (NSB) who
                 are after her for her 'gifts'.
             </p>
@@ -178,7 +178,7 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
                 took her into hiding. 
             </p>
             <p>
-              Three years later, the NSB assassinated her father, while <b>Fantayza</b> barely escaped,
+              Three years later, the NSB assassinated her father, while <b>Fantazya</b> barely escaped,
               she has been in hiding ever-since.
             </p>
             <p>

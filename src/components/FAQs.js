@@ -16,7 +16,7 @@ const FAQs = () => {
     }
 
     return (
-        <div className='faq-container'>
+        <div id="faqs" className='faq-container'>
             <FadeInContainer animation="fade-in">
                 <h1>FAQs</h1>
             </FadeInContainer>
@@ -28,8 +28,8 @@ const FAQs = () => {
                 </AccordionSummary>
                 <AccordionDetails>
                     <p style={{fontWeight: 'normal'}}>
-                        NFT or "Non Fungible Token", is a unique digital asset that cannot be replicated or interchanged with another.
-                        NFT's can be any asset in digital asset (art, music, tickets are just a few examples).
+                        <b>NFT or "Non Fungible Token", is a unique digital asset that cannot be replicated or interchanged with another.
+                        NFT's can be any asset in digital asset (art, music, tickets are just a few examples).</b>
                     </p>
                 </AccordionDetails>
             </Accordion>
@@ -40,7 +40,7 @@ const FAQs = () => {
                     <p>What does "Mint" mean?</p>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <p style={{fontWeight: 'normal'}}>Minting is the process of transferring the ownership of an NFT into your wallet and to be stored on the blockchain.</p>
+                    <p style={{fontWeight: 'normal'}}><b>Minting is the process of transferring the ownership of an NFT into your wallet and to be stored on the blockchain.</b></p>
                 </AccordionDetails>
             </Accordion>
             </FadeInContainer>
@@ -60,7 +60,7 @@ const FAQs = () => {
                     <p>How much will it cost?</p>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <p style={{fontWeight: 'normal'}}>Mint price is <b>0.175 ETH + gas</b> given the detail of the artwork and the time consumed to create Fantayza's world while ensuring the funds for her future.</p>
+                    <p style={{fontWeight: 'normal'}}><b>Mint price is 0.175 ETH + gas given the detail of the artwork and the time consumed to create Fantazya's world while ensuring the funds for her future.</b></p>
                 </AccordionDetails>
             </Accordion>
             </FadeInContainer>
@@ -70,7 +70,7 @@ const FAQs = () => {
                     <p>How many NFT's will be available?</p>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <p style={{fontWeight: 'normal'}}>3,333</p>
+                    <p style={{fontWeight: 'normal'}}><b>3,333</b></p>
                 </AccordionDetails>
             </Accordion>
             </FadeInContainer>
@@ -80,7 +80,7 @@ const FAQs = () => {
                     <p>How can I get access to the whitelist?</p>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <p style={{fontWeight: 'normal'}}>Details are available on our Discord server.</p>
+                    <p style={{fontWeight: 'normal'}}><b>Details are available on our Discord server.</b></p>
                 </AccordionDetails>
             </Accordion>
             </FadeInContainer>

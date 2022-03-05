@@ -3,7 +3,7 @@ import './stylesheet/Sections.css';
 import Hero from './components/Hero';
 import Footer from './pages/Footer';
 import MainApp from './pages/MainApp';
-//import { ConnectWallet, getSoldOut, getPublicState } from './utilities/util';
+import { ConnectWallet, getSoldOut, getPublicState } from './utilities/util';
 import { useEffect, useState } from 'react';
 import AlertBar from './components/AlertBar';
 import Button from '@mui/material/Button';
@@ -33,85 +33,87 @@ function App() {
   const [soldOut,setSoldOut] = useState(false);
   const [saleActive,setSaleActive] = useState(false);
   const [pubSale,setPubSale] = useState(false);
+  const [extReady,setExtReady] = useState(false);
 
-    // useEffect(() => {
-    //   let mounted = true;
+    useEffect(() => {
+      let mounted = true;
 
-    //   if (mounted) {
-    //     (async() => {
-    //       const sold_out = await getSoldOut();
+      if (mounted) {
+        // (async() => {
+        //   const sold_out = await getSoldOut();
 
-    //       if(sold_out.data){
-    //         setSoldOut(true);
-    //       }else{
-    //         const publicSale = await getPublicState();
+        //   if(sold_out.data){
+        //     setSoldOut(true);
+        //   }else{
+        //     const publicSale = await getPublicState();
   
-    //         if(publicSale.status){
-    //           if(publicSale.active){
-    //               setSaleActive(true);
-    //               setPubSale(publicSale.active);
-    //           }          
-    //         }
-    //       }
-    //     })();
+        //     if(publicSale.status){
+        //       if(publicSale.active){
+        //           setSaleActive(true);
+        //           setPubSale(publicSale.active);
+        //       }          
+        //     }
+        //   }
+        // })();
 
-    //     const connected = sessionStorage.getItem('connected');
+        // const connected = sessionStorage.getItem('connected');
 
-    //     if(connected === 'true'){
+        // if(connected === 'true'){
           
-    //       ConnectWallet()
-    //       .then((status) => {
-    //         setWallet({
-    //           address: status.address,
-    //           snippet: status.address_snippet,
-    //         });
-    //         window.ethereum.on("accountsChanged", handleAccountsChanged);
-    //       })
-    //       .catch((error) => {
-    //         console.error(error);
-    //       });
-    //     }
-    //   }
+        //   ConnectWallet()
+        //   .then((status) => {
+        //     setWallet({
+        //       address: status.address,
+        //       snippet: status.address_snippet,
+        //     });
+        //     window.ethereum.on("accountsChanged", handleAccountsChanged);
+        //   })
+        //   .catch((error) => {
+        //     console.error(error);
+        //   });
+        // }
+      }
         
 
-    //   return () => {
-    //     mounted = false;
-    //   };
-    // }, []);
+      return () => {
+        mounted = false;
+      };
+    }, []);
 
-    // async function handleAccountsChanged(accounts) {
-    //   if (accounts.length === 0) {
-    //     console.warn("user has not connected to metamask");
-    //   } else {
-    //     setWallet((prevState) => ({
-    //       ...prevState,
-    //       address: accounts[0]
-    //     }));
-    //   }
-    // }
+    async function handleAccountsChanged(accounts) {
+      if (accounts.length === 0) {
+        console.warn("user has not connected to metamask");
+      } else {
+        setWallet((prevState) => ({
+          ...prevState,
+          address: accounts[0]
+        }));
+      }
+    }
 
   const onConnectWallet = (suppress) => {
     setModalOpen(true);
   };
 
-  // const onWalletClick = async (event) => {
-  //   const selected = event.target.id;
+  const onWalletClick = async (event) => {
+    const selected = event.target.id;
 
-  //   ConnectWallet()
-  //     .then((status) => {
-  //       setWallet({
-  //         address: status.address,
-  //         snippet: status.address_snippet,
-  //       });
-  //       setModalOpen(false);
-  //       window.sessionStorage.setItem('connected',true);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
+    ConnectWallet()
+      .then((status) => {
+        setWallet({
+          address: status.address,
+          snippet: status.address_snippet,
+        });
+        setModalOpen(false);
+        window.sessionStorage.setItem('connected',true);
+      })
+      .catch((error) => {
+        console.error(error);
+        setModalOpen(false);
+      });
 
-  //     window.ethereum.on("accountsChanged", handleAccountsChanged);
-  // }
+      window.ethereum.on("accountsChanged", handleAccountsChanged);
+  }
 
   const onModalClose = () => {
     setModalOpen(false);
@@ -134,13 +136,13 @@ function App() {
 
   return (
     <div className="App">
-        <MainApp onAlert={onAlert}>
+        <MainApp onAlert={onAlert} onConnectWallet={onConnectWallet}>
           {alert.visible ? <AlertBar severity={alert.severity} visible={alert.visible} msg={alert.msg} onClose={onCloseAlert} /> : null}
           <CustomModal id="wallet-connect" visible={modalOpen} width='332px' onClose={onModalClose}>
               <h3>Connect Wallet</h3>
               <Button className="wallet-button" id="metamask" variant='contained' endIcon={
                 <img id="metamask" src={MetaMaskLogo} width="42px"></img>
-              }>MetaMask</Button>          
+              } onClick={onWalletClick}>MetaMask</Button>          
           </CustomModal>
           <div className="main-container parallax-container">
             <div className="inner-main">
@@ -154,7 +156,7 @@ function App() {
                         </div>
                       </FadeInContainer>
                       <FadeInContainer animation="fade-in">
-                        <div className='flex-just-between flex-align-center'>
+                        <div id="artist" className='flex-just-between flex-align-center artist-doc'>
                           <div>
                             <img src={ImgPlaceholder} width="200px"></img>
                           </div>
@@ -174,8 +176,8 @@ function App() {
                   
                 <div className='spacing-medium'>
                   <div className='primary-section'>
-                    <div className='flex-align-center'>
-                      <div style={{width: '50%'}}>
+                    <div className='flex-align-center section-2'>
+                      <div className='section-2-img'>
                         <FadeInContainer animation="fade-left">
                           <div>
                             <img src={ImgPlaceholder} width="400px"></img>
@@ -185,7 +187,7 @@ function App() {
                       <div style={{width: '50%'}}>
                         <FadeInContainer animation="fade-right">
                           <div className='text-left'>
-                            <h2>What Makes Fantayza's World Special?</h2><br></br>
+                            <h2>What Makes Fantazya's World Special?</h2><br></br>
                             <h3>Transparency</h3>
                             <p>All owners are fully doxxed to ensure complete transparency and honesty.</p><br></br>
                             <h3>Community</h3>
@@ -206,13 +208,13 @@ function App() {
                 </div>
 
                 <div className='spacing-medium'>
-                  <div className='primary-section flex-align-center'>
-                    <div style={{width: '50%'}} className='circle-container'>
+                  <div className='primary-section flex-align-center section-3'>
+                    <div className='circle-container'>
                       <FadeInContainer animation="fade-left">
                         <div className='circle-medium'></div>
                         <div className='circle-large'>
                           <div className='circle-inner'>
-                            <p>Fantayza's collection</p>
+                            <p>Fantazya's collection</p>
                             <p>3,333 Unique NFT's</p>
                             <p>33 Legendary</p>
                             <p>333+ Unique Attributes</p>
@@ -220,7 +222,7 @@ function App() {
                         </div>
                       </FadeInContainer>                      
                     </div>
-                      <div style={{width: '50%'}}>
+                      <div className='section-3-img'>
                         <FadeInContainer animation="fade-right">
                           <div>
                             <img src={ImgPlaceholder} width="368px"></img>

@@ -9,7 +9,7 @@ const Footer = () => {
     return (
         <div className="footer-container">
             <div style={{paddingTop: 14}}>
-                <label >Fantayza</label>
+                <label >Fantazya</label>
                 <div style={{marginTop: 20, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                     <TwitterIcon style={{margin: '0px 10px'}} onClick={() => document.getElementById('twitter-link-hero').click()} />
                     <InstagramIcon style={{margin: '0px 10px'}} onClick={() => document.getElementById('instagram-link-hero').click()} />
@@ -17,7 +17,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="footer-copyright">
-                <label>&copy; {new Date().getFullYear()} Fantayza. All Rights Reserved.</label>
+                <label>&copy; {new Date().getFullYear()} Fantazya. All Rights Reserved.</label>
             </div>
             <div style={{fontSize: 10, color: 'rgba(255,255,255,0.52)'}}>
                 <label>Powered by <u>Apexeth.io</u></label>

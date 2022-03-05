@@ -4,7 +4,7 @@ import ImgPlaceholder from '../assets/image-placeholder.jpg';
 const Founders = () => {
     
     return (
-        <div className='flex-just-even flex-align-start flex-wrap'>
+        <div id="founders" className='flex-just-even flex-align-start flex-wrap'>
             <div style={{width: 245, padding: 25}} className='flex-align-all flex-column'>
                 <div>
                     <img src={ImgPlaceholder} width='200px'></img>
@@ -12,7 +12,7 @@ const Founders = () => {
                 <div className='flex-align-all flex-column'>
                     <p>Ahmed</p>
                     <p>Artist</p>
-                    <p className="text-center">Visual creator, designer &amp; storyteller of the Fantayza collection</p>
+                    <p className="text-center">Visual creator, designer &amp; storyteller of the Fantazya collection</p>
                 </div>
             </div>
             <div style={{width: 245, padding: 25}} className='flex-align-all flex-column'>
@@ -32,7 +32,7 @@ const Founders = () => {
                 <div className='flex-align-all flex-column'>
                     <p>Yousef</p>
                     <p>COO</p>
-                    <p className="text-center">Mastermind of the growth of Fantayza's world. Trader, blockchain &amp; tokenomics enthusiast</p>
+                    <p className="text-center">Mastermind of the growth of Fantazya's world. Trader, blockchain &amp; tokenomics enthusiast</p>
                 </div>
             </div>
             <div style={{width: 245, padding: 25}} className='flex-align-all flex-column'>

@@ -17,11 +17,9 @@ const wl = [
 //* Web3 Contract Interactive Methods
 
 export const ConnectWallet = async () => {
-    return new Promise(async(resolve,reject) => {
+    return new Promise(async(resolve,reject) => {        
         if(window.ethereum.request({method: 'eth_requestAccounts'})){
-            try {
-                await window.ethereum.enable();
-                
+            try {               
                 const provider = new ethers.providers.Web3Provider(window.ethereum);
                 const signer = provider.getSigner();
                 const address = await signer.getAddress();
