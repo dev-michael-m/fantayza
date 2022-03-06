@@ -1,11 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import Sapien18 from '../assets/18.png';
 import MobileStepper from '@mui/material/MobileStepper';
-import Sapien11 from '../assets/11.png';
-import Sapien13 from '../assets/13.png';
-import Sapien20 from '../assets/20.png';
-import Sapien21 from '../assets/21.png';
-import Sapien22 from '../assets/22.png';
 import {Swiper, SwiperSlide} from 'swiper/react/swiper-react';
 import SwiperCore,{
     Autoplay

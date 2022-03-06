@@ -100,6 +100,7 @@ function App() {
 
     ConnectWallet()
       .then((status) => {
+        console.log({status})
         setWallet({
           address: status.address,
           snippet: status.address_snippet,
@@ -136,7 +137,7 @@ function App() {
 
   return (
     <div className="App">
-        <MainApp onAlert={onAlert} onConnectWallet={onConnectWallet}>
+        <MainApp onAlert={onAlert} onConnectWallet={onConnectWallet} wallet={wallet}>
           {alert.visible ? <AlertBar severity={alert.severity} visible={alert.visible} msg={alert.msg} onClose={onCloseAlert} /> : null}
           <CustomModal id="wallet-connect" visible={modalOpen} width='332px' onClose={onModalClose}>
               <h3>Connect Wallet</h3>
@@ -149,14 +150,14 @@ function App() {
               <Hero soldOut={soldOut} saleActive={saleActive} pubSale={pubSale} wallet={wallet} onAlert={onAlert} />
 
                 <div className='spacing-medium'>
-                  <div className='primary-section'>
+                  <div id='artist' className='primary-section'>
                       <FadeInContainer animation="fade-in">
                         <div className='video-container'>
 
                         </div>
                       </FadeInContainer>
                       <FadeInContainer animation="fade-in">
-                        <div id="artist" className='flex-just-between flex-align-center artist-doc'>
+                        <div className='flex-just-between flex-align-center artist-doc'>
                           <div>
                             <img src={ImgPlaceholder} width="200px"></img>
                           </div>
@@ -239,7 +240,7 @@ function App() {
                 </div>
 
                 <div className='spacing-medium'>
-                  <div className='primary-section'>
+                  <div id="founders" className='primary-section'>
                     <FadeInContainer animation="fade-in">
                       <Founders />
                     </FadeInContainer>

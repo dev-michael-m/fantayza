@@ -43,7 +43,7 @@
     padding: 6px;
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid wheat;
+    border-bottom: 1px solid rgb(0, 255, 255);
     margin: 10px 0px;
 }
 

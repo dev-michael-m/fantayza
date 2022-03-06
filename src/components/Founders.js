@@ -4,7 +4,7 @@ import ImgPlaceholder from '../assets/image-placeholder.jpg';
 const Founders = () => {
     
     return (
-        <div id="founders" className='flex-just-even flex-align-start flex-wrap'>
+        <div className='flex-just-even flex-align-start flex-wrap'>
             <div style={{width: 245, padding: 25}} className='flex-align-all flex-column'>
                 <div>
                     <img src={ImgPlaceholder} width='200px'></img>

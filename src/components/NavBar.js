@@ -11,7 +11,7 @@ import Drawer from '@mui/material/Drawer';
 import CloseIcon from '@mui/icons-material/Close';
 import $ from 'jquery';
 
-const NavBar = ({onConnectWallet}) => {
+const NavBar = ({onConnectWallet, wallet}) => {
     const [menu,setMenu] = useState(false);
     
     const toggleDrawer = () => {
@@ -81,7 +81,13 @@ const NavBar = ({onConnectWallet}) => {
                         </IconButton>
                     </div>  
                     <div>
-                        <Button style={{height: 36}} className='custom-button secondary small' variant='contained' onClick={onConnectWallet}>connect wallet</Button>
+                        { !wallet.address ?
+                            <Button style={{height: 36}} className='custom-button secondary small' variant='contained' onClick={onConnectWallet}>connect wallet</Button> :
+                            <div style={{color: 'white'}} className='flex-align-center'>
+                                <VerifiedIcon style={{fontSize: 18, marginRight: 10}} />
+                                <p>{wallet.address}</p>
+                            </div>
+                        }
                     </div>                  
                 </div>
                 

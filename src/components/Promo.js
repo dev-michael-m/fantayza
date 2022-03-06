@@ -1,21 +1,7 @@
 import React from 'react'
-import FSNFT1 from '../assets/1.png';
-import FSNFT2 from '../assets/2.png';
-import FSNFT3 from '../assets/3.png';
-import FSNFT4 from '../assets/4.png';
-import FSNFT5 from '../assets/5.png';
-import FSNFT6 from '../assets/6.png';
-import FSNFT7 from '../assets/7.png';
 import FadeInContainer from './FadeInContainer';
 
 const imgs = [
-    FSNFT3,
-    FSNFT1,
-    FSNFT2,
-    FSNFT4,
-    FSNFT5,
-    FSNFT6,
-    FSNFT7
 ]
 
 const Promo = ({styling = 'default', animated = false, glow = false, seed = [0,1,2]}) => {

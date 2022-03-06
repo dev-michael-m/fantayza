@@ -13,7 +13,6 @@ import TextField from '@mui/material/TextField';
 //import {mintNFT, getSoldOut} from './../utilities/util';
 import Promo from './Promo';
 import CustomModal from './Modal';
-import Banner from '../assets/llbanner.png';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import '../stylesheet/Hero.css';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -155,14 +154,14 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
           <div style={{width: '100%', height: 8, backgroundColor: 'darkturquoise'}} id="divider"></div>
           <h1 className='hero-header'>Fantazya</h1>
           <div style={{ margin: 30 }}>
-            <Button
+            {/* <Button
               style={{height: 36}}
               className='custom-button secondary small'
               variant="contained"
               onClick={onConnectWallet}
             >
               mint
-            </Button>
+            </Button> */}
           </div>
         </div>
         <div id="welcome-section" className="section-large primary-section spacing-medium">
