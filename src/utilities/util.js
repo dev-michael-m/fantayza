@@ -1,14 +1,11 @@
 import { ethers } from "ethers";
 
 require('dotenv').config();
-//const alchemyKey = process.env.REACT_APP_ALCHEMY_KEY;
 const CONTRACT_ADDRESS = process.env.REACT_APP_CONTRACT_ADDRESS;
 const PRIVATE_KEY = process.env.REACT_APP_PRIVATE_KEY;
-//const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
-//const web3 = createAlchemyWeb3(alchemyKey);
 const contractABI = require('../contract-abi.json');
 
-export const fantazyaContract = {} //new web3.eth.Contract(contractABI, CONTRACT_ADDRESS)
+export const fantazyaContract = new ethers.Contract(CONTRACT_ADDRESS,contractABI);
 
 const wl = [
     
@@ -135,7 +132,7 @@ export const getPresaleState = () => {
 //                 const signer = provider.getSigner();
 //                 const address = await signer.getAddress();
 //                 const price = await fantazyaContract.methods.SALE_PRICE().call();
-//                 const mint_price = parseFloat(web3.utils.fromWei(price,'ether'));
+//                 const mint_price = parseFloat(ethers.utils.formatEther(price));
                 
 //                 if(sale_type === 'public'){
 //                     const public_active = await getPublicState();
@@ -144,7 +141,7 @@ export const getPresaleState = () => {
 //                         const tx = {
 //                             from: address,
 //                             to: process.env.REACT_APP_CONTRACT_ADDRESS,
-//                             value: web3.utils.toHex(web3.utils.toWei(String((mint_price * num_tokens).toFixed(3)),'ether')),
+//                             value: ethers.utils.hexValue(ethers.utils.formatEther(String((mint_price * num_tokens).toFixed(3)))),
 //                             data: fantazyaContract.methods.mint(num_tokens).encodeABI(),
 //                         }
 
