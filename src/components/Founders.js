@@ -1,5 +1,6 @@
 import React from 'react';
 import ImgPlaceholder from '../assets/image-placeholder.jpg';
+import f1Img from '../assets/syndk8.png';
 
 const Founders = () => {
     
@@ -37,7 +38,7 @@ const Founders = () => {
             </div>
             <div style={{width: 245, padding: 25}} className='flex-align-all flex-column'>
                 <div>
-                    <img src={ImgPlaceholder} width='200px'></img>
+                    <img src={f1Img} width='200px'></img>
                 </div>
                 <div className='flex-align-all flex-column'>
                     <p>Michael</p>

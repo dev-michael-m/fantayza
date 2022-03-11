@@ -1,8 +1,8 @@
 async function main() {
-    const larvaLords = await ethers.getContractFactory("LarvaLords")
+    const fantazya = await ethers.getContractFactory("Fantazya")
     // Start deployment, returning a promise that resolves to a contract object
-    const larva = await larvaLords.deploy();
-    console.log("Contract deployed to address:", larva.address);
+    const fanta = await fantazya.deploy();
+    console.log("Contract deployed to address:", fanta.address);
   }
   
   main()
