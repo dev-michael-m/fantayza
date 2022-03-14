@@ -14,6 +14,11 @@ import FadeInContainer from './components/FadeInContainer';
 import FAQs from './components/FAQs';
 import Roadmap from './components/Roadmap';
 import Founders from './components/Founders';
+import ArtistVidMP4 from './assets/FNFT_ArtistVideo.mp4';
+import ArtistVidOGV from './assets/FNFT_ArtistVideo.ogv';
+import ArtistVidWEBM from './assets/FNFT_ArtistVideo.WebM';
+import NFT4 from './assets/04.png';
+import NFT16 from './assets/16.png';
 
 function App() {
   
@@ -149,11 +154,15 @@ function App() {
             <div className="inner-main">
               <Hero soldOut={soldOut} saleActive={saleActive} pubSale={pubSale} wallet={wallet} onAlert={onAlert} />
 
-                <div className='spacing-medium'>
+                <div className='spacing-medium artist-bio'>
                   <div id='artist' className='primary-section'>
                       <FadeInContainer animation="fade-in">
                         <div className='video-container'>
-
+                          <video width="100%" controls autoPlay loop>
+                            <source src={ArtistVidMP4} type='video/mp4'></source>
+                            <source src={ArtistVidOGV} type='video/ogv'></source>
+                            <source src={ArtistVidWEBM} type='video/webm'></source>
+                          </video>
                         </div>
                       </FadeInContainer>
                       <FadeInContainer animation="fade-in">
@@ -161,7 +170,7 @@ function App() {
                           <div>
                             <img src={ImgPlaceholder} width="200px"></img>
                           </div>
-                          <div style={{width: '75%'}}>
+                          <div className='inner-body-text'>
                             <h2 className='text-left'>About the Artist</h2>
                             <p>
                               Ahmed Safer, born in Kuwait, is a prominent visual artist and designer. As Ahmed describes his art as a "worlds of imagination"
@@ -175,17 +184,17 @@ function App() {
                     </div>
                 </div>
                   
-                <div className='spacing-medium'>
+                <div className='spacing-medium project-background'>
                   <div className='primary-section'>
                     <div className='flex-align-center section-2'>
                       <div className='section-2-img'>
                         <FadeInContainer animation="fade-left">
                           <div>
-                            <img src={ImgPlaceholder} width="400px"></img>
+                            <img style={{transform: 'scale(2)', paddingRight: 100, paddingBottom: 64}} src={NFT16} width="368px"></img>
                           </div>
                         </FadeInContainer>
                       </div>
-                      <div style={{width: '50%'}}>
+                      <div className='inner-body-text'>
                         <FadeInContainer animation="fade-right">
                           <div className='text-left'>
                             <h2>What Makes Fantazya's World Special?</h2><br></br>
@@ -208,7 +217,7 @@ function App() {
                   </div>
                 </div>
 
-                <div className='spacing-medium'>
+                <div className='spacing-medium project-background2'>
                   <div className='primary-section flex-align-center section-3'>
                     <div className='circle-container'>
                       <FadeInContainer animation="fade-left">
@@ -226,20 +235,20 @@ function App() {
                       <div className='section-3-img'>
                         <FadeInContainer animation="fade-right">
                           <div>
-                            <img src={ImgPlaceholder} width="368px"></img>
+                            <img style={{transform: 'scale(2)'}} src={NFT4} width="368px"></img>
                           </div>
                         </FadeInContainer>                        
                       </div>                                    
                   </div>
                 </div>
 
-                <div className='spacing-medium'>
+                <div className='spacing-medium roadmap-background'>
                   <div className='primary-section'>
                     <Roadmap />
                   </div>
                 </div>
 
-                <div className='spacing-medium'>
+                <div className='spacing-medium founders-background'>
                   <div id="founders" className='primary-section'>
                     <FadeInContainer animation="fade-in">
                       <Founders />
@@ -248,10 +257,7 @@ function App() {
                 </div>
                   
                 <FAQs />     
-
-                <div className='spacing-medium'>
-                  <Button className='custom-button secondary medium'>Join the Community</Button>
-                </div>      
+     
               <Footer />
             </div>            
           </div>          

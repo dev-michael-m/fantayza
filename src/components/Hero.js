@@ -149,10 +149,7 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
             </p>
           </CustomModal>
         ) : null}
-        <div style={{marginTop: 100, padding: '200px 0px'}}>
-          {/* <img src={Banner} width="100%"></img> */}
-          <div style={{width: '100%', height: 8, backgroundColor: 'darkturquoise'}} id="divider"></div>
-          <h1 className='hero-header'>Fantazya</h1>
+        <div className='inner-hero' style={{padding: '340px 0px'}}>
           <div style={{ margin: 30 }}>
             {/* <Button
               style={{height: 36}}
@@ -164,7 +161,7 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
             </Button> */}
           </div>
         </div>
-        <div id="welcome-section" className="section-large primary-section spacing-medium">
+        <div id="welcome-section" className="section-large primary-section spacing-medium welcome-section">
           <FadeInContainer animation="fade-left">
             <div className='hero-section-doc'>
               <p>

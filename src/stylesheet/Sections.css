@@ -68,9 +68,9 @@
     }
 }
 
-@media screen and (max-width: 615px) {
+@media screen and (max-width: 800px) {
     .hero-section-doc {
-        width: 50%;
+        width: 66%;
     }
 }
 

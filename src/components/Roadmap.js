@@ -1,22 +1,17 @@
 import React from 'react';
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
-import StepContent from '@mui/material/StepContent';
 import VerticalStepper from './VerticalStepper';
+import RoadmapImg from '../assets/FNFT_Website07.png';
+import '../stylesheet/RoadMap.css';
 
 const DETAILS = [
     {
         label: 'Q2',
         subSteps: [
             {
-                description: `- Minting of Fantazya collection in April 2022`
+                description: `-Minting of Fantazya collection end of April/early May 2022.`
             },
             {
-                description: `- Role assignment of holders & grants`
-            },
-            {
-                description: `- Exclusive merchandise & action figures for holders`
+                description: `-Exclusive merchandise - Early May`
             }
         ]
     },
@@ -24,13 +19,13 @@ const DETAILS = [
         label: 'Q3',
         subSteps: [
             {
-                description: `  - Minting of Super Rays Q3 2022`
+                description: `-DAO governance and AZYA utility token mid May`
             },
             {
-                description: `  - Establishment of movie theater in the metaverse`
+                description: `-Role assignment of holders mid May`
             },
             {
-                description: `  - Development of Fantazya animated series`
+                description: `-NFT staking mid May`
             }
         ]
     },
@@ -38,13 +33,24 @@ const DETAILS = [
         label: 'Q4',
         subSteps: [
             {
-                description: `- DAO setup & tokenization`
+                description: `-Movie director and animation team recruitment early June`
             },
             {
-                description: `- Distribution of ticket sales to holders`
+                description: `-Minting of Fantazya 3D collection and free NFT airdrops to holders June`
             }
         ]
-    }
+    },
+    {
+        label: 'Q5',
+        subSteps: [
+            {
+                description: `-Development of Fantazya animated series - Early July`
+            },
+            {
+                description: `-Distribution of ticket sales to holders - July`
+            }
+        ]
+    },
 ]
 
 const Roadmap = () => {
@@ -53,6 +59,7 @@ const Roadmap = () => {
         <div id="roadmap">
             <h1>Roadmap</h1>
             <VerticalStepper steps={DETAILS} />
+            <img className='roadmap-img' src={RoadmapImg}></img>
             <h2>Phase II to be confirmed by the holders</h2>
         </div>
     )

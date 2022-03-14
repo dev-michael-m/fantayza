@@ -5,6 +5,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AddIcon from '@mui/icons-material/Add';
 import CloseIcon from '@mui/icons-material/Close';
 import FadeInContainer from './FadeInContainer';
+import Button from '@mui/material/Button';
 import '../stylesheet/FAQs.css';
 
 
@@ -16,7 +17,7 @@ const FAQs = () => {
     }
 
     return (
-        <div id="faqs" className='faq-container'>
+        <div id="faqs" className='faq-container project-background2'>
             <FadeInContainer animation="fade-in">
                 <h1>FAQs</h1>
             </FadeInContainer>
@@ -84,6 +85,9 @@ const FAQs = () => {
                 </AccordionDetails>
             </Accordion>
             </FadeInContainer>
+            <div className='spacing-medium'>
+                <Button className='custom-button medium' variant="outlined">Join the Community</Button>
+            </div> 
             </div>
         </div>
     )

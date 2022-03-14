@@ -82,7 +82,7 @@ const NavBar = ({onConnectWallet, wallet}) => {
                     </div>  
                     <div>
                         { !wallet.address ?
-                            <Button style={{height: 36}} className='custom-button secondary small' variant='contained' onClick={onConnectWallet}>connect wallet</Button> :
+                            <Button style={{height: 36}} className='custom-button small' variant='outlined' onClick={onConnectWallet}>connect wallet</Button> :
                             <div style={{color: 'white'}} className='flex-align-center'>
                                 <VerifiedIcon style={{fontSize: 18, marginRight: 10}} />
                                 <p>{wallet.address}</p>

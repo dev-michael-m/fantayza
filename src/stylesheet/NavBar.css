@@ -90,13 +90,17 @@
 
 .custom-button {
     width: 100% !important;
-    color: rgb(0,0,0) !important;
+    color: rgb(255,255,255) !important;
     text-transform: none !important;
     font-family: 'Shadows Into Light Two', 'cursive' !important;
     font-weight: bold !important;
     font-size: 20px !important;
-    border-radius: 0px !important;
     letter-spacing: 3px;
+    border-color: rgb(255,255,255) !important;
+}
+
+.inner-body-text {
+    width: 75%;
 }
 
 .custom-button:hover {
@@ -155,7 +159,12 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
 }
 
 .secondary-text {
-    color: #f5deb3 !important;
+    color: #ff0177 !important;
+}
+
+.profile-avatar {
+    width: 200px !important;
+    height: 200px !important;
 }
 
 .timer-2 {
@@ -284,6 +293,55 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
 
 .hero-container {
     overflow: hidden;
+}
+
+.founders-background {
+    background-image: url('../assets/FNFT_Website05.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.roadmap-background {
+    background-image: url('../assets/FNFT_Website08.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.project-background2 {
+    background-image: url('../assets/FNFT_Website06.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.project-background {
+    background-image: url('../assets/FNFT_Website05.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.welcome-section {
+    background-image: url('../assets/FNFT_Website03.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.artist-bio {
+    background-image: url('../assets/FNFT_Website04.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.inner-hero {
+    background-image: url('../assets/FNFT_Website01.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .mint-num input {
@@ -645,6 +703,10 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
     .carousel-sub-img {
         width: 188px;
     }
+
+    .inner-body-text {
+        width: 100%;
+    }
   }
 
   @media screen and (min-width: 515px) and (max-width: 600px){
@@ -655,12 +717,20 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
     .carousel-sub-img {
         width: 160px;
     }
+
+    .inner-body-text {
+        width: 100%;
+    }
   }
 
   @media screen and (min-width: 400px) and (max-width: 515px) {
       .carousel-sub-img {
           width: 136px;
       }
+
+      .inner-body-text {
+        width: 100%;
+    }
   }
 
   @media screen and (min-width: 350px) and (max-width: 400px) {
@@ -671,10 +741,18 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
       .carousel-sub-img {
           width: 120px;
       }
+
+      .inner-body-text {
+        width: 100%;
+    }
   }
 
   @media screen and (max-width: 350px) {
       .nav-logo {
           width: 118px;
       }
+
+      .inner-body-text {
+        width: 100%;
+    }
   }

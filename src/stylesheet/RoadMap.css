@@ -51,6 +51,46 @@
     align-items: center;
 }
 
+.roadmap-img {
+    width: 545px;
+    position: absolute;
+    left: 50%;
+    z-index: 40;
+    transform: translate(-50%, -682px);
+}
+
+.road-padding-right {
+    padding-right: 75px;
+}
+
+.road-padding-left {
+    padding-left: 75px;
+}
+
+/* @media screen and (min-width: 1440px) {
+    .roadmap-img {
+        transform: translate(-50%, -105%);
+    }
+}
+
+@media screen and (min-width: 1275px) and (max-width: 1440px) {
+    .roadmap-img {
+        transform: translate(-50%, -110%);
+    }
+}
+
+@media screen and (min-width: 1040px) and (max-width: 1275px) {
+    .roadmap-img {
+        transform: translate(-50%, -120%);
+    }
+}
+
+@media screen and (min-width: 960px) and (max-width: 1040px) {
+    .roadmap-img {
+        transform: translate(-50%, -125%);
+    }
+} */
+
 @media screen and (min-width: 768px) {
     .roadmap-container {
         padding: 100px;

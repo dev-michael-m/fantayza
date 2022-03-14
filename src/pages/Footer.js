@@ -19,7 +19,7 @@ const Footer = () => {
             <div className="footer-copyright">
                 <label>&copy; {new Date().getFullYear()} Fantazya. All Rights Reserved.</label>
             </div>
-            <div style={{fontSize: 10, color: 'rgba(255,255,255,0.52)'}}>
+            <div style={{fontSize: 10, color: 'rgba(255,255,255)'}}>
                 <label>Powered by <u>Apexeth.io</u></label>
             </div>
         </div>
