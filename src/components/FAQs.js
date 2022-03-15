@@ -61,7 +61,7 @@ const FAQs = () => {
                     <p>How much will it cost?</p>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <p style={{fontWeight: 'normal'}}><b>Mint price is 0.175 ETH + gas given the detail of the artwork and the time consumed to create Fantazya's world while ensuring the funds for her future.</b></p>
+                    <p style={{fontWeight: 'normal'}}><b>Mint price is TBA</b></p>
                 </AccordionDetails>
             </Accordion>
             </FadeInContainer>
@@ -86,7 +86,7 @@ const FAQs = () => {
             </Accordion>
             </FadeInContainer>
             <div className='spacing-medium'>
-                <Button className='custom-button medium' variant="outlined">Join the Community</Button>
+                <Button className='custom-button medium' variant="outlined" onClick={() => document.getElementById('discord-link').click()}>Join the Community</Button>
             </div> 
             </div>
         </div>

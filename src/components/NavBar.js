@@ -24,7 +24,7 @@ const NavBar = ({onConnectWallet, wallet}) => {
 
         switch(id){
             case 'artist':
-                pos = $('#artist').position();
+                pos = $('#artist-bio').position();
                 break;
             case 'roadmap':
                 pos = $('#roadmap').position();
@@ -37,8 +37,11 @@ const NavBar = ({onConnectWallet, wallet}) => {
                 break;
         }
 
-        window.scrollTo({top: pos.top, behavior: 'smooth'})
-        toggleDrawer();        
+        setTimeout(() => {
+            window.scrollTo({top: pos.top, behavior: 'smooth'})
+            toggleDrawer();   
+        },100);       
+             
     }
 
     return (
@@ -70,13 +73,13 @@ const NavBar = ({onConnectWallet, wallet}) => {
                 </div>
                 <div className='flex-align-center'>
                     <div style={{marginRight: 28}} className="socials">
-                        <IconButton>
+                        <IconButton onClick={() => document.getElementById('twitter-link').click()}>
                             <TwitterIcon style={{color: 'rgb(255,255,255)'}} />
                         </IconButton>
-                        <IconButton>
+                        <IconButton onClick={() => document.getElementById('insta-link').click()}>
                             <InstagramIcon style={{color: 'rgb(255,255,255)'}} />
                         </IconButton>
-                        <IconButton>
+                        <IconButton onClick={() => document.getElementById('discord-link').click()}>
                             <img src={DiscordIcon} width="26px"></img>
                         </IconButton>
                     </div>  

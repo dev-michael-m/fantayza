@@ -295,74 +295,74 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
     overflow: hidden;
 }
 
-.founders-background {
+/* .founders-background {
     background-image: none;
-}
+} */
 
-.founders-background.lazy {
-    background-image: url('../assets/FNFT_Website05.jpg');
+.founders-background {
+    background-image: url('../assets/FNFT_Website05_LowRes.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .roadmap-background {
-    background-image: url('../assets/FNFT_Website08.jpg');
+    background-image: url('../assets/FNFT_Website08_LowRes.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
+
+/* .project-background2 {
+    background-image: none;
+} */
 
 .project-background2 {
-    background-image: none;
-}
-
-.project-background2.lazy {
-    background-image: url('../assets/FNFT_Website06.jpg');
+    background-image: url('../assets/FNFT_Website06_LowRes.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
+
+/* .project-background {
+    background-image: none;
+} */
 
 .project-background {
-    background-image: none;
-}
-
-.project-background.lazy {
-    background-image: url('../assets/FNFT_Website05.jpg');
+    background-image: url('../assets/FNFT_Website05_LowRes.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
+
+/* .welcome-section {
+    background-image: none;
+} */
 
 .welcome-section {
-    background-image: none;
-}
-
-.welcome-section.lazy {
-    background-image: url('../assets/FNFT_Website03.jpg');
+    background-image: url('../assets/FNFT_Website03_LowRes.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
+
+/* .artist-bio {
+    background-image: none;
+} */
 
 .artist-bio {
-    background-image: none;
-}
-
-.artist-bio.lazy {
-    background-image: url('../assets/FNFT_Website04.jpg');
+    background-image: url('../assets/FNFT_Website04_LowRes.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.inner-hero {
+/* .inner-hero {
     background-image: none;
-}
+} */
 
-.inner-hero.lazy {
-    background-image: url('../assets/FNFT_Website01.jpg');
+.inner-hero {
+    background-image: url('../assets/FNFT_Website01_LowRes.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

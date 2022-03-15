@@ -16,12 +16,12 @@ const FadeInContainer = (props) => {
             entries.forEach(entry => {
                 if(entry.isIntersecting){
                     setVisible(entry.isIntersecting);
-                    const parentEl = entry.target.parentElement.id;
+                    // const parentEl = entry.target.parentElement.id;
                     
-                    if(parentEl){
-                        console.log({parentEl})
-                        $(`#${parentEl}`).addClass('lazy');            
-                    }                    
+                    // if(parentEl){
+                    //     console.log({parentEl})
+                    //     $(`#${parentEl}`).addClass('lazy');            
+                    // }                    
                 }
             })
         },opts);

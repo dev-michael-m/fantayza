@@ -17,7 +17,7 @@ import Founders from './components/Founders';
 import ArtistVidMP4 from './assets/FNFT_ArtistVideo.mp4';
 import NFT4 from './assets/04.png';
 import NFT16 from './assets/16.png';
-import ArtistImg from './assets/FNFT_Artist.jpg';
+import ArtistImg from './assets/FNFT_Artist_Edited.jpg';
 import $ from 'jquery';
 
 const IMGNUM = 8;
@@ -293,6 +293,9 @@ function App() {
                 <FAQs />     
      
               <Footer />
+              <a id="twitter-link" href='https://twitter.com/fantazyanft' hidden target="_blank"></a>
+              <a id="insta-link" href='https://instagram.com/fantazyanft' hidden target="_blank"></a>
+              <a id="discord-link" href='#' hidden target="_blank"></a>
             </div>            
           </div>          
         </MainApp>

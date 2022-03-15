@@ -11,9 +11,9 @@ const Footer = () => {
             <div style={{paddingTop: 14}}>
                 <label >Fantazya</label>
                 <div style={{marginTop: 20, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                    <TwitterIcon style={{margin: '0px 10px'}} onClick={() => document.getElementById('twitter-link-hero').click()} />
-                    <InstagramIcon style={{margin: '0px 10px'}} onClick={() => document.getElementById('instagram-link-hero').click()} />
-                    <img style={{margin: '0px 10px'}} src={DiscordIcon} width="26px" onClick={() => document.getElementById('discord-link-hero').click()}></img>
+                    <TwitterIcon style={{margin: '0px 10px'}} onClick={() => document.getElementById('twitter-link').click()} />
+                    <InstagramIcon style={{margin: '0px 10px'}} onClick={() => document.getElementById('insta-link').click()} />
+                    <img style={{margin: '0px 10px'}} src={DiscordIcon} width="26px" onClick={() => document.getElementById('discord-link').click()}></img>
                 </div>
             </div>
             <div className="footer-copyright">
