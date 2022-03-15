@@ -149,18 +149,24 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
             </p>
           </CustomModal>
         ) : null}
-        <div className='inner-hero' style={{padding: '340px 0px'}}>
-          <div style={{ margin: 30 }}>
-            {/* <Button
-              style={{height: 36}}
-              className='custom-button secondary small'
-              variant="contained"
-              onClick={onConnectWallet}
-            >
-              mint
-            </Button> */}
+        <div id="inner-hero" className='inner-hero'>
+        <FadeInContainer animation="fade-in">
+          <div style={{padding: '340px 0px'}}>
+            <div style={{ margin: 30 }}>
+              {/* <Button
+                style={{height: 36}}
+                className='custom-button secondary small'
+                variant="contained"
+                onClick={onConnectWallet}
+              >
+                mint
+              </Button> */}
+            </div>
           </div>
+        </FadeInContainer>
         </div>
+        
+        
         <div id="welcome-section" className="section-large primary-section spacing-medium welcome-section">
           <FadeInContainer animation="fade-left">
             <div className='hero-section-doc'>

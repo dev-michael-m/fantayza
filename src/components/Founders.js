@@ -14,7 +14,7 @@ const Founders = () => {
             <div style={{width: 245, padding: 25}} className='flex-align-all flex-column'>
                 <div>
                     {/* <img src={ImgPlaceholder} width='200px'></img> */}
-                    <Avatar className="profile-avatar" src={Profile1} />
+                    <Avatar className="profile-avatar box-shadow" src={Profile1} />
                 </div>
                 <div className='flex-align-all flex-column'>
                     <p className="primary-text"><b>Ahmed</b></p>
@@ -25,7 +25,7 @@ const Founders = () => {
             <div style={{width: 245, padding: 25}} className='flex-align-all flex-column'>
                 <div>
                     {/* <img src={ImgPlaceholder} width='200px'></img> */}
-                    <Avatar className="profile-avatar" src={Profile4} />
+                    <Avatar className="profile-avatar box-shadow" src={Profile4} />
                 </div>
                 <div className='flex-align-all flex-column'>
                     <p className="primary-text"><b>Ruba</b></p>
@@ -36,7 +36,7 @@ const Founders = () => {
             <div style={{width: 245, padding: 25}} className='flex-align-all flex-column'>
                 <div>
                     {/* <img src={ImgPlaceholder} width='200px'></img> */}
-                    <Avatar className="profile-avatar" src={Profile5} />
+                    <Avatar className="profile-avatar box-shadow" src={Profile5} />
                 </div>
                 <div className='flex-align-all flex-column'>
                     <p className="primary-text"><b>Yousef</b></p>
@@ -47,7 +47,7 @@ const Founders = () => {
             <div style={{width: 245, padding: 25}} className='flex-align-all flex-column'>
                 <div>
                     {/* <img src={f1Img} width='200px'></img> */}
-                    <Avatar className="profile-avatar" src={Profile2} />
+                    <Avatar className="profile-avatar box-shadow" src={Profile2} />
                 </div>
                 <div className='flex-align-all flex-column'>
                     <p className="primary-text"><b>Michael</b></p>
@@ -58,7 +58,7 @@ const Founders = () => {
             <div style={{width: 245, padding: 25}} className='flex-align-all flex-column'>
                 <div>
                     {/* <img src={ImgPlaceholder} width='200px'></img> */}
-                    <Avatar className="profile-avatar" src={Profile3} />
+                    <Avatar className="profile-avatar box-shadow" src={Profile3} />
                 </div>
                 <div className='flex-align-all flex-column'>
                     <p className="primary-text"><b>Ricardo</b></p>

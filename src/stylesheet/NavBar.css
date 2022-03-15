@@ -296,6 +296,10 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
 }
 
 .founders-background {
+    background-image: none;
+}
+
+.founders-background.lazy {
     background-image: url('../assets/FNFT_Website05.jpg');
     background-size: cover;
     background-position: center;
@@ -310,6 +314,10 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
 }
 
 .project-background2 {
+    background-image: none;
+}
+
+.project-background2.lazy {
     background-image: url('../assets/FNFT_Website06.jpg');
     background-size: cover;
     background-position: center;
@@ -317,6 +325,10 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
 }
 
 .project-background {
+    background-image: none;
+}
+
+.project-background.lazy {
     background-image: url('../assets/FNFT_Website05.jpg');
     background-size: cover;
     background-position: center;
@@ -324,6 +336,10 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
 }
 
 .welcome-section {
+    background-image: none;
+}
+
+.welcome-section.lazy {
     background-image: url('../assets/FNFT_Website03.jpg');
     background-size: cover;
     background-position: center;
@@ -331,6 +347,10 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
 }
 
 .artist-bio {
+    background-image: none;
+}
+
+.artist-bio.lazy {
     background-image: url('../assets/FNFT_Website04.jpg');
     background-size: cover;
     background-position: center;
@@ -338,6 +358,10 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
 }
 
 .inner-hero {
+    background-image: none;
+}
+
+.inner-hero.lazy {
     background-image: url('../assets/FNFT_Website01.jpg');
     background-size: cover;
     background-position: center;
@@ -347,6 +371,10 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
 .mint-num input {
     width: 40px;
     text-align: center;
+}
+
+.box-shadow {
+    box-shadow: 0px 2px 10px black;
 }
 
 .hero-div-bottom {

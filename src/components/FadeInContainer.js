@@ -3,6 +3,10 @@ import $ from 'jquery';
 
 const TOTAL_PROG = 180;
 
+const opts = {
+    threshold: 0.02
+}
+
 const FadeInContainer = (props) => {
     const [visible, setVisible] = useState(false);
     const domRef = useRef();
@@ -12,13 +16,15 @@ const FadeInContainer = (props) => {
             entries.forEach(entry => {
                 if(entry.isIntersecting){
                     setVisible(entry.isIntersecting);
-                    if(props.progress_enabled){
-                        const percent = (TOTAL_PROG / props.progress) / 100;
-                        $('#progress-bar').css({transform: `rotate(${45 + (TOTAL_PROG * percent)}deg)`});
+                    const parentEl = entry.target.parentElement.id;
+                    
+                    if(parentEl){
+                        console.log({parentEl})
+                        $(`#${parentEl}`).addClass('lazy');            
                     }                    
                 }
             })
-        });
+        },opts);
 
         observer.observe(domRef.current);
 
