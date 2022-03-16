@@ -734,6 +734,9 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
 
     .inner-body-text {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
   }
 
@@ -748,6 +751,9 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
 
     .inner-body-text {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
   }
 
@@ -758,7 +764,15 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
 
       .inner-body-text {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
+
+    /* .inner-hero {
+        background-size: auto 70%;
+        background-position: top;
+    } */
   }
 
   @media screen and (min-width: 350px) and (max-width: 400px) {
@@ -772,7 +786,15 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
 
       .inner-body-text {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
+
+    /* .inner-hero {
+        background-size: auto 70%;
+        background-position: top;
+    } */
   }
 
   @media screen and (max-width: 350px) {
@@ -782,5 +804,8 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
 
       .inner-body-text {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
   }

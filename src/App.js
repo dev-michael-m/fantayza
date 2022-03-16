@@ -171,7 +171,6 @@ function App() {
               <Hero soldOut={soldOut} saleActive={saleActive} pubSale={pubSale} wallet={wallet} onAlert={onAlert} />
 
               <div id="artist-bio" className='artist-bio'>
-              <FadeInContainer animation="fade-in">
                 <div className='spacing-medium'>
                     <div className='primary-section'>
                       <FadeInContainer animation="fade-in">
@@ -200,11 +199,9 @@ function App() {
                     </div>
                   
                 </div>
-              </FadeInContainer>
               </div>
               
                 <div id="project-background" className='project-background'>
-                <FadeInContainer animation="fade-in">
                 <div className='spacing-medium'>
                   <div className='primary-section'>
                     <div className='flex-align-center section-2'>
@@ -237,12 +234,10 @@ function App() {
                     </div>                    
                   </div>
                 </div>
-                </FadeInContainer>
                 </div>
                 
                 
                 <div id="project-background2" className='project-background2'>
-                  <FadeInContainer animation="fade-in">
                   <div className='spacing-medium'>
                   <div className='primary-section flex-align-center section-3'>
                     <div className='circle-container'>
@@ -260,14 +255,13 @@ function App() {
                     </div>
                       <div className='section-3-img'>
                         <FadeInContainer animation="fade-right">
-                          <div>
+                          <div style={{marginBottom: 36}}>
                             <img style={{transform: 'scale(2)'}} src={NFT4} width="368px"></img>
                           </div>
                         </FadeInContainer>                        
                       </div>                                    
                   </div>
                 </div>
-                  </FadeInContainer>
                 </div>
                 
 
@@ -278,15 +272,11 @@ function App() {
                 </div>
 
                 <div id="founders-background" className='founders-background'>
-                  <FadeInContainer animation="fade-in">
                   <div className='spacing-medium'>
                     <div id="founders" className='primary-section'>
-                      <FadeInContainer animation="fade-in">
                         <Founders />
-                      </FadeInContainer>
                     </div>
                   </div>
-                  </FadeInContainer>
                 </div>
                 
                   
