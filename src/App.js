@@ -16,8 +16,9 @@ import Roadmap from './components/Roadmap';
 import Founders from './components/Founders';
 import ArtistVidMP4 from './assets/FNFT_ArtistVideo.mp4';
 import NFT4 from './assets/04.png';
-import NFT16 from './assets/16.png';
-import ArtistImg from './assets/FNFT_Artist_Edited.jpg';
+import NFT16 from './assets/16_Resized.png';
+import ArtistImg from './assets/FNFT_Artist_Resized.jpg';
+import BodyImg from './assets/FNFT_Character_Body2.png';
 import $ from 'jquery';
 
 const IMGNUM = 8;
@@ -208,7 +209,7 @@ function App() {
                       <div id="section-2-img" className='section-2-img'>
                         <FadeInContainer animation="fade-left">
                           <div>
-                            <img style={{transform: 'scale(2)', paddingRight: 100, paddingBottom: 64}} src={NFT16} width="368px"></img>
+                            <img style={{transform: 'scale(1.75)', paddingRight: 100, paddingBottom: 64}} src={BodyImg} width="368px"></img>
                           </div>
                         </FadeInContainer>
                       </div>
@@ -256,7 +257,7 @@ function App() {
                       <div className='section-3-img'>
                         <FadeInContainer animation="fade-right">
                           <div style={{marginBottom: 36}}>
-                            <img style={{transform: 'scale(2)'}} src={NFT4} width="368px"></img>
+                            <img style={{transform: 'scale(2)'}} src={NFT16} width="368px"></img>
                           </div>
                         </FadeInContainer>                        
                       </div>                                    
