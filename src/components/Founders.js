@@ -5,9 +5,7 @@ import Profile3 from '../assets/FNFT_Profile_Ricardo_Resized.jpg';
 import Profile4 from '../assets/FNFT_Profile_Ruba_Resized.jpg';
 import Profile5 from '../assets/FNFT_Profile_Yousef_Resized.jpg';
 import Avatar from '@mui/material/Avatar';
-import loadable from '@loadable/component';
-
-const FadeInContainer = loadable(() => import('./FadeInContainer'));
+import FadeInContainer from './FadeInContainer';
 
 const Founders = () => {
     

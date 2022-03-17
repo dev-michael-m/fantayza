@@ -8,18 +8,16 @@ import ArtistVidMP4 from './assets/FNFT_ArtistVideo.mp4';
 import NFT16 from './assets/16_Resized.png';
 import ArtistImg from './assets/FNFT_Artist_Resized.jpg';
 import BodyImg from './assets/FNFT_Character_Body2.png';
-import loadable from '@loadable/component';
+import AlertBar from './components/AlertBar';
+import CustomModal from './components/Modal';
+import FadeInContainer from './components/FadeInContainer';
+import FAQs from './components/FAQs';
+import Roadmap from './pages/Roadmap';
+import Founders from './components/Founders';
+import Footer from './pages/Footer';
+import MainApp from './pages/MainApp';
+import Hero from './components/Hero';
 import $ from 'jquery';
-
-const AlertBar = loadable(() => import('./components/AlertBar'));
-const CustomModal = loadable(() => import('./components/Modal'));
-const FadeInContainer = loadable(() => import('./components/FadeInContainer'));
-const FAQs = loadable(() => import('./components/FAQs'));
-const Roadmap = loadable(() => import('./components/Roadmap'));
-const Founders = loadable(() => import('./components/Founders'));
-const Footer = loadable(() => import('./pages/Footer'));
-const MainApp = loadable(() => import('./pages/MainApp'));
-const Hero = loadable(() => import('./components/Hero'));
 
 function App() {
   

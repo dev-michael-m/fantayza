@@ -6,9 +6,7 @@ import AddIcon from '@mui/icons-material/Add';
 import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import '../stylesheet/FAQs.css';
-import loadable from '@loadable/component';
-
-const FadeInContainer = loadable(() => import('./FadeInContainer'));
+import FadeInContainer from './FadeInContainer';
 
 const FAQs = () => {
     const [expanded,setExpanded] = useState(false);

@@ -9,10 +9,9 @@ import TextField from '@mui/material/TextField';
 import '../stylesheet/Hero.css';
 import CircularProgress from '@mui/material/CircularProgress';
 import { ethers } from "ethers";
-import loadable from '@loadable/component';
+import CustomModal from './Modal';
+import FadeInContainer from './FadeInContainer';
 const NETWORK = 'etherscan';
-const CustomModal = loadable(() => import('./Modal'));
-const FadeInContainer = loadable(() => import('./FadeInContainer'));
 
 const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
     const [tokens,setTokens] = useState(10);
