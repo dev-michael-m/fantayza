@@ -12,7 +12,7 @@ import AlertBar from './components/AlertBar';
 import CustomModal from './components/Modal';
 import FadeInContainer from './components/FadeInContainer';
 import FAQs from './components/FAQs';
-import Roadmap from './pages/Roadmap';
+import Roadmap from './components/Roadmap';
 import Founders from './components/Founders';
 import Footer from './pages/Footer';
 import MainApp from './pages/MainApp';
