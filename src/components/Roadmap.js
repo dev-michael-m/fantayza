@@ -1,5 +1,4 @@
 import React from 'react';
-import VerticalStepper from './VerticalStepper';
 import RoadmapImg from '../assets/FNFT_Roadmap_v001.jpg';
 import '../stylesheet/RoadMap.css';
 
@@ -58,9 +57,7 @@ const Roadmap = () => {
     return (
         <div id="roadmap">
             <h1 style={{paddingBottom: 50}}>Roadmap</h1>
-            {/* <VerticalStepper steps={DETAILS} /> */}
             <img src={RoadmapImg} width="100%"></img>
-            {/* <h2>Phase II to be confirmed by the holders</h2> */}
         </div>
     )
 }

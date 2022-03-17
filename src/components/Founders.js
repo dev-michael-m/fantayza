@@ -1,12 +1,13 @@
 import React from 'react';
-import ImgPlaceholder from '../assets/image-placeholder.jpg';
 import Profile1 from '../assets/FNFT_Profile_Ahmed_Resized.jpg';
 import Profile2 from '../assets/FNFT_Profile_Michael_Resized.jpg';
 import Profile3 from '../assets/FNFT_Profile_Ricardo_Resized.jpg';
 import Profile4 from '../assets/FNFT_Profile_Ruba_Resized.jpg';
 import Profile5 from '../assets/FNFT_Profile_Yousef_Resized.jpg';
 import Avatar from '@mui/material/Avatar';
-import FadeInContainer from './FadeInContainer';
+import loadable from '@loadable/component';
+
+const FadeInContainer = loadable(() => import('./FadeInContainer'));
 
 const Founders = () => {
     

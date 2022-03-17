@@ -1,27 +1,26 @@
 import './App.css';
 import './stylesheet/Sections.css';
-import Hero from './components/Hero';
-import Footer from './pages/Footer';
-import MainApp from './pages/MainApp';
 import { ConnectWallet, getSoldOut, getPublicState } from './utilities/util';
 import { useEffect, useState } from 'react';
-import AlertBar from './components/AlertBar';
 import Button from '@mui/material/Button';
-import CustomModal from './components/Modal';
 import MetaMaskLogo from './assets/metamask-icon.jpg';
-import ImgPlaceholder from './assets/image-placeholder.jpg';
-import FadeInContainer from './components/FadeInContainer';
-import FAQs from './components/FAQs';
-import Roadmap from './components/Roadmap';
-import Founders from './components/Founders';
 import ArtistVidMP4 from './assets/FNFT_ArtistVideo.mp4';
-import NFT4 from './assets/04.png';
 import NFT16 from './assets/16_Resized.png';
 import ArtistImg from './assets/FNFT_Artist_Resized.jpg';
 import BodyImg from './assets/FNFT_Character_Body2.png';
+import loadable from '@loadable/component';
+import Lazy from './components/Lazy';
 import $ from 'jquery';
 
-const IMGNUM = 8;
+const AlertBar = loadable(() => import('./components/AlertBar'));
+const CustomModal = loadable(() => import('./components/Modal'));
+const FadeInContainer = loadable(() => import('./components/FadeInContainer'));
+const FAQs = loadable(() => import('./components/FAQs'));
+const Roadmap = loadable(() => import('./components/Roadmap'));
+const Founders = loadable(() => import('./components/Founders'));
+const Footer = loadable(() => import('./pages/Footer'));
+const MainApp = loadable(() => import('./pages/MainApp'));
+const Hero = loadable(() => import('./components/Hero'));
 
 function App() {
   
@@ -41,6 +40,7 @@ function App() {
   const [soldOut,setSoldOut] = useState(false);
   const [saleActive,setSaleActive] = useState(false);
   const [pubSale,setPubSale] = useState(false);
+  const [loaded,setLoaded] = useState([]);
   const [extReady,setExtReady] = useState(false);
 
     useEffect(() => {
@@ -117,6 +117,16 @@ function App() {
     setModalOpen(true);
   };
 
+  // const isLoaded = (idx) => {
+  //   console.log(loaded.indexOf(idx))
+  //   return loaded.indexOf(idx) >= 0 ? true : false;
+  // }
+
+  // const onLoad = (idx) => {
+  //   console.log(`loading ${idx}`)
+  //   setLoaded(prevState => [...prevState,idx]);
+  // }
+
   const onWalletClick = async (event) => {
     const selected = event.target.id;
 
@@ -171,6 +181,7 @@ function App() {
             <div className="inner-main">
               <Hero soldOut={soldOut} saleActive={saleActive} pubSale={pubSale} wallet={wallet} onAlert={onAlert} />
 
+              <Lazy>
               <div id="artist-bio" className='artist-bio'>
                 <div className='spacing-medium'>
                     <div className='primary-section'>
@@ -197,12 +208,14 @@ function App() {
                           </div>
                         </div>
                       </FadeInContainer>
-                    </div>
-                  
+                    </div>                  
                 </div>
               </div>
+              </Lazy>
               
-                <div id="project-background" className='project-background'>
+              
+              <Lazy>
+              <div id="project-background" className='project-background'>
                 <div className='spacing-medium'>
                   <div className='primary-section'>
                     <div className='flex-align-center section-2'>
@@ -236,9 +249,11 @@ function App() {
                   </div>
                 </div>
                 </div>
+              </Lazy>
                 
                 
-                <div id="project-background2" className='project-background2'>
+              <Lazy>
+              <div id="project-background2" className='project-background2'>
                   <div className='spacing-medium'>
                   <div className='primary-section flex-align-center section-3'>
                     <div className='circle-container'>
@@ -264,24 +279,31 @@ function App() {
                   </div>
                 </div>
                 </div>
+              </Lazy>
                 
-
+                
+              <Lazy>
                 <div className='spacing-medium-bot roadmap-background'>
-                  <div>
-                    <Roadmap />
+                    <div>
+                      <Roadmap />
+                    </div>
                   </div>
-                </div>
-
-                <div id="founders-background" className='founders-background'>
+              </Lazy>
+                
+              <Lazy>
+              <div id="founders-background" className='founders-background'>
                   <div className='spacing-medium'>
                     <div id="founders" className='primary-section'>
                         <Founders />
                     </div>
                   </div>
                 </div>
+              </Lazy>
                 
-                  
+                
+              <Lazy>
                 <FAQs />     
+              </Lazy>
      
               <Footer />
               <a id="twitter-link" href='https://twitter.com/fantazyanft' hidden target="_blank"></a>

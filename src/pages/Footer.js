@@ -3,7 +3,6 @@ import '../stylesheet/Footer.css';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import DiscordIcon from '../assets/discord.png';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import IconButton from '@mui/material/IconButton';
 
 const Footer = () => {
     return (

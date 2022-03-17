@@ -1,5 +1,7 @@
 import React from 'react';
-import NavBar from '../components/NavBar';
+import loadable from '@loadable/component';
+
+const NavBar = loadable(() => import('../components/NavBar'));
 
 const MainApp = ({wallet,onAlert,onConnectWallet,children}) => {
     return (

@@ -1,23 +1,18 @@
 import React, {useEffect, useState} from 'react'
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import FadeInContainer from './FadeInContainer';
-import DiscordIcon from '../assets/discordblack.png';
-import OpenSeaIcon from '../assets/openseablack.jpg';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import EtherscanIcon from '../assets/etherscan-logo.png';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import CheckIcon from '@mui/icons-material/CheckCircleOutline';
 import TextField from '@mui/material/TextField';
 //import {mintNFT, getSoldOut} from './../utilities/util';
-import Promo from './Promo';
-import CustomModal from './Modal';
-import VerifiedIcon from '@mui/icons-material/Verified';
 import '../stylesheet/Hero.css';
 import CircularProgress from '@mui/material/CircularProgress';
 import { ethers } from "ethers";
+import loadable from '@loadable/component';
 const NETWORK = 'etherscan';
+const CustomModal = loadable(() => import('./Modal'));
+const FadeInContainer = loadable(() => import('./FadeInContainer'));
 
 const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
     const [tokens,setTokens] = useState(10);
