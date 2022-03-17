@@ -9,7 +9,6 @@ import NFT16 from './assets/16_Resized.png';
 import ArtistImg from './assets/FNFT_Artist_Resized.jpg';
 import BodyImg from './assets/FNFT_Character_Body2.png';
 import loadable from '@loadable/component';
-import Lazy from './components/Lazy';
 import $ from 'jquery';
 
 const AlertBar = loadable(() => import('./components/AlertBar'));
@@ -181,7 +180,7 @@ function App() {
             <div className="inner-main">
               <Hero soldOut={soldOut} saleActive={saleActive} pubSale={pubSale} wallet={wallet} onAlert={onAlert} />
 
-              <Lazy>
+              
               <div id="artist-bio" className='artist-bio'>
                 <div className='spacing-medium'>
                     <div className='primary-section'>
@@ -211,10 +210,10 @@ function App() {
                     </div>                  
                 </div>
               </div>
-              </Lazy>
               
               
-              <Lazy>
+              
+              
               <div id="project-background" className='project-background'>
                 <div className='spacing-medium'>
                   <div className='primary-section'>
@@ -249,10 +248,10 @@ function App() {
                   </div>
                 </div>
                 </div>
-              </Lazy>
+              
                 
                 
-              <Lazy>
+              
               <div id="project-background2" className='project-background2'>
                   <div className='spacing-medium'>
                   <div className='primary-section flex-align-center section-3'>
@@ -279,18 +278,18 @@ function App() {
                   </div>
                 </div>
                 </div>
-              </Lazy>
+              
                 
                 
-              <Lazy>
+              
                 <div className='spacing-medium-bot roadmap-background'>
                     <div>
                       <Roadmap />
                     </div>
                   </div>
-              </Lazy>
+              
                 
-              <Lazy>
+              
               <div id="founders-background" className='founders-background'>
                   <div className='spacing-medium'>
                     <div id="founders" className='primary-section'>
@@ -298,12 +297,12 @@ function App() {
                     </div>
                   </div>
                 </div>
-              </Lazy>
+              
                 
                 
-              <Lazy>
+              
                 <FAQs />     
-              </Lazy>
+              
      
               <Footer />
               <a id="twitter-link" href='https://twitter.com/fantazyanft' hidden target="_blank"></a>
