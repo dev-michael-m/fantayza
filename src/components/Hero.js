@@ -165,21 +165,18 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
           <FadeInContainer animation="fade-left">
             <div className='hero-section-doc'>
               <p>
-                <b>Fantazya</b> - she lives alone in forgotten dwellings, walks along dark alleys,
-                and stays in the shadows to avoid the eyes of the National Service Bureau (NSB) who
-                are after her for her 'gifts'.
-            </p>
+                It's the year <b>3333</b> in the prosperous city of Kiruna, Ruled by the Council of Givers, and adorned with dense forests, mountains, and pristine shores.
+                On one fateful night, General Sly Stark of the neighboring state, Klav, overthrows the Council of Givers, and Kiruna is turned into ruins.
+              </p>
             <p> 
-                Earlier in her childhood, her mother was assassinated by the NSB, so her father
-                took her into hiding. 
+              The once described Utopia, is turned to a Mining City where anarchy, pollution, and starvation become prevalent. 
+              As chemicals taint the night sky with Indigo colors, the Resistance Army, lead by General Noah, tries to take back their city.
+              Noah and his wife Leah are unfortunately killed by General Stark, and are outlived by their daughter - <b>Fantazya</b>. 
             </p>
             <p>
-              Three years later, the NSB assassinated her father, while <b>Fantazya</b> barely escaped,
-              she has been in hiding ever-since.
-            </p>
-            <p>
-              Being exposed to extreme X-Rays when she was a baby made her 'gifts' endless and her mutations
-              unique at 3,333.
+              Struck with the Indigo lights, <b>Fantazya</b> is left with a rare gift that exposes her bones when in anger. 
+              Using her gift as a strength, she fights General Stark while trying to find a better life for the people of Kiruna in the Metaverse.
+              Little does she know, the key to the Metaverse is found in the AZYA rays....
             </p>
             </div>
           </FadeInContainer>
