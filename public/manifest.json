@@ -3,12 +3,12 @@
   "name": "Fantazya NFT",
   "icons": [
     {
-      "src": "fav24.ico",
+      "src": "./fav24.ico",
       "sizes": "24x24",
       "type": "image/x-icon"
     },
     {
-      "src": "fav32.ico",
+      "src": "./fav32.ico",
       "sizes": "32x32",
       "type": "image/x-icon"
     }
