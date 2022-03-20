@@ -167,6 +167,10 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
     height: 200px !important;
 }
 
+.inner-padding {
+    padding: 340px 0px;
+}
+
 .timer-2 {
     color: rgb(255,255,255);
     transform: translateX(0%) rotateX(180deg);
@@ -506,6 +510,10 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
         flex-direction: row;
         align-items: center;
     }
+
+    .inner-padding {
+        padding: 700px 0px;
+    }
 }
 
 @media screen and (min-width: 1420px) and (max-width: 1910px) {
@@ -562,6 +570,14 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
     .hero-inner {
         flex-direction: row;
         align-items: center;
+    }
+
+    .inner-padding {
+        padding: 400px 0px;
+    }
+
+    .inner-padding {
+        padding: 400px 0px;
     }
 }
 
@@ -623,6 +639,10 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
         flex-direction: row;
         align-items: center;
     }
+
+    .inner-padding {
+        padding: 400px 0px;
+    }
 }
 
 @media screen and (min-width: 925px) and (max-width: 1024px) {
@@ -668,6 +688,10 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
     .hero-inner {
         flex-direction: row;
         align-items: center;
+    }
+
+    .inner-padding {
+        padding: 330px 0px;
     }
 }
 
@@ -738,6 +762,10 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
         flex-direction: column;
         align-items: center;
     }
+
+    .inner-padding {
+        padding: 316px 0px;
+    }
   }
 
   @media screen and (min-width: 515px) and (max-width: 600px){
@@ -755,6 +783,10 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
         flex-direction: column;
         align-items: center;
     }
+
+    .inner-padding {
+        padding: 316px 0px;
+    }
   }
 
   @media screen and (min-width: 400px) and (max-width: 515px) {
@@ -769,10 +801,9 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
         align-items: center;
     }
 
-    /* .inner-hero {
-        background-size: auto 70%;
-        background-position: top;
-    } */
+    .inner-padding {
+        padding: 316px 0px;
+    }
   }
 
   @media screen and (min-width: 350px) and (max-width: 400px) {
@@ -791,10 +822,9 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
         align-items: center;
     }
 
-    /* .inner-hero {
-        background-size: auto 70%;
-        background-position: top;
-    } */
+    .inner-padding {
+        padding: 316px 0px;
+    }
   }
 
   @media screen and (max-width: 350px) {
@@ -807,5 +837,9 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    .inner-padding {
+        padding: 316px 0px;
     }
   }

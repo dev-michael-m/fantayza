@@ -145,7 +145,7 @@ const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
         ) : null}
         <div id="inner-hero" className='inner-hero'>
         <FadeInContainer animation="fade-in">
-          <div style={{padding: '340px 0px'}}>
+          <div className='inner-padding'>
             <div style={{ margin: 30 }}>
               {/* <Button
                 style={{height: 36}}
