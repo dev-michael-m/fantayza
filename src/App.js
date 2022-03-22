@@ -305,7 +305,7 @@ function App() {
               <Footer />
               <a id="twitter-link" href='https://twitter.com/fantazyanft' hidden target="_blank"></a>
               <a id="insta-link" href='https://instagram.com/fantazyanft' hidden target="_blank"></a>
-              <a id="discord-link" href='#' hidden target="_blank"></a>
+              <a id="discord-link" href='https://discord.gg/qUG8fXceDt' hidden target="_blank"></a>
             </div>            
           </div>          
         </MainApp>
