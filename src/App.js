@@ -17,7 +17,6 @@ import Founders from './components/Founders';
 import Footer from './pages/Footer';
 import MainApp from './pages/MainApp';
 import Hero from './components/Hero';
-import $ from 'jquery';
 
 function App() {
   
@@ -37,8 +36,6 @@ function App() {
   const [soldOut,setSoldOut] = useState(false);
   const [saleActive,setSaleActive] = useState(false);
   const [pubSale,setPubSale] = useState(false);
-  const [loaded,setLoaded] = useState([]);
-  const [extReady,setExtReady] = useState(false);
 
     useEffect(() => {
       let mounted = true;
@@ -77,7 +74,6 @@ function App() {
         //     console.error(error);
         //   });
         // }
-        loadImages();
       }
         
 
@@ -85,19 +81,6 @@ function App() {
         mounted = false;
       };
     }, []);
-
-    const loadImages = () => {
-      let src = $('inner-hero').css('background-image')
-      let url = '../assets/FNFT_Website01.jpg';
-      let img = new Image();
-
-      img.onLoad = () => {
-        console.log('image loaded');
-      }
-
-      img.src = url;
-      if(img.complete) img.onLoad();
-    }
 
     async function handleAccountsChanged(accounts) {
       if (accounts.length === 0) {

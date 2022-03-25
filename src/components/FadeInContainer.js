@@ -15,13 +15,7 @@ const FadeInContainer = (props) => {
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if(entry.isIntersecting){
-                    setVisible(entry.isIntersecting);
-                    // const parentEl = entry.target.parentElement.id;
-                    
-                    // if(parentEl){
-                    //     console.log({parentEl})
-                    //     $(`#${parentEl}`).addClass('lazy');            
-                    // }                    
+                    setVisible(entry.isIntersecting);                  
                 }
             })
         },opts);
