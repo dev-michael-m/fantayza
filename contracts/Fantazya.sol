@@ -4,35 +4,33 @@
 
 pragma solidity >=0.7.0 <0.9.0;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "./ERC721A.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 
-contract Fantazya is ERC721, Ownable {
+contract Fantazya is ERC721A, Ownable {
     using Strings for uint256;
     using ECDSA for bytes32;
     using ECDSA for bytes;
 
-    uint256 public MAX_SUPPLY = 15; //3333;
+    uint256 public MAX_SUPPLY = 3333;
     uint256 public MAX_BATCH = 2;
-    uint256 public GIVEAWAYS = 10; //100;
-    uint256 public EARLY_SUPPLY = 500;
-    uint256 public WL_SUPPLY = 1000;
-    uint256 public SALE_PRICE = 0.1 ether; //0.175 ether;
-    uint256 public _tokenIds;
+    uint256 public GIVEAWAYS = 100;
+    uint256 public SALE_PRICE = 0.01 ether; //0.175 ether;
     uint16 public sale_state;
     bool public paused;
     bool public revealed;
     string public BASE_URL;
     string public PROVENANCE = "";
     bytes32 public EXTENSION = ".json";
-    mapping(address => bool) private minted;
+    mapping(address => uint256) private minted;
     mapping(address => bool) private owners;
-    uint256 public mintedGiveaways;
-    address public PRIMARY = 0x0200E96F5253EdD00769E443ec904bC3fa1cE0fC;
+    address public PRIMARY;
     address public PUB_KEY;
 
-    constructor() ERC721("Fantazya NFT", "AZYANFT") {}
+    constructor() ERC721A("TEST", "TEST", MAX_BATCH, MAX_SUPPLY) {
+        owners[msg.sender] = true;
+    }
 
     modifier ownerOnly {
         require(owners[msg.sender]);
@@ -42,77 +40,46 @@ contract Fantazya is ERC721, Ownable {
     /* PUBLIC METHODS */
 
     /*
-    
+    *   public should only be allowed to mint one token per address
     */
-    function mint(uint256 quantity) public payable
+    function pubMint() public payable
     {
         require(!paused);
-        require(sale_state == 3, "Sale is currently inactive");
+        require(sale_state == 2, "Public sale is currently inactive");
         require(tx.origin == msg.sender, "Contracts are not allowed to mint");
-        require(quantity <= MAX_BATCH, "Only allowed to mint 2 tokens per transaction");
-        require(msg.value == (SALE_PRICE * quantity), "Incorrect amount of ether");
-        require(!minted[msg.sender], "Address has already minted");
-        require(_tokenIds + quantity <= MAX_SUPPLY - GIVEAWAYS, "Purchase would exceed max supply of tokens");
+        require(msg.value == SALE_PRICE, "Incorrect amount of ether");
+        require(minted[msg.sender] == 0, "Address has already minted");
+        require(totalSupply() < MAX_SUPPLY, "All tokens have been minted");
 
-        minted[msg.sender] = true;
+        minted[msg.sender] = 1;
 
-        for(uint256 i = 0; i < quantity; i++){ 
-            _mint(msg.sender, _tokenIds + 1);
-            _tokenIds++;    
-        }       
+        _safeMint(msg.sender, 1);
     }
 
-    // need to determine whether giveaways will be minted premint or postmint
-    // this will change the require statements.
     function preMint(uint256 quantity) public payable ownerOnly {
         require(!paused);
         require(owners[msg.sender], "Address is not allowed to mint.");
-        require(mintedGiveaways + quantity <= GIVEAWAYS, "Mint would exceed number of giveaways");
+        require(quantity % MAX_BATCH == 0, "Can only mint a multiple of MAX_BATCH");
+        require(totalSupply() + quantity <= GIVEAWAYS, "Quantity exceeds number of reserved tokens");
          
-        // update giveaways minted
-        mintedGiveaways += quantity;
-
-        for(uint256 i = 0; i < quantity; i++){
-            _mint(msg.sender, _tokenIds + 1);
-            _tokenIds++;
+        uint256 numBatch = quantity / MAX_BATCH;
+        for(uint256 i = 0; i < numBatch; i++){
+            _safeMint(msg.sender, MAX_BATCH);
         }
+    }
+
+    // wl happens after premint is complete
+    function presale(bytes calldata _signature, uint256 quantity) public payable {
+        require(!paused);
+        require(sale_state == 1, "Presale is currently inactive");
+        require(isWhitelisted(_signature, msg.sender), "Address is not whitelisted");
+        require(tx.origin == msg.sender, "Contracts are not allowed to mint");
+        require(msg.value == SALE_PRICE, "Incorrect amount of ether");
+        require(minted[msg.sender] + quantity <= MAX_BATCH, "Address is not allowed to mint more than MAX_BATCH"); // if max batch > 1, need to check uint instead of bool
         
-    }
+        minted[msg.sender] += quantity;
 
-    function earlyMint(uint256 quantity, bytes calldata _signature) public payable {
-        require(!paused);
-        require(sale_state == 1, "Sale is currently inactive");
-        require(isWhitelisted(_signature, msg.sender), "Address is not whitelisted");
-        require(tx.origin == msg.sender, "Contracts are not allowed to mint");
-        require(quantity <= MAX_BATCH, "Only allowed to mint 2 tokens per transaction");
-        require(msg.value == (SALE_PRICE * quantity), "Incorrect amount of ether");
-        require(!minted[msg.sender], "Address has already minted");
-        require((_tokenIds + quantity) <= EARLY_SUPPLY, "Purchase would exceed whitelist supply");
-
-        minted[msg.sender] = true;
-
-        for(uint256 i = 0; i < quantity; i++){ 
-            _mint(msg.sender, _tokenIds + 1);
-            _tokenIds++;    
-        }
-    }
-
-    function wlMint(uint256 quantity, bytes calldata _signature) public payable {
-        require(!paused);
-        require(sale_state == 2, "Sale is currently inactive");
-        require(isWhitelisted(_signature, msg.sender), "Address is not whitelisted");
-        require(tx.origin == msg.sender, "Contracts are not allowed to mint");
-        require(quantity <= MAX_BATCH, "Only allowed to mint 2 tokens per transaction");
-        require(msg.value == (SALE_PRICE * quantity), "Incorrect amount of ether");
-        require(!minted[msg.sender], "Address has already minted");
-        require(_tokenIds + quantity <= WL_SUPPLY + EARLY_SUPPLY, "Purchase would exceed whitelist supply");
-
-        minted[msg.sender] = true;
-
-        for(uint256 i = 0; i < quantity; i++){ 
-            _mint(msg.sender, _tokenIds + 1);
-            _tokenIds++;    
-        }
+        _safeMint(msg.sender, quantity);
     }
 
     /* OVERRIDES */
@@ -149,6 +116,10 @@ contract Fantazya is ERC721, Ownable {
         PUB_KEY = _key;
     }
 
+    function setPrimaryAddress(address _primary) public ownerOnly {
+        PRIMARY = _primary;
+    }
+
     // need to make this multi-sig
     function addOwner(address _account) public ownerOnly {
         require(!owners[_account],"Owner already exists");
@@ -164,16 +135,14 @@ contract Fantazya is ERC721, Ownable {
     /*
     *   @dev Sets the state of the public sale
     * Requirements:
-    * - `_active` Must be a boolean value
+    * - `_sale_state` Must be an integer
     */
     function setSaleState(uint16 _sale_state) public ownerOnly {
         sale_state = _sale_state;
     }
 
     /*
-    *   @dev Sets the state of paused for emergency
-    * Requirements:
-    * - `_state` Must be a boolean value
+    *   @dev Toggles paused state in case of emergency
     */
     function togglePaused() public ownerOnly {
         paused = !paused;
@@ -182,7 +151,7 @@ contract Fantazya is ERC721, Ownable {
     /*
     *   @dev Sets the BASE_URL for tokenURI
     * Requirements:
-    * - `_url` Must be in the form: ipfs//hash/
+    * - `_url` Must be in the form: ipfs://${CID}/
     */
     function setBaseURL(string memory _url) public ownerOnly {
         BASE_URL = _url;

@@ -162,6 +162,10 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
     color: #ff0177 !important;
 }
 
+.accent {
+    background-color: #ff0177 !important;
+}
+
 .profile-avatar {
     width: 200px !important;
     height: 200px !important;

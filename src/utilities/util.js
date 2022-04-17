@@ -127,51 +127,51 @@ export const getPresaleState = () => {
     })
 }
 
-// export const mintNFT = async (sale_type, num_tokens) => {
-//     return new Promise(async(resolve,reject) => {
-//         try {
-//             if(window.ethereum.request({method: 'eth_requestAccounts'})){
-//                 const provider = new ethers.providers.Web3Provider(window.ethereum);
-//                 const signer = provider.getSigner();
-//                 const address = await signer.getAddress();
-//                 const price = await fantazyaContract.methods.SALE_PRICE().call();
-//                 const mint_price = parseFloat(ethers.utils.formatEther(price));
+export const mintNFT = async (sale_type, num_tokens) => {
+    return new Promise(async(resolve,reject) => {
+        try {
+            if(window.ethereum.request({method: 'eth_requestAccounts'})){
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const signer = provider.getSigner();
+                const address = await signer.getAddress();
+                const price = await fantazyaContract.methods.SALE_PRICE().call();
+                const mint_price = parseFloat(ethers.utils.formatEther(price));
                 
-//                 if(sale_type === 'public'){
-//                     const public_active = await getPublicState();
+                if(sale_type === 'public'){
+                    const public_active = await getPublicState();
 
-//                     if(public_active){
-//                         const tx = {
-//                             from: address,
-//                             to: process.env.REACT_APP_CONTRACT_ADDRESS,
-//                             value: ethers.utils.hexValue(ethers.utils.formatEther(String((mint_price * num_tokens).toFixed(3)))),
-//                             data: fantazyaContract.methods.mint(num_tokens).encodeABI(),
-//                         }
+                    if(public_active){
+                        const tx = {
+                            from: address,
+                            to: process.env.REACT_APP_CONTRACT_ADDRESS,
+                            value: ethers.utils.hexValue(ethers.utils.formatEther(String((mint_price * num_tokens).toFixed(3)))),
+                            data: fantazyaContract.methods.mint(num_tokens).encodeABI(),
+                        }
 
-//                         const txHash = await window.ethereum.request({
-//                             method: 'eth_sendTransaction',
-//                             params: [tx]
-//                         })
+                        const txHash = await window.ethereum.request({
+                            method: 'eth_sendTransaction',
+                            params: [tx]
+                        })
 
-//                         resolve({data: txHash});
+                        resolve({data: txHash});
                         
-//                     }else{
-//                         reject({msg: `Public sale is currently inactive.`, status: 'warning'})
-//                     }
-//                 }                
-//             }else{
-//                 reject({
-//                     status: 'warning',
-//                     msg: `You must connect your MetaMask wallet to continue.  If you don't have a Metamask wallet, follow this link to get started LINK`
-//                 })
-//             }    
-//         } catch (error) {
-//             console.error(`util.mintNFT: ${error}`)
-//             reject({
-//                 status: 'error',
-//                 msg: error.message
-//             })
-//         }
-//     })
+                    }else{
+                        reject({msg: `Public sale is currently inactive.`, status: 'warning'})
+                    }
+                }                
+            }else{
+                reject({
+                    status: 'warning',
+                    msg: `You must connect your MetaMask wallet to continue.  If you don't have a Metamask wallet, follow this link to get started LINK`
+                })
+            }    
+        } catch (error) {
+            console.error(`util.mintNFT: ${error}`)
+            reject({
+                status: 'error',
+                msg: error.message
+            })
+        }
+    })
     
-//   }
+  }

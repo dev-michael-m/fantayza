@@ -1,41 +1,18 @@
 import './App.css';
 import './stylesheet/Sections.css';
-import { ConnectWallet, getSoldOut, getPublicState } from './utilities/util';
-import { useEffect, useState } from 'react';
-import Button from '@mui/material/Button';
-import MetaMaskLogo from './assets/metamask-icon.jpg';
+import { useEffect } from 'react';
 import ArtistVidMP4 from './assets/FNFT_ArtistVideo.mp4';
 import NFT16 from './assets/16_Resized.png';
 import ArtistImg from './assets/FNFT_Artist_Resized.jpg';
 import BodyImg from './assets/FNFT_Character_Body2.png';
-import AlertBar from './components/AlertBar';
-import CustomModal from './components/Modal';
 import FadeInContainer from './components/FadeInContainer';
 import FAQs from './components/FAQs';
 import Roadmap from './components/Roadmap';
 import Founders from './components/Founders';
 import Footer from './pages/Footer';
-import MainApp from './pages/MainApp';
 import Hero from './components/Hero';
 
 function App() {
-  
-  const [alert,setAlert] = useState({
-    severity: 'success',
-    msg: '',
-    visible: false
-  });
-
-  const [wallet, setWallet] = useState({
-    address: null,
-    provider: null,
-    snippet: null,
-  });
-
-  const [modalOpen,setModalOpen] = useState(false);
-  const [soldOut,setSoldOut] = useState(false);
-  const [saleActive,setSaleActive] = useState(false);
-  const [pubSale,setPubSale] = useState(false);
 
     useEffect(() => {
       let mounted = true;
@@ -80,88 +57,13 @@ function App() {
       return () => {
         mounted = false;
       };
-    }, []);
-
-    async function handleAccountsChanged(accounts) {
-      if (accounts.length === 0) {
-        console.warn("user has not connected to metamask");
-      } else {
-        setWallet((prevState) => ({
-          ...prevState,
-          address: accounts[0]
-        }));
-      }
-    }
-
-  const onConnectWallet = (suppress) => {
-    setModalOpen(true);
-  };
-
-  // const isLoaded = (idx) => {
-  //   console.log(loaded.indexOf(idx))
-  //   return loaded.indexOf(idx) >= 0 ? true : false;
-  // }
-
-  // const onLoad = (idx) => {
-  //   console.log(`loading ${idx}`)
-  //   setLoaded(prevState => [...prevState,idx]);
-  // }
-
-  const onWalletClick = async (event) => {
-    const selected = event.target.id;
-
-    ConnectWallet()
-      .then((status) => {
-        console.log({status})
-        setWallet({
-          address: status.address,
-          snippet: status.address_snippet,
-        });
-        setModalOpen(false);
-        window.sessionStorage.setItem('connected',true);
-      })
-      .catch((error) => {
-        console.error(error);
-        setModalOpen(false);
-      });
-
-      window.ethereum.on("accountsChanged", handleAccountsChanged);
-  }
-
-  const onModalClose = () => {
-    setModalOpen(false);
-  }
-
-  const onAlert = (severity, msg, visible) => {
-    setAlert({
-      severity,
-      msg,
-      visible
-    })
-  }
-
-  const onCloseAlert = () => {
-    setAlert(prevState => ({
-      ...prevState,
-      visible: false
-    }))
-  }
+    }, []);  
 
   return (
     <div className="App">
-        <MainApp onAlert={onAlert} onConnectWallet={onConnectWallet} wallet={wallet}>
-          {alert.visible ? <AlertBar severity={alert.severity} visible={alert.visible} msg={alert.msg} onClose={onCloseAlert} /> : null}
-          <CustomModal id="wallet-connect" visible={modalOpen} width='332px' onClose={onModalClose}>
-              <h3>Connect Wallet</h3>
-              <Button className="wallet-button" id="metamask" variant='contained' endIcon={
-                <img id="metamask" src={MetaMaskLogo} width="42px"></img>
-              } onClick={onWalletClick}>MetaMask</Button>          
-          </CustomModal>
           <div className="main-container parallax-container">
             <div className="inner-main">
-              <Hero soldOut={soldOut} saleActive={saleActive} pubSale={pubSale} wallet={wallet} onAlert={onAlert} />
-
-              
+              <Hero />              
               <div id="artist-bio" className='artist-bio'>
                 <div className='spacing-medium'>
                     <div className='primary-section'>
@@ -191,9 +93,6 @@ function App() {
                     </div>                  
                 </div>
               </div>
-              
-              
-              
               
               <div id="project-background" className='project-background'>
                 <div className='spacing-medium'>
@@ -228,13 +127,10 @@ function App() {
                     </div>                    
                   </div>
                 </div>
-                </div>
-              
-                
-                
+              </div>
               
               <div id="project-background2" className='project-background2'>
-                  <div className='spacing-medium'>
+                <div className='spacing-medium'>
                   <div className='primary-section flex-align-center section-3'>
                     <div className='circle-container'>
                       <FadeInContainer animation="fade-left">
@@ -258,40 +154,30 @@ function App() {
                       </div>                                    
                   </div>
                 </div>
+              </div>
+              
+              <div className='spacing-medium-bot roadmap-background'>
+                <div>
+                  <Roadmap />
                 </div>
-              
-                
-                
-              
-                <div className='spacing-medium-bot roadmap-background'>
-                    <div>
-                      <Roadmap />
-                    </div>
-                  </div>
-              
-                
+              </div>
               
               <div id="founders-background" className='founders-background'>
-                  <div className='spacing-medium'>
-                    <div id="founders" className='primary-section'>
-                        <Founders />
-                    </div>
+                <div className='spacing-medium'>
+                  <div id="founders" className='primary-section'>
+                      <Founders />
                   </div>
                 </div>
+              </div>
               
-                
-                
+              <FAQs />     
               
-                <FAQs />     
-              
-     
               <Footer />
               <a id="twitter-link" href='https://twitter.com/fantazyanft' hidden target="_blank"></a>
               <a id="insta-link" href='https://instagram.com/fantazyanft' hidden target="_blank"></a>
               <a id="discord-link" href='https://discord.gg/qUG8fXceDt' hidden target="_blank"></a>
             </div>            
-          </div>          
-        </MainApp>
+          </div>
     </div>
   );
 }

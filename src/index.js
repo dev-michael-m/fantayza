@@ -2,22 +2,28 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Mint from './pages/Mint';
+import Staking from './pages/Staking';
 import reportWebVitals from './reportWebVitals';
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from 'react-router-dom'
+import NotFound from './pages/NotFound';
+import MainApp from './pages/MainApp';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <Routes>
-          
-          <Route exact path="/" element={
-            <App/>
-          } />       
-      </Routes>
+      <MainApp>
+        <Routes>
+            <Route exact path="/staking" element={<Staking />} />
+            <Route exact path="/mint" element={<Mint />} />          
+            <Route exact path="/" element={<App/>} />
+            <Route path='' element={<NotFound />} />       
+        </Routes>
+      </MainApp>      
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
