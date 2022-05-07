@@ -64,7 +64,7 @@ const NavBar = ({onConnectWallet, wallet}) => {
                             </div>
                             <div className="menu-list">
                                 <a className='drawer-link' id="artist" href="#" onClick={handleLinkClick}>The Artist</a>
-                                <a className='drawer-link' id="roadmap" href="#" onClick={handleLinkClick}>Roadmap</a>                             
+                                {/* <a className='drawer-link' id="roadmap" href="#" onClick={handleLinkClick}>Roadmap</a>                              */}
                                 <a className='drawer-link' id="team" href="#" onClick={handleLinkClick}>The Team</a>                             
                                 <a className='drawer-link' id="faqs" href="#" onClick={handleLinkClick}>FAQs</a>
                             </div>                            
@@ -83,7 +83,7 @@ const NavBar = ({onConnectWallet, wallet}) => {
                             <img src={DiscordIcon} width="26px"></img>
                         </IconButton>
                     </div>  
-                    <div>
+                    {/* <div>
                         { !wallet.address ?
                             <Button style={{height: 36}} className='custom-button small' variant='outlined' onClick={onConnectWallet}>connect wallet</Button> :
                             <div style={{color: 'white'}} className='flex-align-center'>
@@ -91,7 +91,7 @@ const NavBar = ({onConnectWallet, wallet}) => {
                                 <p>{wallet.address}</p>
                             </div>
                         }
-                    </div>                  
+                    </div>                   */}
                 </div>
                 
             </div>

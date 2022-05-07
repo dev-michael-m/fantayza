@@ -16,7 +16,8 @@ contract Fantazya is ERC721A, Ownable {
     uint256 public MAX_SUPPLY = 3333;
     uint256 public MAX_BATCH = 2;
     uint256 public GIVEAWAYS = 100;
-    uint256 public SALE_PRICE = 0.01 ether; //0.175 ether;
+    uint256 public SALE_PRICE = 0.1 ether; //0.175 ether;
+    uint256 public PRESALE_PRICE = 0.01 ether;
     uint16 public sale_state;
     bool public paused;
     bool public revealed;
@@ -42,18 +43,18 @@ contract Fantazya is ERC721A, Ownable {
     /*
     *   public should only be allowed to mint one token per address
     */
-    function pubMint() public payable
+    function pubMint(uint256 quantity) public payable
     {
         require(!paused);
+        require(totalSupply() < MAX_SUPPLY, "All tokens have been minted");
         require(sale_state == 2, "Public sale is currently inactive");
         require(tx.origin == msg.sender, "Contracts are not allowed to mint");
         require(msg.value == SALE_PRICE, "Incorrect amount of ether");
-        require(minted[msg.sender] == 0, "Address has already minted");
-        require(totalSupply() < MAX_SUPPLY, "All tokens have been minted");
+        require(minted[msg.sender] + quantity <= MAX_BATCH, "Address is not allowed to mint more than MAX_BATCH");        
 
-        minted[msg.sender] = 1;
+        minted[msg.sender] += quantity;
 
-        _safeMint(msg.sender, 1);
+        _safeMint(msg.sender, quantity);
     }
 
     function preMint(uint256 quantity) public payable ownerOnly {
@@ -74,7 +75,7 @@ contract Fantazya is ERC721A, Ownable {
         require(sale_state == 1, "Presale is currently inactive");
         require(isWhitelisted(_signature, msg.sender), "Address is not whitelisted");
         require(tx.origin == msg.sender, "Contracts are not allowed to mint");
-        require(msg.value == SALE_PRICE, "Incorrect amount of ether");
+        require(msg.value == PRESALE_PRICE, "Incorrect amount of ether");
         require(minted[msg.sender] + quantity <= MAX_BATCH, "Address is not allowed to mint more than MAX_BATCH"); // if max batch > 1, need to check uint instead of bool
         
         minted[msg.sender] += quantity;

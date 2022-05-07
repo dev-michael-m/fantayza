@@ -156,11 +156,11 @@ function App() {
                 </div>
               </div>
               
-              <div className='spacing-medium-bot roadmap-background'>
+              {/* <div className='spacing-medium-bot roadmap-background'>
                 <div>
                   <Roadmap />
                 </div>
-              </div>
+              </div> */}
               
               <div id="founders-background" className='founders-background'>
                 <div className='spacing-medium'>
