@@ -50,7 +50,7 @@ const FAQs = () => {
                     <p>When will the collection drop?</p>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <p style={{fontWeight: 'normal'}}><b>April 2022.</b></p>
+                    <p style={{fontWeight: 'normal'}}><b>TBA</b></p>
                 </AccordionDetails>
             </Accordion>
             </FadeInContainer>
