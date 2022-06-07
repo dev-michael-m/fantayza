@@ -84,9 +84,6 @@ const FAQs = () => {
                 </AccordionDetails>
             </Accordion>
             </FadeInContainer>
-            <div className='spacing-medium'>
-                <Button className='custom-button medium' variant="outlined" onClick={() => document.getElementById('discord-link').click()}>Join the Community</Button>
-            </div> 
             </div>
         </div>
     )
