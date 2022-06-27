@@ -312,67 +312,31 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
     background-image: none;
 } */
 
-.founders-background {
-    background-image: url('../assets/FNFT_Website05_LowRes.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
 
 .bottom-background {
     background-color: #fff600;
   }
 
-.roadmap-background {
-    background-image: url('../assets/FNFT_Website08_LowRes.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
 
 /* .project-background2 {
     background-image: none;
 } */
 
-.project-background2 {
-    background-image: url('../assets/FNFT_Website06_LowRes.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
 
 /* .project-background {
     background-image: none;
 } */
 
-.project-background {
-    background-image: url('../assets/FNFT_Website05_LowRes.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
 
 /* .welcome-section {
     background-image: none;
 } */
 
-.welcome-section {
-    background-image: url('../assets/FNFT_Website03_LowRes.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
 
 /* .artist-bio {
     background-image: none;
 } */
 
-.artist-bio {
-    background-image: url('../assets/FNFT_Website04_LowRes.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
 
 /* .inner-hero {
     background-image: none;
@@ -394,29 +358,6 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
     width: 100vw;
     perspective: 100vw;
     -webkit-perspective: 100vw; 
-}
-
-.fantazya-logo {
-    background-image: url('../assets/FNFT_Website_Page01_Logo.png');
-    background-position: center;
-}
-
-.pg2-bg1 {
-    background-image: url('../assets/FNFT_Website_Page02_City.png');
-    background-position: center;
-    background-size: cover;
-}
-
-.pg2-bg2 {
-    background-image: url('../assets/FNFT_Website_Page02_Fantazya.png');
-    background-position: center;
-    background-size: cover;
-}
-
-.pg2-bg3 {
-    background-image: url('../assets/FNFT_Website_Page02_Text.png');
-    background-position: center;
-    background-size: cover;
 }
 
 .main-bg-img {

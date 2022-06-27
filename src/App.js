@@ -2,8 +2,6 @@ import './App.css';
 import './stylesheet/Sections.css';
 import { useEffect } from 'react';
 import ArtistVidMP4 from './assets/FNFT_ArtistVideo.mp4';
-import NFT16 from './assets/16_Resized.png';
-import ArtistImg from './assets/FNFT_Artist_Resized.jpg';
 import BodyImg from './assets/FNFT_Character_Body2.png';
 import FadeInContainer from './components/FadeInContainer';
 import FAQs from './components/FAQs';
