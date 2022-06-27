@@ -1,9 +1,14 @@
 .accordian-container {
     margin: 10px !important;
-    color: black;
+    border-top: 2px solid black !important;
+    border-bottom: 2px solid black !important;
     font-weight: 600;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
 }
 
 .accordian-selected {
-    box-shadow: 0px 0px 10px black !important;
+    /* box-shadow: 0px 0px 10px black !important; */
+    box-shadow: none !important;
 }

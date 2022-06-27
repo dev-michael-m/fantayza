@@ -8,7 +8,6 @@
     z-index: 10;
     margin-top: 4px;
     background-color: transparent;
-    position: fixed;
 }
 
 .inner-nav {
@@ -23,10 +22,6 @@
     justify-content: center;
     font-size: medium !important;
     letter-spacing: normal;
-}
-
-.nav-header {
-    font-family: 'Shadows Into Light Two', 'cursive';
 }
 
 .menu-container {
@@ -45,6 +40,19 @@
     flex-direction: column;
     border-bottom: 1px solid rgb(0, 255, 255);
     margin: 10px 0px;
+}
+
+.top-menu a {
+    color:#20d5d5;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 6px;
+    margin: 0px 16px;
+    display: flex;
+}
+
+.top-menu {
+    display: flex;
 }
 
 .menu-close {
@@ -299,9 +307,6 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
     margin: 50px;
 }
 
-.hero-container {
-    overflow: hidden;
-}
 
 /* .founders-background {
     background-image: none;
@@ -313,6 +318,10 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
     background-position: center;
     background-repeat: no-repeat;
 }
+
+.bottom-background {
+    background-color: #fff600;
+  }
 
 .roadmap-background {
     background-image: url('../assets/FNFT_Website08_LowRes.jpg');
@@ -370,10 +379,93 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
 } */
 
 .inner-hero {
-    background-image: url('../assets/FNFT_Website01_LowRes.jpg');
     background-size: cover;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100vh;
+    perspective: 300px;
+    -webkit-perspective: 300px;
+}
+
+.parallax {    
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100vh;
+    width: 100vw;
+    perspective: 100vw;
+    -webkit-perspective: 100vw; 
+}
+
+.fantazya-logo {
+    background-image: url('../assets/FNFT_Website_Page01_Logo.png');
     background-position: center;
-    background-repeat: no-repeat;
+}
+
+.pg2-bg1 {
+    background-image: url('../assets/FNFT_Website_Page02_City.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.pg2-bg2 {
+    background-image: url('../assets/FNFT_Website_Page02_Fantazya.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.pg2-bg3 {
+    background-image: url('../assets/FNFT_Website_Page02_Text.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.main-bg-img {
+    background-image: url('../assets/FNFT_Website_Page01_StarBG.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat;
+}
+
+.parallax-group {
+    position: relative;
+    height: 100vh;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    z-index: 2;
+}
+
+.parallax-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.layer-front {
+    -webkit-transform: translateZ(-250px) scale(0.75);
+    transform: translateZ(-250px) scale(0.75);
+    z-index: 4;
+}
+
+.layer-middle {
+    -webkit-transform: translateZ(30px);
+    transform: translateZ(30px);
+    z-index: 3;
+}
+
+.layer-back {
+    -webkit-transform: translateZ(-375px) scale(1);
+    transform: translateZ(-375px) scale(1);
+    z-index: 2;
+}
+
+.layer {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, -81rem);
+    transform: translate(-50%, -81rem);
 }
 
 .mint-num input {
@@ -697,11 +789,23 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
     .inner-padding {
         padding: 330px 0px;
     }
+
+    .layer-back {
+        transform: translateZ(-300px) scale(1);
+    }
+
+    .layer-front {
+        transform: translateZ(-230px) scale(0.66);
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 925px){
     .inner-nav{
       padding: 16px
+    }
+
+    .top-menu {
+        display: none;
     }
 
     .countdown-container {
@@ -715,10 +819,6 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
 
     .nft-stat {
         bottom: 200px;
-    }
-
-    .hero-container {
-        margin-bottom: 10%;
     }
 
     .hero-img {
@@ -748,14 +848,14 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
   }
 
   @media screen and (min-width: 600px) and (max-width: 800px){
-    .hero-container {
-        margin-bottom: 10%;
-    }
 
     .hero-details {
         top: 4.5%;
     }
 
+    .top-menu {
+        display: none;
+    }
     .carousel-sub-img {
         width: 188px;
     }
@@ -773,12 +873,13 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
   }
 
   @media screen and (min-width: 515px) and (max-width: 600px){
-    .hero-container {
-        margin-bottom: 66%;
-    }
 
     .carousel-sub-img {
         width: 160px;
+    }
+
+    .top-menu {
+        display: none;
     }
 
     .inner-body-text {
@@ -805,6 +906,10 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
         align-items: center;
     }
 
+    .top-menu {
+        display: none;
+    }
+
     .inner-padding {
         padding: 316px 0px;
     }
@@ -826,6 +931,9 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
         align-items: center;
     }
 
+    .top-menu {
+        display: none;
+    }
     .inner-padding {
         padding: 316px 0px;
     }
@@ -834,6 +942,10 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
   @media screen and (max-width: 350px) {
       .nav-logo {
           width: 118px;
+      }
+
+      .top-menu {
+        display: none;
       }
 
       .inner-body-text {

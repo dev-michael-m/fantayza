@@ -5,6 +5,7 @@ import VerifiedIcon from '@mui/icons-material/Verified';
 import MenuIcon from '@mui/icons-material/Menu';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import Logo from '../assets/FNFT_Website_NoxIcon.png';
 import DiscordIcon from '../assets/discord.png';
 import IconButton from '@mui/material/IconButton';
 import Drawer from '@mui/material/Drawer';
@@ -18,28 +19,32 @@ const NavBar = ({onConnectWallet, wallet}) => {
         setMenu(prevState => !prevState);
     }
 
-    const handleLinkClick = (event) => {
+    const handleLinkClick = (event,_nav) => {
         const id = event.target.id;
         let pos = null;
 
         switch(id){
             case 'artist':
-                pos = $('#artist-bio').position();
+                pos = $('#artist').position();
                 break;
-            case 'roadmap':
-                pos = $('#roadmap').position();
+            case 'special':
+                pos = $('#special').position();
                 break;
             case 'faqs':
                 pos = $('#faqs').position();
                 break;
             case 'team':
-                pos = $('#founders').position();                    
+                pos = $('#team').position();                    
                 break;
         }
 
+        console.log(pos.top);
+
         setTimeout(() => {
             window.scrollTo({top: pos.top, behavior: 'smooth'})
-            toggleDrawer();   
+            if(!_nav){
+                toggleDrawer();   
+            }            
         },100);       
              
     }
@@ -49,7 +54,7 @@ const NavBar = ({onConnectWallet, wallet}) => {
             <div id="inner-nav" className="inner-nav flex-just-between">
                 <div>
                     <IconButton onClick={toggleDrawer}>
-                        <MenuIcon style={{color: 'rgb(255,255,255)'}} />
+                        <img src={Logo} width={50}></img>
                     </IconButton> 
                     <Drawer
                         anchor='left'
@@ -63,24 +68,27 @@ const NavBar = ({onConnectWallet, wallet}) => {
                                 </IconButton>
                             </div>
                             <div className="menu-list">
-                                <a className='drawer-link' id="artist" href="#" onClick={handleLinkClick}>The Artist</a>
-                                {/* <a className='drawer-link' id="roadmap" href="#" onClick={handleLinkClick}>Roadmap</a>                              */}
-                                <a className='drawer-link' id="team" href="#" onClick={handleLinkClick}>The Team</a>                             
-                                <a className='drawer-link' id="faqs" href="#" onClick={handleLinkClick}>FAQs</a>
+                                <a className='drawer-link' id="artist" href="#" onClick={handleLinkClick}>Artist</a>                             
+                                <a className='drawer-link' id="special" href="#" onClick={handleLinkClick}>What's Special?</a>                             
+                                <a className='drawer-link' id="team" href="#" onClick={handleLinkClick}>Team</a>                             
+                                <a className='drawer-link' id="faqs" href="#" onClick={handleLinkClick}>FAQ</a>
                             </div>                            
                         </div>                        
                     </Drawer>                   
                 </div>
+                <div className='top-menu'>
+                    <a className='drawer-link' id="artist" href="#" onClick={(e) => handleLinkClick(e,true)}>Artist</a>
+                    <a className='drawer-link' id="special" href="#" onClick={(e) => handleLinkClick(e,true)}>What's Special?</a>
+                    <a className='drawer-link' id="team" href="#" onClick={(e) => handleLinkClick(e,true)}>Team</a>
+                    <a className='drawer-link' id="faqs" onClick={(e) => handleLinkClick(e,true)} href="#">FAQ</a>
+                </div>
                 <div className='flex-align-center'>
                     <div style={{marginRight: 28}} className="socials">
                         <IconButton onClick={() => document.getElementById('twitter-link').click()}>
-                            <TwitterIcon style={{color: 'rgb(255,255,255)'}} />
+                            <TwitterIcon style={{color: '#20d5d5'}} />
                         </IconButton>
                         <IconButton onClick={() => document.getElementById('insta-link').click()}>
-                            <InstagramIcon style={{color: 'rgb(255,255,255)'}} />
-                        </IconButton>
-                        <IconButton onClick={() => document.getElementById('discord-link').click()}>
-                            <img src={DiscordIcon} width="26px"></img>
+                            <InstagramIcon style={{color: '#20d5d5'}} />
                         </IconButton>
                     </div>  
                     {/* <div>

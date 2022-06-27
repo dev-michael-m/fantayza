@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-size: calc((1.2 - 1) * 1.2vw + 1rem);
 }
 
 .App p{
@@ -17,15 +18,20 @@
   }
 }
 
-.parallax-container {
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  perspective: 300px;
+.secondary-background {
+  background-color: #ff0177;
 }
 
 .accent {
   color: wheat;
+}
+
+.founder-card {
+  width: 33%;
+}
+
+.founder-card p {
+  margin: 10px 0px;
 }
 
 .fade-in-section {
@@ -247,6 +253,79 @@
 
 .spacing-medium-bot {
   padding: 16px 0px 0px 0px;
+}
+
+.page2 {
+  background-color: #041420;
+  position: relative;
+}
+
+.page4 {
+  background-color: #d47dbc;
+  position: relative;
+}
+
+.dynamic-padding-lrg {
+  padding-bottom: 40%;
+}
+
+.dynamic-padding-sml {
+  padding-bottom: 5%;
+}
+
+.page2-inv {
+  background-color: #fff600;
+  width: 25%;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  z-index: 2;
+  text-align: left;
+  width: 40vw;
+  box-shadow: -8px 0px 10px rgba(0,0,0,0.52);
+}
+
+.page2-wrapper {
+  padding: 40px;
+  height: 100%;
+  position: relative;
+}
+
+.page3-wrapper {
+  padding: 20px;
+}
+
+.page4-wrapper {
+  padding: 40px;
+  position: relative;
+}
+
+.page4-inv {
+  background-color: #0dff21;
+  width: 25%;
+  position: absolute;
+  right: 40px;
+  top: 50px;
+  z-index: 10;
+  width: 40vw;
+  text-align: left;
+  box-shadow: -8px 0px 10px rgba(0,0,0,0.52);
+}
+
+.inv-inner {
+  padding: 50px;
+}
+
+.flex-box {
+  display: flex;
+}
+
+.radius10 {
+  border-radius: 10px;
+}
+
+.shadow-sml {
+  box-shadow: 0px 2px 10px black;
 }
 
 .video-container {

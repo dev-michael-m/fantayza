@@ -16,10 +16,7 @@ const FAQs = () => {
     }
 
     return (
-        <div id="faqs" className='faq-container project-background2'>
-            <FadeInContainer animation="fade-in">
-                <h1>FAQs</h1>
-            </FadeInContainer>
+        <div id="faqs" className='faq-container'>
             <div style={{marginTop: 60}}>
             <FadeInContainer animation="fade-in">
             <Accordion className={`accordian-container ${expanded === 'f0' ? 'accordian-selected' : ''}`} id="f0" expanded={expanded === 'f0'} onChange={onAccordionChange('f0')}>
