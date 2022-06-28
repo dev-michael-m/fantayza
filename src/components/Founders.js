@@ -79,9 +79,9 @@ const Founders = () => {
                         <p style={{fontWeight: 'bold'}} className="text-center ">Mastermind of the growth of Fantazya's world. Trader, blockchain &amp; tokenomics enthusiast</p>
                     </div>
                     <div className='flex-align-center'>
-                        <IconButton id="f3-social" onClick={onClickSocial}>
+                        {/* <IconButton id="f3-social" onClick={onClickSocial}>
                             <InstagramIcon id="f3-social" className='' />
-                        </IconButton>
+                        </IconButton> */}
                     </div>
                 </div>
                 

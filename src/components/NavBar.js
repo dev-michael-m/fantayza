@@ -68,8 +68,10 @@ const NavBar = ({onConnectWallet, wallet}) => {
                                 </IconButton>
                             </div>
                             <div className="menu-list">
+                                <a className='drawer-link' id="mission" href="#" onClick={handleLinkClick}>Our Mission</a>                             
+                                <a className='drawer-link' id="special" href="#" onClick={handleLinkClick}>Utility</a>                             
+                                <a className='drawer-link' id="roadmap" href="#" onClick={handleLinkClick}>Roadmap</a>                             
                                 <a className='drawer-link' id="artist" href="#" onClick={handleLinkClick}>Artist</a>                             
-                                <a className='drawer-link' id="special" href="#" onClick={handleLinkClick}>What's Special?</a>                             
                                 <a className='drawer-link' id="team" href="#" onClick={handleLinkClick}>Team</a>                             
                                 <a className='drawer-link' id="faqs" href="#" onClick={handleLinkClick}>FAQ</a>
                             </div>                            
@@ -77,8 +79,10 @@ const NavBar = ({onConnectWallet, wallet}) => {
                     </Drawer>                   
                 </div>
                 <div className='top-menu'>
+                    <a className='drawer-link' id="artist" href="#" onClick={(e) => handleLinkClick(e,true)}>Our Mission</a>
+                    <a className='drawer-link' id="special" href="#" onClick={(e) => handleLinkClick(e,true)}>Utility</a>
+                    <a className='drawer-link' id="artist" href="#" onClick={(e) => handleLinkClick(e,true)}>Roadmap</a>
                     <a className='drawer-link' id="artist" href="#" onClick={(e) => handleLinkClick(e,true)}>Artist</a>
-                    <a className='drawer-link' id="special" href="#" onClick={(e) => handleLinkClick(e,true)}>What's Special?</a>
                     <a className='drawer-link' id="team" href="#" onClick={(e) => handleLinkClick(e,true)}>Team</a>
                     <a className='drawer-link' id="faqs" onClick={(e) => handleLinkClick(e,true)} href="#">FAQ</a>
                 </div>

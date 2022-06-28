@@ -10,6 +10,36 @@
     padding: 20px;
 }
 
+.roadmap {
+    background-color: #52bede;
+}
+
+.roadmap-wrapper {
+    padding: 40px;
+    height: 100%;
+}
+
+.roadmap-inv {
+    background-color: #d47dba;
+    width: 25%;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    z-index: 2;
+    text-align: left;
+    width: 40vw;
+    box-shadow: -8px 0px 10px rgba(0,0,0,0.52);
+  }
+
+.roadmap-inv h3 {
+    margin: 14px 0px;
+}
+
+.roadmap-icon {
+    margin-right: 12px;
+    color: #fff600 !important;
+}
+
 .roadmap-dot {
     border-radius: 50% !important;
     width: 18px !important;

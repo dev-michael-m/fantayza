@@ -13,6 +13,7 @@ import FantazyaStreet from './assets/FNFT_Street_01.jpg';
 import NFT1 from './assets/FNFT_NFT_New_1.jpg';
 import NFT2 from './assets/FNFT_NFT_New_2.jpg';
 import NFT3 from './assets/FNFT_NFT_New_3.jpg';
+import NFT4 from './assets/shocking.jpg';
 
 function App() {
 
@@ -65,7 +66,55 @@ function App() {
     <div className="App">
           <div className="main-bg-img parallax-container">
             <div className="inner-main">
-              <Hero />   
+              <Hero />  
+              <div id="mission" className='page2'>
+                <div className='page2-wrapper' id="page2-wrapper" style={{padding: 40}}>
+                  <div className='flex-box' style={{position: 'relative', height: '100%'}}>
+                    <div className='page5-inv'>
+                      <div className='inv-inner'>
+                        <h1 style={{margin: 0}}>Our Mission</h1>
+                        <p><b>Fantazya was built on the premise that we can really capitalise on the NFT space in sending a positive message. The communities built around Web3 are amazing, and their potential is limitless. Why not use all this potential to somehow create a positive impact? Enter Fantazya.</b></p>
+                        <p><b>Fantazya's main purpose is to spread awareness and to educate the younger generation of females including (but not limited to) developing countries about their own rights, potential, and violence against women.</b></p>
+                      </div>
+                    </div>
+                    <div className='dynamic-padding-sml' style={{width: '75%'}}>
+                      <img style={{borderRadius: 18}} src={NFT4} width="100%"></img>
+                    </div>                                        
+                  </div>                  
+                </div>                                
+              </div>   
+                    
+              <div id="special" className='page4'>
+                <div className='page4-wrapper'>
+                  <div className='flex-align-center dynamic-padding-sml' style={{width: '75%', position: 'relative'}}>
+                    <div style={{position: 'relative'}}>
+                      <div>
+                        <img className='radius10 shadow-sml' src={NFT1} width="100%"></img>
+                      </div>
+                      <div style={{position: 'relative', left: 50, bottom: 50, zIndex: 2}}>
+                        <img className='radius10 shadow-sml' src={NFT2} width="100%"></img>
+                      </div>
+                    </div>
+                    <div style={{position: 'relative', right: 70, bottom: 70, zIndex: 3}}>
+                      <img className='radius10 shadow-sml' src={NFT3} width="100%"></img>
+                    </div>
+                  </div>
+                  <div className='page4-inv'>
+                    <div className='inv-inner'>
+                      <h1>Utility</h1>
+                      <h3 style={{textDecoration: 'underline'}}>Art Collectors</h3>
+                      <p><b>Hand drawn art by renowned artist and exclusive merchandise.</b></p>
+                      <h3 style={{textDecoration: 'underline'}}>Long Term Investors</h3>
+                      <p><b>Passive income through staking, liquidity pool, and 100% of the royalties from the animation series ticket sales will go directly back to the holders.</b></p>
+                      <h3 style={{textDecoration: 'underline'}}>Philanthropists</h3>
+                      <p><b>Charity from sales revenue and distribution of Life of Fantazya's animation series to audiences with no accessible knowledge on womens rights.</b></p>
+                    </div>                    
+                  </div>
+                </div>
+              </div>
+              <div>
+                <Roadmap />
+              </div> 
               <div id="artist" className='page2'>
                 <div className='page2-wrapper' id="page2-wrapper" style={{padding: 40}}>
                   <div className='flex-box' style={{position: 'relative', height: '100%'}}>
@@ -86,34 +135,6 @@ function App() {
                 <video autoPlay loop controls width="75%">
                   <source src={ArtistVidMP4}></source>
                 </video>                 
-              </div>
-              <div id="special" className='page4'>
-                <div className='page4-wrapper'>
-                  <div className='flex-align-center dynamic-padding-sml' style={{width: '75%', position: 'relative'}}>
-                    <div style={{position: 'relative'}}>
-                      <div>
-                        <img className='radius10 shadow-sml' src={NFT1} width="100%"></img>
-                      </div>
-                      <div style={{position: 'relative', left: 50, bottom: 50, zIndex: 2}}>
-                        <img className='radius10 shadow-sml' src={NFT2} width="100%"></img>
-                      </div>
-                    </div>
-                    <div style={{position: 'relative', right: 70, bottom: 70, zIndex: 3}}>
-                      <img className='radius10 shadow-sml' src={NFT3} width="100%"></img>
-                    </div>
-                  </div>
-                  <div className='page4-inv'>
-                    <div className='inv-inner'>
-                      <h1>What's Special?</h1>
-                      <h3 style={{textDecoration: 'underline'}}>Transparency</h3>
-                      <p><b>All owners are fully doxxed to ensure complete transparency and honesty.</b></p>
-                      <h3 style={{textDecoration: 'underline'}}>Community</h3>
-                      <p><b>Without a strong community, the project would not be successful.  Community is the key element, where our community will grow with collaborations with other artists and NFT projects.</b></p>
-                      <h3 style={{textDecoration: 'underline'}}>Holders Power</h3>
-                      <p><b>Holders will have full control of the project.  Holders will get voting power over suggesting ideas about the projects future endeavors.</b></p>
-                    </div>                    
-                  </div>
-                </div>
               </div>
               <div id="team">
                 <Founders />
