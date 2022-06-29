@@ -10,8 +10,8 @@ const Roadmap = () => {
     return (
         <div className='roadmap' id="roadmap">
             <div className='roadmap-wrapper'>
-                <div className='flex-align-center' style={{position: 'relative'}}>
-                    <div className='dynamic-padding-lrg' style={{width: '50%',position: 'relative', top: 150}}>
+                <div className='flex-align-center' style={{position: 'relative', paddingBottom: '12%'}}>
+                    <div style={{width: '50%',position: 'relative', top: 150}}>
                         <img src={BodyImage} width="100%"></img>
                     </div>
                     <div className='roadmap-inv' style={{width: '50%'}}>

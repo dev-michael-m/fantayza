@@ -275,21 +275,19 @@
 
 .page2-inv {
   background-color: #fff600;
-  width: 25%;
-  position: absolute;
-  right: 0;
+  position: relative;
+  right: 45px;
   top: 50px;
   z-index: 2;
   text-align: left;
-  width: 40vw;
+  width: 55vw;
   box-shadow: -8px 0px 10px rgba(0,0,0,0.52);
 }
 
 .page5-inv {
   background-color: #2cf4c2;
-  width: 25%;
-  position: absolute;
-  right: 0;
+  position: relative;
+  right: 45px;
   top: 50px;
   z-index: 2;
   text-align: left;
@@ -310,18 +308,25 @@
 .page4-wrapper {
   padding: 40px;
   position: relative;
+  display: flex;
+  padding-bottom: 12%;
 }
 
 .page4-inv {
   background-color: #0dff21;
-  width: 25%;
-  position: absolute;
-  right: 40px;
+  position: relative;
+  right: 45px;
   top: 50px;
   z-index: 10;
-  width: 40vw;
+  width: 55vw;
   text-align: left;
   box-shadow: -8px 0px 10px rgba(0,0,0,0.52);
+}
+
+.page3-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
 }
 
 .inv-inner {
@@ -329,6 +334,10 @@
 }
 
 .flex-box {
+  display: flex;
+}
+
+.flex-box-dyn {
   display: flex;
 }
 
@@ -524,8 +533,44 @@
     flex: 1 1 50%;
   }
 
+  .page5-inv {
+    right: unset;
+    top: unset;
+    bottom: 120px;
+    left: 40%;
+    width: 52vw;
+  }
+
+  .page4-inv {
+    right: unset;
+    top: unset;
+    bottom: 120px;
+    left: 40%;
+    width: 52vw;
+  }
+
+  .page2-inv {
+    right: unset;
+    top: unset;
+    bottom: 120px;
+    left: 40%;
+    width: 52vw;
+  }
+
+  .page4-wrapper {
+    flex-direction: column;
+  }
+
+  .flex-box-dyn {
+    flex-direction: column;
+  }
+
   .video-container {
     width: 100%;
+  }
+
+  .founder-card {
+    width: 66%;
   }
 }
 
@@ -534,11 +579,58 @@
     flex: 1 1 100%;
   }
 
+  .page3-inner {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page4-wrapper {
+    flex-direction: column;
+  }
+
   .spacing-medium {
     padding: 120px 10px;
   }
 
+  .flex-box-dyn {
+    flex-direction: column;
+  }
+
   .video-container {
     width: 100%;
+  }
+
+  .founder-card {
+    width: 66%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .page5-inv {
+    right: unset;
+    top: unset;
+    bottom: 120px;
+    left: 20%;
+    width: 64vw;
+  }
+
+  .page4-inv {
+    right: unset;
+    top: unset;
+    bottom: 120px;
+    left: 20%;
+    width: 64vw;
+  }
+
+  .page2-inv {
+    right: unset;
+    top: unset;
+    bottom: 120px;
+    left: 20%;
+    width: 64vw;
+  }
+
+  .founder-card {
+    width: 66%;
   }
 }

@@ -32,7 +32,7 @@ const Founders = () => {
     
     return (
         <div className='secondary-background page3-wrapper' style={{fontSize: '1rem'}}>
-            <div className='flex-just-even flex-align-start flex-wrap'>
+            <div className='page3-inner flex-wrap'>
                 <div style={{padding: 25}} className='founder-card flex-align-all flex-column'>
                     <div>
                         {/* <img src={ImgPlaceholder} width='200px'></img> */}

@@ -69,24 +69,24 @@ function App() {
               <Hero />  
               <div id="mission" className='page2'>
                 <div className='page2-wrapper' id="page2-wrapper" style={{padding: 40}}>
-                  <div className='flex-box' style={{position: 'relative', height: '100%'}}>
+                  <div className='flex-box-dyn' style={{position: 'relative', height: '100%',paddingBottom: '12%'}}>
+                    <div className='dynamic-padding-sml' style={{width: '75%'}}>
+                      <img style={{borderRadius: 18}} src={NFT4} width="100%"></img>
+                    </div>
                     <div className='page5-inv'>
                       <div className='inv-inner'>
                         <h1 style={{margin: 0}}>Our Mission</h1>
                         <p><b>Fantazya was built on the premise that we can really capitalise on the NFT space in sending a positive message. The communities built around Web3 are amazing, and their potential is limitless. Why not use all this potential to somehow create a positive impact? Enter Fantazya.</b></p>
                         <p><b>Fantazya's main purpose is to spread awareness and to educate the younger generation of females including (but not limited to) developing countries about their own rights, potential, and violence against women.</b></p>
                       </div>
-                    </div>
-                    <div className='dynamic-padding-sml' style={{width: '75%'}}>
-                      <img style={{borderRadius: 18}} src={NFT4} width="100%"></img>
-                    </div>                                        
+                    </div>                                                            
                   </div>                  
                 </div>                                
               </div>   
                     
               <div id="special" className='page4'>
                 <div className='page4-wrapper'>
-                  <div className='flex-align-center dynamic-padding-sml' style={{width: '75%', position: 'relative'}}>
+                  <div className='flex-align-center dynamic-padding-sml' style={{width: '100%', position: 'relative'}}>
                     <div style={{position: 'relative'}}>
                       <div>
                         <img className='radius10 shadow-sml' src={NFT1} width="100%"></img>
@@ -117,9 +117,9 @@ function App() {
               </div> 
               <div id="artist" className='page2'>
                 <div className='page2-wrapper' id="page2-wrapper" style={{padding: 40}}>
-                  <div className='flex-box' style={{position: 'relative', height: '100%'}}>
-                    <div className='dynamic-padding-lrg' style={{width: '75%'}}>
-                      <img style={{borderRadius: 18}} src={FantazyaStreet} width="100%"></img>
+                  <div className='flex-box-dyn' style={{position: 'relative', height: '100%', paddingBottom: '12%'}}>
+                    <div style={{width: '100%',position: 'relative', top: 40}}>
+                      <img style={{borderRadius: 18, transform: 'scale(1.2)'}} src={FantazyaStreet} width="100%"></img>
                     </div>
                     <div className='page2-inv'>
                       <div className='inv-inner'>

@@ -21,13 +21,12 @@
 
 .roadmap-inv {
     background-color: #d47dba;
-    width: 25%;
-    position: absolute;
+    position: relative;
     right: 0;
     top: 50px;
     z-index: 2;
     text-align: left;
-    width: 40vw;
+    width: 50%;
     box-shadow: -8px 0px 10px rgba(0,0,0,0.52);
   }
 
