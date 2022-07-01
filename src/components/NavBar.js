@@ -21,27 +21,47 @@ const NavBar = ({onConnectWallet, wallet}) => {
 
     const handleLinkClick = (event,_nav) => {
         const id = event.target.id;
+        console.log({id})
         let pos = null;
+        let _offset = document.getElementById('welcome-section').offsetHeight;
+        const _offsetM = document.getElementById('mission').offsetHeight;
+        const _offsetS = $('#special').height();
+        const _offsetR = document.getElementById('roadmap').offsetHeight;
+        const _offsetA = document.getElementById('artist').offsetHeight;
+        const _offsetT = document.getElementById('team').offsetHeight;
+
+        //console.log(_offset,_offsetM,_offsetR,_offsetS,_offsetA,_offsetT);
 
         switch(id){
             case 'artist':
                 pos = $('#artist').position();
+                _offset = _offset * 5;
                 break;
             case 'special':
                 pos = $('#special').position();
+                _offset = _offset * 2.5;
                 break;
             case 'faqs':
                 pos = $('#faqs').position();
+                _offset = _offset * 10;
                 break;
             case 'team':
-                pos = $('#team').position();                    
+                pos = $('#team').position(); 
+                _offset = _offset * 8;                  
+                break;
+            case 'mission':
+                pos = $('#mission').position();       
+                break;
+            case 'roadmap':
+                pos = $('#roadmap').position();     
+                _offset = _offset * 4;              
                 break;
         }
 
-        console.log(pos.top);
-
+        console.log(_offset);
+        
         setTimeout(() => {
-            window.scrollTo({top: pos.top, behavior: 'smooth'})
+            window.scrollTo({top: pos.top + _offset, behavior: 'smooth'})
             if(!_nav){
                 toggleDrawer();   
             }            
@@ -79,9 +99,9 @@ const NavBar = ({onConnectWallet, wallet}) => {
                     </Drawer>                   
                 </div>
                 <div className='top-menu'>
-                    <a className='drawer-link' id="artist" href="#" onClick={(e) => handleLinkClick(e,true)}>Our Mission</a>
+                    <a className='drawer-link' id="mission" href="#" onClick={(e) => handleLinkClick(e,true)}>Our Mission</a>
                     <a className='drawer-link' id="special" href="#" onClick={(e) => handleLinkClick(e,true)}>Utility</a>
-                    <a className='drawer-link' id="artist" href="#" onClick={(e) => handleLinkClick(e,true)}>Roadmap</a>
+                    <a className='drawer-link' id="roadmap" href="#" onClick={(e) => handleLinkClick(e,true)}>Roadmap</a>
                     <a className='drawer-link' id="artist" href="#" onClick={(e) => handleLinkClick(e,true)}>Artist</a>
                     <a className='drawer-link' id="team" href="#" onClick={(e) => handleLinkClick(e,true)}>Team</a>
                     <a className='drawer-link' id="faqs" onClick={(e) => handleLinkClick(e,true)} href="#">FAQ</a>
