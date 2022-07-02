@@ -4,7 +4,6 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AddIcon from '@mui/icons-material/Add';
 import CloseIcon from '@mui/icons-material/Close';
-import Button from '@mui/material/Button';
 import '../stylesheet/FAQs.css';
 import FadeInContainer from './FadeInContainer';
 
@@ -17,7 +16,7 @@ const FAQs = () => {
 
     return (
         <div id="faqs" className='faq-container'>
-            <div style={{marginTop: 60}}>
+            <div>
             <FadeInContainer animation="fade-in">
             <Accordion className={`accordian-container ${expanded === 'f0' ? 'accordian-selected' : ''}`} id="f0" expanded={expanded === 'f0'} onChange={onAccordionChange('f0')}>
                 <AccordionSummary expandIcon={expanded === 'f0' ? <CloseIcon style={{color: 'black'}} /> : <AddIcon style={{color: 'black'}} />}>

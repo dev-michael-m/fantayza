@@ -1,7 +1,6 @@
 import React from 'react';
 import '../stylesheet/Footer.css';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import DiscordIcon from '../assets/discord.png';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
 const Footer = () => {

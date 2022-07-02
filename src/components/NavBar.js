@@ -1,12 +1,8 @@
 import React, {useState} from 'react';
 import '../stylesheet/NavBar.css';
-import Button from '@mui/material/Button';
-import VerifiedIcon from '@mui/icons-material/Verified';
-import MenuIcon from '@mui/icons-material/Menu';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Logo from '../assets/FNFT_Website_NoxIcon.png';
-import DiscordIcon from '../assets/discord.png';
 import IconButton from '@mui/material/IconButton';
 import Drawer from '@mui/material/Drawer';
 import CloseIcon from '@mui/icons-material/Close';

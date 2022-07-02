@@ -5,7 +5,6 @@ import Ricardo from '../assets/ricardo.jpg';
 import Ruba from '../assets/ruba.jpg';
 import Yousef from '../assets/yousef.jpg';
 import Avatar from '@mui/material/Avatar';
-import FadeInContainer from './FadeInContainer';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
