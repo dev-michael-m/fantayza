@@ -3,6 +3,7 @@ import '../stylesheet/NavBar.css';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Logo from '../assets/FNFT_Website_NoxIcon.png';
+import DiscordIcon from '../assets/discord-blue.png';
 import IconButton from '@mui/material/IconButton';
 import Drawer from '@mui/material/Drawer';
 import CloseIcon from '@mui/icons-material/Close';
@@ -17,7 +18,7 @@ const NavBar = ({onConnectWallet, wallet}) => {
 
     const handleLinkClick = (event,_nav) => {
         const id = event.target.id;
-        console.log({id})
+
         let pos = null;
         let _offset = document.getElementById('welcome-section').offsetHeight;
         const _offsetM = document.getElementById('mission').offsetHeight;
@@ -109,6 +110,9 @@ const NavBar = ({onConnectWallet, wallet}) => {
                         </IconButton>
                         <IconButton onClick={() => document.getElementById('insta-link').click()}>
                             <InstagramIcon style={{color: '#20d5d5'}} />
+                        </IconButton>
+                        <IconButton>
+                            <img src={DiscordIcon} width="26"></img>
                         </IconButton>
                     </div>  
                     {/* <div>

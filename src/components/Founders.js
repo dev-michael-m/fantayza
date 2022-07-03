@@ -61,7 +61,7 @@ const Founders = () => {
                     </div>
                     <div className='flex-align-center'>
                         <IconButton id="f2-social" onClick={onClickSocial}>
-                            <InstagramIcon id="f2-social" className='' />
+                            <TwitterIcon id="f2-social" className='' />
                         </IconButton>
                     </div>
                 </div>
@@ -78,9 +78,9 @@ const Founders = () => {
                         <p style={{fontWeight: 'bold'}} className="text-center ">Mastermind of the growth of Fantazya's world. Trader, blockchain &amp; tokenomics enthusiast</p>
                     </div>
                     <div className='flex-align-center'>
-                        {/* <IconButton id="f3-social" onClick={onClickSocial}>
-                            <InstagramIcon id="f3-social" className='' />
-                        </IconButton> */}
+                        <IconButton id="f3-social" onClick={onClickSocial}>
+                            <TwitterIcon id="f3-social" className='' />
+                        </IconButton>
                     </div>
                 </div>
                 
@@ -123,8 +123,8 @@ const Founders = () => {
             </div>
             
             <a id="ahmed-social" href='https://www.instagram.com/ahmed_id/' target="_blank" hidden></a>
-            <a id="yousef-social" href='https://www.instagram.com/alfa.yousef/' target="_blank" hidden></a>
-            <a id="ruba-social" href='https://www.instagram.com/rqas/' target="_blank" hidden></a>
+            <a id="yousef-social" href='https://www.twitter.com/ybosami/' target="_blank" hidden></a>
+            <a id="ruba-social" href='https://www.twitter.com/rqas/' target="_blank" hidden></a>
             <a id="michael-social" href='https://www.twitter.com/_syndk8/' target="_blank" hidden></a>
             <a id="ricardo-social" href='https://www.linkedin.com/in/ricardo-alberto-de-la-roche-ortega-116a51178' target="_blank" hidden></a>
         </div>

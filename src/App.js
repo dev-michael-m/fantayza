@@ -12,6 +12,7 @@ import NFT1 from './assets/FNFT_NFT_New_1.jpg';
 import NFT2 from './assets/FNFT_NFT_New_2.jpg';
 import NFT3 from './assets/FNFT_NFT_New_3.jpg';
 import NFT4 from './assets/shocking.jpg';
+import $ from 'jquery';
 
 function App() {
 
@@ -130,7 +131,7 @@ function App() {
                 </div>                                
               </div>
               <div className='page2' style={{paddingBottom: 100}}>
-                <video autoPlay loop controls width="75%">
+                <video id="video" autoPlay muted loop controls width="75%">
                   <source src={ArtistVidMP4}></source>
                 </video>                 
               </div>
@@ -246,7 +247,7 @@ function App() {
               <Footer />
               <a id="twitter-link" href='https://twitter.com/fantazyanft' hidden target="_blank"></a>
               <a id="insta-link" href='https://instagram.com/fantazyanft' hidden target="_blank"></a>
-              <a id="discord-link" href='https://discord.gg/qUG8fXceDt' hidden target="_blank"></a>
+              <a id="discord-link" href='https://discord.gg/fantazya' hidden target="_blank"></a>
             </div>            
           </div>
     </div>
