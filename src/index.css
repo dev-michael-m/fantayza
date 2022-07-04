@@ -10,6 +10,7 @@ html,body {
   letter-spacing: 2px;
   line-height: 1.3;
   overflow-x: hidden;
+  overscroll-behavior-y: none;
 }
 
 input[type="number"]::-webkit-outer-spin-button,

@@ -69,7 +69,7 @@ function App() {
               <div id="mission" className='page2'>
                 <div className='page2-wrapper' id="page2-wrapper" style={{padding: 40}}>
                   <div className='flex-box-dyn' style={{position: 'relative', height: '100%',paddingBottom: '12%'}}>
-                    <div className='dynamic-padding-sml' style={{width: '75%'}}>
+                    <div className='dynamic-padding-sml prime-img'>
                       <img style={{borderRadius: 18}} src={NFT4} width="100%"></img>
                     </div>
                     <div className='page5-inv'>
@@ -131,7 +131,7 @@ function App() {
                 </div>                                
               </div>
               <div className='page2' style={{paddingBottom: 100}}>
-                <video id="video" autoPlay muted loop controls width="75%">
+                <video className="video" id="video" autoPlay muted loop controls width="75%">
                   <source src={ArtistVidMP4}></source>
                 </video>                 
               </div>

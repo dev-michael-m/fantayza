@@ -354,6 +354,7 @@ div.MuiMobileStepper-dot.MuiMobileStepper-dotActive {
 .parallax {    
     overflow-x: hidden;
     overflow-y: auto;
+    overscroll-behavior-y: auto;
     height: 100vh;
     width: 100vw;
     perspective: 100vw;
