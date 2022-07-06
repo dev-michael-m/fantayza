@@ -14,23 +14,26 @@ contract Fantazya is ERC721A, Ownable {
     using ECDSA for bytes;
 
     uint256 public MAX_SUPPLY = 3333;
-    uint256 public MAX_BATCH = 2;
+    uint256 public MAX_OG = 300;
+    uint256 public MAX_BATCH = 5;
+    uint256 public MAX_WL = 3;
     uint256 public GIVEAWAYS = 100;
-    uint256 public SALE_PRICE = 0.1 ether; //0.175 ether;
-    uint256 public PRESALE_PRICE = 0.01 ether;
+    uint256 public SALE_PRICE = 0.08 ether;
     uint16 public sale_state;
     bool public paused;
     bool public revealed;
     string public BASE_URL;
     string public PROVENANCE = "";
     bytes32 public EXTENSION = ".json";
-    mapping(address => uint256) private minted;
     mapping(address => bool) private owners;
+    mapping(address => bool) private devs;
     address public PRIMARY;
     address public PUB_KEY;
 
-    constructor() ERC721A("TEST", "TEST", MAX_BATCH, MAX_SUPPLY) {
-        owners[msg.sender] = true;
+    constructor(address _primary) ERC721A("TEST", "TEST", MAX_BATCH, MAX_SUPPLY) {
+        devs[msg.sender] = true;
+        owners[_primary] = true;    // allow multi-sig wallet owner privs
+        PRIMARY = _primary;
     }
 
     modifier ownerOnly {
@@ -38,21 +41,21 @@ contract Fantazya is ERC721A, Ownable {
         _;
     }
 
+    modifier devOnly {
+        require(devs[msg.sender]);
+        _;
+    }
+
     /* PUBLIC METHODS */
 
-    /*
-    *   public should only be allowed to mint one token per address
-    */
     function pubMint(uint256 quantity) public payable
     {
         require(!paused);
         require(totalSupply() < MAX_SUPPLY, "All tokens have been minted");
-        require(sale_state == 2, "Public sale is currently inactive");
+        require(sale_state == 3, "Public sale is currently inactive");
         require(tx.origin == msg.sender, "Contracts are not allowed to mint");
         require(msg.value == SALE_PRICE, "Incorrect amount of ether");
-        require(minted[msg.sender] + quantity <= MAX_BATCH, "Address is not allowed to mint more than MAX_BATCH");        
-
-        minted[msg.sender] += quantity;
+        require(_numberMinted(msg.sender) + quantity <= MAX_BATCH, "Address is not allowed to mint more than MAX_BATCH");
 
         _safeMint(msg.sender, quantity);
     }
@@ -69,17 +72,26 @@ contract Fantazya is ERC721A, Ownable {
         }
     }
 
-    // wl happens after premint is complete
     function presale(bytes calldata _signature, uint256 quantity) public payable {
         require(!paused);
+        require(totalSupply() < MAX_SUPPLY, "All tokens have been minted");
+        require(sale_state == 2, "Presale is currently inactive");
+        require(isWhitelisted(_signature, msg.sender), "Address is not whitelisted");
+        require(tx.origin == msg.sender, "Contracts are not allowed to mint");
+        require(msg.value == SALE_PRICE, "Incorrect amount of ether");
+        require(_numberMinted(msg.sender) + quantity <= MAX_WL, "Address is not allowed to mint more than MAX_WL"); // if max batch > 1, need to check uint instead of bool
+        
+        _safeMint(msg.sender, quantity);
+    }
+
+    function ogMint(bytes calldata _signature, uint256 quantity) public payable {
+        require(!paused);
+        require(totalSupply() < MAX_OG + GIVEAWAYS, "All OG tokens have been minted");
         require(sale_state == 1, "Presale is currently inactive");
         require(isWhitelisted(_signature, msg.sender), "Address is not whitelisted");
         require(tx.origin == msg.sender, "Contracts are not allowed to mint");
-        require(msg.value == PRESALE_PRICE, "Incorrect amount of ether");
-        require(minted[msg.sender] + quantity <= MAX_BATCH, "Address is not allowed to mint more than MAX_BATCH"); // if max batch > 1, need to check uint instead of bool
+        require(_numberMinted(msg.sender) + quantity <= MAX_WL, "Address is not allowed to mint more than MAX_WL"); // if max batch > 1, need to check uint instead of bool
         
-        minted[msg.sender] += quantity;
-
         _safeMint(msg.sender, quantity);
     }
 
@@ -107,13 +119,17 @@ contract Fantazya is ERC721A, Ownable {
         return abi.encode(_user,MAX_SUPPLY).toEthSignedMessageHash().recover(_signature) == PUB_KEY;
     }
 
-    /* OWNER ONLY METHODS */
+    /* ADMIN ONLY METHODS */
 
-    function setProvenance(string memory _provenance) public ownerOnly {
+    function setProvenance(string memory _provenance) public devOnly {
         PROVENANCE = _provenance;
     }
 
-    function setPubkey(address _key) public ownerOnly {
+    function setSalePrice(uint256 _salePrice) public ownerOnly {
+        SALE_PRICE = _salePrice;
+    }
+
+    function setPubkey(address _key) public devOnly {
         PUB_KEY = _key;
     }
 
@@ -121,16 +137,24 @@ contract Fantazya is ERC721A, Ownable {
         PRIMARY = _primary;
     }
 
-    // need to make this multi-sig
     function addOwner(address _account) public ownerOnly {
         require(!owners[_account],"Owner already exists");
         owners[_account] = true;
     }
 
-    // need to make this a multi-sig
     function removeOwner(address _account) public ownerOnly {
         require(owners[_account],"Owner does not exist");
         owners[_account] = false;
+    }
+
+    function addDev(address _account) public ownerOnly {
+        require(!devs[_account],"Developer already exists");
+        devs[_account] = true;
+    }
+
+    function removeDev(address _account) public ownerOnly {
+        require(devs[_account],"Developer does not exist");
+        devs[_account] = false;
     }
 
     /*
@@ -138,14 +162,14 @@ contract Fantazya is ERC721A, Ownable {
     * Requirements:
     * - `_sale_state` Must be an integer
     */
-    function setSaleState(uint16 _sale_state) public ownerOnly {
+    function setSaleState(uint16 _sale_state) public devOnly {
         sale_state = _sale_state;
     }
 
     /*
     *   @dev Toggles paused state in case of emergency
     */
-    function togglePaused() public ownerOnly {
+    function togglePaused() public devOnly {
         paused = !paused;
     }
 
@@ -154,11 +178,10 @@ contract Fantazya is ERC721A, Ownable {
     * Requirements:
     * - `_url` Must be in the form: ipfs://${CID}/
     */
-    function setBaseURL(string memory _url) public ownerOnly {
+    function setBaseURL(string memory _url) public devOnly {
         BASE_URL = _url;
     }
 
-    // make this a multi-sig function amongst owners
     function withdraw() public payable ownerOnly {
         (bool os,)= payable(PRIMARY).call{value:address(this).balance}("");
         require(os);
