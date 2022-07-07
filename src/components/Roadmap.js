@@ -4,6 +4,7 @@ import BodyImage from '../assets/FNFT_Character_Body2.png';
 import CheckMark from '@mui/icons-material/Check';
 import Pending from '@mui/icons-material/PendingOutlined';
 import Downloading from '@mui/icons-material/Downloading';
+import Searching from '@mui/icons-material/ScreenSearchDesktop';
 
 const Roadmap = () => {
 
@@ -60,7 +61,88 @@ const Roadmap = () => {
                                 <h3>Minting of Fantazya Collection</h3>
                             </div>
                             <div>
-                               <p className='text-center'><b>Phase II Coming Soon...</b></p>
+                                <h1>Phase II</h1>
+                            </div>
+                            <div className='flex-align-center'>
+                                <div className='roadmap-icon'>
+                                    <Pending />
+                                </div>
+                                <h3>Development of Full Body Avatar</h3>
+                            </div>
+                            <div className='flex-align-center'>
+                                <div className='roadmap-icon'>
+                                    <Pending />
+                                </div>
+                                <h3>Design of Merchandise</h3>
+                            </div>
+                            <div className='flex-align-center'>
+                                <div className='roadmap-icon'>
+                                    <Searching />
+                                </div>
+                                <h3>AZYA Token</h3>
+                            </div>
+                            <div className='flex-align-center'>
+                                <div className='roadmap-icon'>
+                                    <Searching />
+                                </div>
+                                <h3>Fantazya DAO</h3>
+                            </div>
+                            <div className='flex-align-center'>
+                                <div className='roadmap-icon'>
+                                    <Pending />
+                                </div>
+                                <h3>Full Body Avatar Mint</h3>
+                            </div>
+                            <div>
+                                <h1>Phase III</h1>
+                            </div>
+                            <div className='flex-align-center'>
+                                <div className='roadmap-icon'>
+                                    <Downloading />
+                                </div>
+                                <h3>Script of First Episode</h3>
+                            </div>
+                            <div className='flex-align-center'>
+                                <div className='roadmap-icon'>
+                                    <Downloading />
+                                </div>
+                                <h3>Script of Second Episode</h3>
+                            </div>
+                            <div className='flex-align-center'>
+                                <div className='roadmap-icon'>
+                                    <Pending />
+                                </div>
+                                <h3>Script of Third Episode</h3>
+                            </div>
+                            <div className='flex-align-center'>
+                                <div className='roadmap-icon'>
+                                    <Pending />
+                                </div>
+                                <h3>Script of Fourth Episode</h3>
+                            </div>
+                            <div className='flex-align-center'>
+                                <div className='roadmap-icon'>
+                                    <Pending />
+                                </div>
+                                <h3>Script of Fifth Episode</h3>
+                            </div>
+                            <div className='flex-align-center'>
+                                <div className='roadmap-icon'>
+                                    <Downloading />
+                                </div>
+                                <h3>Select Production Team</h3>
+                            </div>
+                            <div className='flex-align-center'>
+                                <div className='roadmap-icon'>
+                                    <Pending />
+                                </div>
+                                <h3>Metaverses to be Displayed in</h3>
+                            </div>
+                            <div className='flex-align-center'>
+                                <div className='roadmap-icon'>
+                                    <Pending />
+                                </div>
+                                <h3>Minting of AZYA Pass</h3>
                             </div>
                         </div>
                     </div>                    
