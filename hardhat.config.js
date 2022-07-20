@@ -15,15 +15,8 @@ module.exports = {
          }
       }
    },
-   defaultNetwork: "mainnet",
+   defaultNetwork: "hardhat",
    networks: {
-      hardhat: {},
-      mainnet: {
-         url: process.env.API_URL,
-         accounts: [`0x${process.env.REACT_APP_PRIVATE_KEY}`]
-      }
-   },
-   etherscan: {
-      apiKey: process.env.ETHERSCAN_API
+      hardhat: {}
    }
 }
