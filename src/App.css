@@ -259,6 +259,10 @@
   padding: 16px 0px 0px 0px;
 }
 
+.spacing-small {
+  margin: 30px 0px;
+}
+
 .page2 {
   background-color: #041420;
   position: relative;

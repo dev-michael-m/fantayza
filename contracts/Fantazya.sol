@@ -18,27 +18,20 @@ contract Fantazya is ERC721A, Ownable {
     uint256 public MAX_BATCH = 5;
     uint256 public MAX_WL = 3;
     uint256 public GIVEAWAYS = 100;
-    uint256 public SALE_PRICE = 0.08 ether;
+    uint256 public SALE_PRICE = 0.06 ether;
     uint16 public sale_state;
     bool public paused;
     bool public revealed;
     string public BASE_URL;
     string public PROVENANCE = "";
     bytes32 public EXTENSION = ".json";
-    mapping(address => bool) private owners;
+    mapping(address => bool) private freemints;
     mapping(address => bool) private devs;
     address public PRIMARY;
     address public PUB_KEY;
 
-    constructor(address _primary) ERC721A("TEST", "TEST", MAX_BATCH, MAX_SUPPLY) {
+    constructor() ERC721A("Fantazya NFT", "FNFT", MAX_BATCH, MAX_SUPPLY) {
         devs[msg.sender] = true;
-        owners[_primary] = true;    // allow multi-sig wallet owner privs
-        PRIMARY = _primary;
-    }
-
-    modifier ownerOnly {
-        require(owners[msg.sender]);
-        _;
     }
 
     modifier devOnly {
@@ -51,18 +44,17 @@ contract Fantazya is ERC721A, Ownable {
     function pubMint(uint256 quantity) public payable
     {
         require(!paused);
-        require(totalSupply() < MAX_SUPPLY, "All tokens have been minted");
+        require(totalSupply() + quantity <= MAX_SUPPLY, "All tokens have been minted");
         require(sale_state == 3, "Public sale is currently inactive");
         require(tx.origin == msg.sender, "Contracts are not allowed to mint");
-        require(msg.value == SALE_PRICE, "Incorrect amount of ether");
+        require(msg.value == SALE_PRICE * quantity, "Incorrect amount of ether");
         require(_numberMinted(msg.sender) + quantity <= MAX_BATCH, "Address is not allowed to mint more than MAX_BATCH");
 
         _safeMint(msg.sender, quantity);
     }
 
-    function preMint(uint256 quantity) public payable ownerOnly {
+    function preMint(uint256 quantity) public onlyOwner {   // address must not be the genesis safe
         require(!paused);
-        require(owners[msg.sender], "Address is not allowed to mint.");
         require(quantity % MAX_BATCH == 0, "Can only mint a multiple of MAX_BATCH");
         require(totalSupply() + quantity <= GIVEAWAYS, "Quantity exceeds number of reserved tokens");
          
@@ -72,24 +64,27 @@ contract Fantazya is ERC721A, Ownable {
         }
     }
 
-    function presale(bytes calldata _signature, uint256 quantity) public payable {
+    function presale(bytes calldata _signature, uint256 quantity) public payable { // add bytes calldata _signature
         require(!paused);
-        require(totalSupply() < MAX_SUPPLY, "All tokens have been minted");
+        require(totalSupply() + quantity <= MAX_SUPPLY, "All tokens have been minted");
         require(sale_state == 2, "Presale is currently inactive");
         require(isWhitelisted(_signature, msg.sender), "Address is not whitelisted");
         require(tx.origin == msg.sender, "Contracts are not allowed to mint");
-        require(msg.value == SALE_PRICE, "Incorrect amount of ether");
+        require(msg.value == SALE_PRICE * quantity, "Incorrect amount of ether");
         require(_numberMinted(msg.sender) + quantity <= MAX_WL, "Address is not allowed to mint more than MAX_WL"); // if max batch > 1, need to check uint instead of bool
         
         _safeMint(msg.sender, quantity);
     }
 
-    function ogMint(bytes calldata _signature, uint256 quantity) public payable {
+    function ogMint(bytes calldata _signature, uint256 quantity) public payable {  // add bytes calldata _signature
         require(!paused);
-        require(totalSupply() < MAX_OG + GIVEAWAYS, "All OG tokens have been minted");
+        require(totalSupply() + quantity <= MAX_OG + GIVEAWAYS, "All OG tokens have been minted");
         require(sale_state == 1, "Presale is currently inactive");
         require(isWhitelisted(_signature, msg.sender), "Address is not whitelisted");
         require(tx.origin == msg.sender, "Contracts are not allowed to mint");
+        if(!freemints[msg.sender]){ // non freemint addresses must pay to mint
+            require(msg.value == SALE_PRICE * quantity, "Incorrect amount of ether");
+        }
         require(_numberMinted(msg.sender) + quantity <= MAX_WL, "Address is not allowed to mint more than MAX_WL"); // if max batch > 1, need to check uint instead of bool
         
         _safeMint(msg.sender, quantity);
@@ -119,13 +114,33 @@ contract Fantazya is ERC721A, Ownable {
         return abi.encode(_user,MAX_SUPPLY).toEthSignedMessageHash().recover(_signature) == PUB_KEY;
     }
 
+    function setFreemints(address[] calldata wallets) public devOnly {
+        for(uint256 i = 0; i < wallets.length; i++){
+            freemints[wallets[i]] = true;
+        }
+    }
+
     /* ADMIN ONLY METHODS */
+
+    function addDev(address _account) public onlyOwner {
+        require(!devs[_account],"Developer already exists");
+        devs[_account] = true;
+    }
+
+    function removeDev(address _account) public onlyOwner {
+        require(devs[_account], "Developer doesn't exist");
+        devs[_account] = false;
+    }
+
+    function setMaxSupply(uint256 _supply) public onlyOwner {
+        MAX_SUPPLY = _supply;
+    }
 
     function setProvenance(string memory _provenance) public devOnly {
         PROVENANCE = _provenance;
     }
 
-    function setSalePrice(uint256 _salePrice) public ownerOnly {
+    function setSalePrice(uint256 _salePrice) public onlyOwner {
         SALE_PRICE = _salePrice;
     }
 
@@ -133,28 +148,8 @@ contract Fantazya is ERC721A, Ownable {
         PUB_KEY = _key;
     }
 
-    function setPrimaryAddress(address _primary) public ownerOnly {
+    function setPrimaryAddress(address _primary) public onlyOwner {
         PRIMARY = _primary;
-    }
-
-    function addOwner(address _account) public ownerOnly {
-        require(!owners[_account],"Owner already exists");
-        owners[_account] = true;
-    }
-
-    function removeOwner(address _account) public ownerOnly {
-        require(owners[_account],"Owner does not exist");
-        owners[_account] = false;
-    }
-
-    function addDev(address _account) public ownerOnly {
-        require(!devs[_account],"Developer already exists");
-        devs[_account] = true;
-    }
-
-    function removeDev(address _account) public ownerOnly {
-        require(devs[_account],"Developer does not exist");
-        devs[_account] = false;
     }
 
     /*
@@ -182,7 +177,12 @@ contract Fantazya is ERC721A, Ownable {
         BASE_URL = _url;
     }
 
-    function withdraw() public payable ownerOnly {
+    function setRevealed(string memory _url, bool _revealed) public devOnly {
+        BASE_URL = _url;
+        revealed = _revealed;
+    }
+
+    function withdraw() public payable onlyOwner {
         (bool os,)= payable(PRIMARY).call{value:address(this).balance}("");
         require(os);
     }

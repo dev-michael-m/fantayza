@@ -1,0 +1,24 @@
+.mint-input {
+    background-color: white !important;
+    border-radius: 10px !important;
+    width: 80px;
+}
+
+.mint-input input {
+    text-align: center;
+}
+
+.mint-input-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+}
+
+.mint-btn {
+    background-color: #ff0177 !important;
+}
+
+.mint-btn:hover {
+    background-color: #d80367 !important;
+}

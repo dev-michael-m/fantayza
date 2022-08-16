@@ -8,9 +8,11 @@ import IconButton from '@mui/material/IconButton';
 import Drawer from '@mui/material/Drawer';
 import CloseIcon from '@mui/icons-material/Close';
 import $ from 'jquery';
+import { useLocation } from 'react-router-dom';
 
 const NavBar = ({onConnectWallet, wallet}) => {
     const [menu,setMenu] = useState(false);
+    const location = useLocation();
     
     const toggleDrawer = () => {
         setMenu(prevState => !prevState);
@@ -55,8 +57,6 @@ const NavBar = ({onConnectWallet, wallet}) => {
                 break;
         }
 
-        console.log(_offset);
-        
         setTimeout(() => {
             window.scrollTo({top: pos.top + _offset, behavior: 'smooth'})
             if(!_nav){
@@ -68,7 +68,7 @@ const NavBar = ({onConnectWallet, wallet}) => {
 
     return (
         <div id="nav-container" className="nav-container">
-            <div id="inner-nav" className="inner-nav flex-just-between">
+            {!location.pathname.includes('mint') ? <div id="inner-nav" className="inner-nav flex-just-between">
                 <div>
                     <IconButton onClick={toggleDrawer}>
                         <img src={Logo} width={50}></img>
@@ -114,19 +114,9 @@ const NavBar = ({onConnectWallet, wallet}) => {
                         <IconButton>
                             <img src={DiscordIcon} width="26"></img>
                         </IconButton>
-                    </div>  
-                    {/* <div>
-                        { !wallet.address ?
-                            <Button style={{height: 36}} className='custom-button small' variant='outlined' onClick={onConnectWallet}>connect wallet</Button> :
-                            <div style={{color: 'white'}} className='flex-align-center'>
-                                <VerifiedIcon style={{fontSize: 18, marginRight: 10}} />
-                                <p>{wallet.address}</p>
-                            </div>
-                        }
-                    </div>                   */}
-                </div>
-                
-            </div>
+                    </div>
+                </div>                
+            </div> : null}
         </div>
     )
 }

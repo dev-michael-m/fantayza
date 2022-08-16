@@ -12,7 +12,6 @@ import NFT1 from './assets/FNFT_NFT_New_1.jpg';
 import NFT2 from './assets/FNFT_NFT_New_2.jpg';
 import NFT3 from './assets/FNFT_NFT_New_3.jpg';
 import NFT4 from './assets/shocking.jpg';
-import $ from 'jquery';
 
 function App() {
 
