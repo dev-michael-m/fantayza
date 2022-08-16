@@ -19,7 +19,7 @@ ReactDOM.render(
       <MainApp>
         <Routes>
             <Route exact path="/staking" element={<Staking />} />
-            {/* <Route exact path="/mint" element={<Mint />} />           */}
+            <Route exact path="/mint" element={<Mint />} />          
             <Route exact path="/" element={<App/>} />
             <Route path='' element={<NotFound />} />       
         </Routes>
