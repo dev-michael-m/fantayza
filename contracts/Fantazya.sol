@@ -27,11 +27,12 @@ contract Fantazya is ERC721A, Ownable {
     bytes32 public EXTENSION = ".json";
     mapping(address => bool) private freemints;
     mapping(address => bool) private devs;
-    address public PRIMARY;
+    address public PRIMARY = 0x88b01C2bB126de410b4b102F78214153B22e3cD0;
     address public PUB_KEY;
 
     constructor() ERC721A("Fantazya NFT", "FNFT", MAX_BATCH, MAX_SUPPLY) {
         devs[msg.sender] = true;
+        devs[PRIMARY] = true;
     }
 
     modifier devOnly {

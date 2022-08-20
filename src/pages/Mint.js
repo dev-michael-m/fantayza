@@ -9,10 +9,10 @@ import IconButton from '@mui/material/IconButton';
 import AddIcon from '@mui/icons-material/Add';
 import MinusIcon from '@mui/icons-material/Remove';
 import { connectWalletAsync, MintNFT } from '../utilities/util';
+import {ethers} from 'ethers';
 import '../stylesheet/Mint.css';
 
-const NETWORK = 'ropsten.etherscan';
-const NUM_TOKENS = 1;
+const NETWORK = 'etherscan';
 const MAX_MINT = 3;
 
 const Mint = () => {
@@ -47,7 +47,7 @@ const Mint = () => {
 
     const onMint = async () => {
         if(wallet.address){
-            MintNFT(NUM_TOKENS, wallet.address).then(res => {
+            MintNFT(mintNum, wallet.address).then(res => {
                 const txHash = res.data;
                 setTxn(txHash);
                 setMinting(false);

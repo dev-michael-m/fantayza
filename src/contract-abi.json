@@ -182,15 +182,6 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_account", "type": "address" }
-    ],
-    "name": "addOwner",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
       { "internalType": "address", "name": "to", "type": "address" },
       { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
     ],
@@ -312,15 +303,6 @@
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "address", "name": "_account", "type": "address" }
-    ],
-    "name": "removeOwner",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "inputs": [],
     "name": "renounceOwnership",
     "outputs": [],
@@ -386,6 +368,15 @@
       { "internalType": "address[]", "name": "wallets", "type": "address[]" }
     ],
     "name": "setFreemints",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_supply", "type": "uint256" }
+    ],
+    "name": "setMaxSupply",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
