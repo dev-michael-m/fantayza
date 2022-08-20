@@ -1,5 +1,5 @@
 const {ethers} = require('ethers');
-const {whitelist, ogs} = require('../whitelist.json');
+const {whitelist, ogs, free} = require('../whitelist.json');
 
 require('dotenv').config();
 const _alkk = process.env.REACT_APP_ALKK;
@@ -58,6 +58,7 @@ export const MintNFT = async (_num, _address) => {
 
                 if(_saleState == 1){    // og mint
                     const exists = ogs.find(doc => doc.toUpperCase() == _address.toUpperCase());   // check address is on wl
+                    const _free = free.find(doc => doc.toUpperCase() == _address.toUpperCase());
                     if(exists){
                         const message = web3.eth.abi.encodeParameters(["address","uint256"],[_address,max_supply]);
                         const {signature} = web3.eth.accounts.sign(message,_krp);
@@ -65,7 +66,7 @@ export const MintNFT = async (_num, _address) => {
                         const tx = {
                             from: _address,
                             to: process.env.REACT_APP_CONTRACT_ADDRESS,
-                            value: web3.utils.toHex(web3.utils.toWei(String((mint_price * _num).toFixed(DECIMALS)),'ether')),
+                            value: _free ? '0x0' : web3.utils.toHex(web3.utils.toWei(String((mint_price * _num).toFixed(DECIMALS)),'ether')),
                             data: _contract.methods.ogMint(signature,_num).encodeABI(),
                         }
 
