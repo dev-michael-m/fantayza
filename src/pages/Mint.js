@@ -144,7 +144,7 @@ const Mint = () => {
                             </Button>
                         </div>   
                         <div className='flex-align-center flex-column'>
-                            <h2 style={{color: 'white'}}>Price - 0.06 ETH + Gas</h2>
+                            <h2 style={{color: 'white'}}>Price - 0.03 ETH + Gas</h2>
                         </div>
                     </div>                    
                 </div>
