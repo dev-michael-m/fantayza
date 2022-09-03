@@ -110,21 +110,7 @@
   },
   {
     "inputs": [],
-    "name": "GIVEAWAYS",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "MAX_BATCH",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "MAX_OG",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
     "type": "function"
@@ -151,31 +137,11 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "PROVENANCE",
-    "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "PUB_KEY",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "SALE_PRICE",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [
-      { "internalType": "address", "name": "_account", "type": "address" }
+      { "internalType": "address[]", "name": "wallets", "type": "address[]" },
+      { "internalType": "uint256", "name": "quantity", "type": "uint256" }
     ],
-    "name": "addDev",
+    "name": "airdrop",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -233,16 +199,6 @@
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "bytes", "name": "_signature", "type": "bytes" },
-      { "internalType": "uint256", "name": "quantity", "type": "uint256" }
-    ],
-    "name": "ogMint",
-    "outputs": [],
-    "stateMutability": "payable",
-    "type": "function"
-  },
-  {
     "inputs": [],
     "name": "owner",
     "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
@@ -269,19 +225,9 @@
     "inputs": [
       { "internalType": "uint256", "name": "quantity", "type": "uint256" }
     ],
-    "name": "preMint",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "bytes", "name": "_signature", "type": "bytes" },
-      { "internalType": "uint256", "name": "quantity", "type": "uint256" }
-    ],
     "name": "presale",
     "outputs": [],
-    "stateMutability": "payable",
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -289,15 +235,6 @@
       { "internalType": "uint256", "name": "quantity", "type": "uint256" }
     ],
     "name": "pubMint",
-    "outputs": [],
-    "stateMutability": "payable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "address", "name": "_account", "type": "address" }
-    ],
-    "name": "removeDev",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -392,37 +329,10 @@
   },
   {
     "inputs": [
-      { "internalType": "string", "name": "_provenance", "type": "string" }
-    ],
-    "name": "setProvenance",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "address", "name": "_key", "type": "address" }
-    ],
-    "name": "setPubkey",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
       { "internalType": "string", "name": "_url", "type": "string" },
       { "internalType": "bool", "name": "_revealed", "type": "bool" }
     ],
     "name": "setRevealed",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "uint256", "name": "_salePrice", "type": "uint256" }
-    ],
-    "name": "setSalePrice",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

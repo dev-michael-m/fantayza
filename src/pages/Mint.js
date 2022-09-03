@@ -13,7 +13,7 @@ import {ethers} from 'ethers';
 import '../stylesheet/Mint.css';
 
 const NETWORK = 'etherscan';
-const MAX_MINT = 3;
+const MAX_MINT = 2;
 
 const Mint = () => {
     const [minting,setMinting] = useState(false);
@@ -21,7 +21,7 @@ const Mint = () => {
         address: null
     });
     const [txn,setTxn] = useState(null);
-    const [mintNum,setMintNum] = useState(MAX_MINT - 1);
+    const [mintNum,setMintNum] = useState(MAX_MINT);
     const [modalOpen,setModalOpen] = useState(false);
     const [alert,setAlert] = useState({
         severity: 'success',
@@ -144,7 +144,7 @@ const Mint = () => {
                             </Button>
                         </div>   
                         <div className='flex-align-center flex-column'>
-                            <h2 style={{color: 'white'}}>Price - 0.03 ETH + Gas</h2>
+                            <h2 style={{color: 'white'}}>Price: FREE + Gas</h2>
                         </div>
                     </div>                    
                 </div>
