@@ -4,6 +4,8 @@ import layer1 from '../assets/FNFT_Website_Page02_City.png';
 import layer2 from '../assets/FNFT_Website_Page02_Fantazya.png';
 import layer3 from '../assets/FNFT_Website_Page02_New_Text.png';
 import logo from '../assets/FNFT_Website_Page01_Logo.png';
+import OSIcon from '../assets/opensea.png';
+import IconButton from '@mui/material/IconButton';
 
 const Hero = ({soldOut,wallet,onAlert,onConnectWallet,saleActive,pubSale}) => {
 

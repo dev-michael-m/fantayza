@@ -6,6 +6,7 @@ import Logo from '../assets/FNFT_Website_NoxIcon.png';
 import DiscordIcon from '../assets/discord-blue.png';
 import IconButton from '@mui/material/IconButton';
 import Drawer from '@mui/material/Drawer';
+import OSIcon from '../assets/opensea.png';
 import CloseIcon from '@mui/icons-material/Close';
 import $ from 'jquery';
 import { useLocation } from 'react-router-dom';
@@ -105,6 +106,9 @@ const NavBar = ({onConnectWallet, wallet}) => {
                 </div>
                 <div className='flex-align-center'>
                     <div style={{marginRight: 28}} className="socials">
+                        <IconButton onClick={() => document.getElementById('opensea-link').click()}>
+                            <img src={OSIcon} width="26"></img>
+                        </IconButton>
                         <IconButton onClick={() => document.getElementById('twitter-link').click()}>
                             <TwitterIcon style={{color: '#20d5d5'}} />
                         </IconButton>

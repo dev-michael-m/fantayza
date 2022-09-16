@@ -6,6 +6,7 @@ import AlertBar from './../components/AlertBar';
 import CircularProgress from '@mui/material/CircularProgress';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
+import OSIcon from '../assets/opensea.png';
 import AddIcon from '@mui/icons-material/Add';
 import MinusIcon from '@mui/icons-material/Remove';
 import { connectWalletAsync, MintNFT } from '../utilities/util';
@@ -122,33 +123,17 @@ const Mint = () => {
                 {alert.visible ? <AlertBar severity={alert.severity} visible={alert.visible} msg={alert.msg} onClose={onCloseAlert} /> : null}
                 <div className='mint-wrapper'>
                     <div className='flex-align-center flex-column'>
-                        <h1 style={{color: 'white', fontSize: 50, margin: '24px 0px'}}>Mint is now live!</h1>
-                        <div className='mint-input-wrapper spacing-small'>
-                            <IconButton className='mint-btn' onClick={handleMinus}>
-                                <MinusIcon style={{color: 'white'}} />
-                            </IconButton>
-                            <TextField className='mint-input' disabled variant="outlined" value={mintNum} type="number" />
-                            <IconButton className='mint-btn' onClick={handleAdd}>
-                                <AddIcon style={{color: 'white'}} />
-                            </IconButton>
-                        </div>                     
+                        <h1 style={{color: 'white', fontSize: 50, margin: '24px 0px'}}>SOLD OUT</h1>
                         <div className='spacing-small'>
-                            <Button
-                                style={{height: 36}}
-                                className='custom-button accent small'
-                                variant="contained"
-                                onClick={wallet.address ? onMint : handleWalletConnect}
-                                disabled={minting ? true : false}
-                            >
-                                {minting ? <CircularProgress /> : wallet.address ? 'mint' : 'connect wallet'}
-                            </Button>
+                            <Button className='custom-button accent small' variant='contained' onClick={() => document.getElementById('opensea-link').click()}>get yours on opensea</Button>
                         </div>   
                         <div className='flex-align-center flex-column'>
-                            <h2 style={{color: 'white'}}>Price: FREE + Gas</h2>
+                            <h2 style={{color: 'white'}}>SOLD OUT</h2>
                         </div>
                     </div>                    
                 </div>
-            </div>          
+            </div>  
+            <a id="opensea-link" href='https://opensea.io/collection/fantazya-the-revival' hidden target="_blank"></a>        
         </div>
     )
 }

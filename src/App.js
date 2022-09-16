@@ -12,6 +12,8 @@ import NFT1 from './assets/FNFT_NFT_New_1.jpg';
 import NFT2 from './assets/FNFT_NFT_New_2.jpg';
 import NFT3 from './assets/FNFT_NFT_New_3.jpg';
 import NFT4 from './assets/shocking.jpg';
+import IconButton from '@mui/material/IconButton';
+import OSIcon from './assets/opensea.png';
 
 function App() {
 
@@ -67,6 +69,12 @@ function App() {
               <Hero />  
               <div id="mission" className='page2'>
                 <div className='page2-wrapper' id="page2-wrapper" style={{padding: 40}}>
+                  <div style={{paddingBottom: 66}}>
+                    <IconButton>
+                      <img src={OSIcon} width="40"></img>
+                    </IconButton>
+                    <h2 style={{color: 'white'}}>Get Yours on OpenSea!</h2>
+                  </div>
                   <div className='flex-box-dyn' style={{position: 'relative', height: '100%',paddingBottom: '12%'}}>
                     <div className='dynamic-padding-sml prime-img'>
                       <img style={{borderRadius: 18}} src={NFT4} width="100%"></img>
@@ -77,8 +85,14 @@ function App() {
                         <p><b>Fantazya was built on the premise that we can really capitalise on the NFT space in sending a positive message. The communities built around Web3 are amazing, and their potential is limitless. Why not use all this potential to somehow create a positive impact? Enter Fantazya.</b></p>
                         <p><b>Fantazya's main purpose is to spread awareness and to educate the younger generation of females including (but not limited to) developing countries about their own rights, potential, and violence against women.</b></p>
                       </div>
-                    </div>                                                            
+                    </div>
                   </div>                  
+                  <div>
+                    <h2 style={{color: 'white'}}>Get Yours on OpenSea!</h2>
+                    <IconButton>
+                      <img src={OSIcon} width="40"></img>
+                    </IconButton>
+                  </div>                                                            
                 </div>                                
               </div>   
                     
@@ -245,6 +259,7 @@ function App() {
               
               <Footer />
               <a id="twitter-link" href='https://twitter.com/fantazyanft' hidden target="_blank"></a>
+              <a id="opensea-link" href='https://opensea.io/collection/fantazya-the-revival' hidden target="_blank"></a>
               <a id="insta-link" href='https://instagram.com/fantazyanft' hidden target="_blank"></a>
               <a id="discord-link" href='https://discord.gg/fantazya' hidden target="_blank"></a>
             </div>            
