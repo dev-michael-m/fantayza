@@ -109,9 +109,6 @@ const NavBar = ({onConnectWallet, wallet}) => {
                         <IconButton onClick={() => document.getElementById('opensea-link').click()}>
                             <img src={OSIcon} width="26"></img>
                         </IconButton>
-                        <IconButton onClick={() => document.getElementById('twitter-link').click()}>
-                            <TwitterIcon style={{color: '#20d5d5'}} />
-                        </IconButton>
                         <IconButton onClick={() => document.getElementById('insta-link').click()}>
                             <InstagramIcon style={{color: '#20d5d5'}} />
                         </IconButton>
